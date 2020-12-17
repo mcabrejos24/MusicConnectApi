@@ -8,14 +8,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Navbar color="light">
-          <Container>
-            <Heading>Music Api</Heading>
-          </Container>
-        </Navbar>
-
-
-
+        <Text>Music Connect</Text>
       </div>
     );
   }
