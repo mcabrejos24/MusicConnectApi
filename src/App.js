@@ -1,11 +1,12 @@
-import './App.css';
+// import 'assets/styles/App.scss';
+import './assets/styles/App.scss';
 import React from 'react'
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Text>Music Connect</Text>
+        Music Connect
       </div>
     );
   }
