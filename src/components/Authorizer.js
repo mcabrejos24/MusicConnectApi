@@ -10,13 +10,8 @@ class Authorizer extends React.Component {
         this.handleAuthorize = this.handleAuthorize.bind(this);
     }
 
-    //simply adding a didMount function to load a script tag into the dom in order to access the Music Kit JS lib
     componentDidMount () {
-        const script = document.createElement("script");
-        script.src = "https://js-cdn.music.apple.com/musickit/v1/musickit.js";
-        script.async = true;
-        document.body.appendChild(script);
-
+        // Adding a didMount function to load a script tag into the dom in order to access the Music Kit JS lib
         document.addEventListener('musickitloaded', () => {
             this.setState({music: window.MusicKit.configure({
                 developerToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjI4TURDWTcyVFAifQ.eyJpc3MiOiI0Q1JDNEdGUVpXIiwiZXhwIjoxNjA4Mjg0MzU0LCJpYXQiOjE2MDgyNDExNTR9.nnv23e9I7dr8Yz1dmLvy1koQZhwE0Pe83GZuJ5Ne_LJWx85TAaLibHIhs8PDZujBxt6mQ_POmFqnjd-7e06HeA',
@@ -27,11 +22,9 @@ class Authorizer extends React.Component {
               })
             }); 
         });
+    }
 
-      }
-
-
-      //click handler that prompts user for authorization upon clicking it
+    // Click handler that prompts user for authorization upon clicking it
     handleAuthorize() {
         this.state.music.authorize().then(musicUserToken => {
             console.log(`Authorized, music-user-token: ${musicUserToken}`);
@@ -47,10 +40,6 @@ class Authorizer extends React.Component {
             </div>
         )
     }
-
-
-
-
 }
 
 export default Authorizer;
