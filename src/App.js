@@ -8,7 +8,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-          <header id="top" className="w-full flex flex-col bg-gray-800 fixed sm:relative pin-t pin-r pin-l">
+          <header id="top" className="top-0 z-40 w-full flex flex-col bg-gray-800 fixed sm:relative pin-t pin-r pin-l">
             <nav id="site-menu" className="flex flex-col sm:flex-row w-full justify-between items-center px-4 sm:px-6 py-1 bg-dark shadow sm:shadow-none border-b-4 border-teal-500">
               <div className="w-full sm:w-auto self-start sm:self-center flex flex-row sm:flex-none flex-no-wrap justify-between items-center">
                 <a href="#" className="no-underline py-1"><h1 className="font-bold text-gray-100 text-lg">Playlist Connect</h1></a>
@@ -16,15 +16,20 @@ class App extends React.Component {
                   <span className="hamburger__top-bun"></span><span className="hamburger__bottom-bun"></span>
                 </button>
               </div>
-              <div id="menu" className="w-full sm:w-auto self-end sm:self-center sm:flex flex-col sm:flex-row items-center h-full py-1 pb-4 sm:py-0 sm:pb-0 hidden">
-                <a className="text-dark font-bold hover:text-red text-gray-100 text-lg w-full no-underline sm:w-auto sm:pr-4 py-2 sm:py-1 sm:pt-2" href="#P3L" target="_blank">About Us</a>
-                <a className="text-dark font-bold hover:text-red text-gray-100 text-lg w-full no-underline sm:w-auto sm:px-4 py-2 sm:py-1 sm:pt-2" href="#P3L">Donate</a>
-                
+              <div id="menu" className="font-light w-full sm:w-auto self-end sm:self-center sm:flex flex-col sm:flex-row items-center h-full py-1 pb-4 sm:py-0 sm:pb-0 hidden">
+                <a className=" hover:text-red text-gray-100 text-lg w-full no-underline sm:w-auto sm:pr-4 py-2 sm:py-1 sm:pt-2" href="#P3L" target="_blank">Learn more</a>
+                <a className="hover:text-red text-gray-100 text-lg w-full no-underline sm:w-auto sm:px-4 py-2 sm:py-1 sm:pt-2" href="#P3L">Donate</a>
+                <a className="hover:text-red text-gray-100 text-lg w-full no-underline sm:w-auto sm:px-4 py-2 sm:py-1 sm:pt-2" href="#P3L">Contact Us</a>
               </div>
             </nav>
           </header>
-
-
+          <div class="lg:2/6 xl:w-4/4 lg:mt-40 mt-20 text-center">
+            <div class="text-6xl font-semibold text-gray-900 leading-none">Playlist Connect</div>
+            <div class="mt-10 text-2xl font-light text-true-gray-500 antialiased">Collaborate instantly with peers on Apple Music and Spotify</div>
+            <button class="mt-20 px-8 py-4 rounded-full font-normal tracking-wide bg-gradient-to-b from-blue-600 to-blue-700 text-white outline-none focus:outline-none hover:shadow-lg hover:from-blue-700 transition duration-200 ease-in-out">
+              Get Started
+            </button>
+          </div>
       </div>
     );
   }
