@@ -23,10 +23,10 @@ class App extends React.Component {
               </div>
             </div>
           </header>
-          <div class="lg:2/6 xl:w-4/4 lg:mt-40 text-center">
+          <div class="mt-48 mr-32 ml-16 text-center">
             <div class="text-6xl font-semibold text-gray-900 leading-none">Playlist Connect</div>
             <div class="mt-10 text-2xl font-light text-true-gray-500 antialiased">Collaborate instantly with peers on Apple Music and Spotify</div>
-            <button class="mt-20 px-8 py-4 rounded-full font-normal tracking-wide bg-gradient-to-b from-blue-600 to-blue-700 text-white outline-none focus:outline-none hover:shadow-lg hover:from-blue-700 transition duration-200 ease-in-out">
+            <button class="mt-24 px-8 py-4 rounded-full font-normal tracking-wide bg-gradient-to-b from-blue-600 to-blue-700 text-white outline-none focus:outline-none hover:shadow-lg hover:from-blue-700 transition duration-200 ease-in-out">
               Get Started
             </button>
           </div>

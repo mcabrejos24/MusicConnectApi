@@ -14,7 +14,7 @@ class Authorizer extends React.Component {
         // Adding a didMount function to load a script tag into the dom in order to access the Music Kit JS lib
         document.addEventListener('musickitloaded', () => {
             this.setState({music: window.MusicKit.configure({
-                developerToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjI4TURDWTcyVFAifQ.eyJpc3MiOiI0Q1JDNEdGUVpXIiwiZXhwIjoxNjA4Mjg0MzU0LCJpYXQiOjE2MDgyNDExNTR9.nnv23e9I7dr8Yz1dmLvy1koQZhwE0Pe83GZuJ5Ne_LJWx85TAaLibHIhs8PDZujBxt6mQ_POmFqnjd-7e06HeA',
+                developerToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjI4TURDWTcyVFAifQ.eyJpc3MiOiI0Q1JDNEdGUVpXIiwiZXhwIjoxNjExMDg0NDE2LCJpYXQiOjE2MDg2NjUyMTZ9.Hxy_XRE1zhgTqRD57u-OSua6T7FoCPOm8ONqKrheoGHw_GUwehiIXEvebpb3II7fXOqGQxDAlL7w61tPZmLLeQ',
                 app: {
                   name: 'Playlist Connect',
                   build: '0.0.1'
