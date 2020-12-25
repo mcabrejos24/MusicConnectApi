@@ -3,19 +3,17 @@ import React from 'react';
 export default function Navbar() {
     
     return(
-        <header id="top" className="w-full flex flex-col bg-gray-800 fixed sm:relative pin-t pin-r pin-l">
-            <nav id="site-menu" className="flex flex-col sm:flex-row w-full justify-between items-center px-4 sm:px-6 py-1 bg-dark shadow sm:shadow-none border-teal-500">
-                <div className="w-full sm:w-auto self-start sm:self-center flex flex-row sm:flex-none flex-no-wrap justify-between items-center">
-                    <a href="/#" className="no-underline py-1"><h1 className="font-bold text-gray-100 text-lg">Playlist Connect</h1></a>
-                    <button id="menuBtn" className="hamburger block sm:hidden focus:outline-none" type="button" onclick="navToggle();">
-                        <span className="hamburger__top-bun"></span><span className="hamburger__bottom-bun"></span>
-                    </button>
+        <header className="w-full bg-black fixed">
+            <div class="h-20 flex  xl:px-36 lg:px-24 md:px-20 justify-center md:justify-between">
+                <a href="/" className="self-center font-bold text-white text-xl">
+                    Playlist Connect
+                </a>
+                <div className="hidden md:flex md:flex-row md:self-center md:font-light">
+                    <a className="hover:underline text-white text-lg pr-4" href="#P3L">Learn more</a>
+                    <a className="hover:underline text-white text-lg px-4" href="#P3L">Donate</a>
+                    <a className="hover:underline text-white text-lg pl-4" href="#P3L">Contact Us</a>
                 </div>
-                <div id="menu" className="w-full sm:w-auto self-end sm:self-center sm:flex flex-col sm:flex-row items-center h-full py-1 pb-4 sm:py-0 sm:pb-0 hidden">
-                    <a className="text-dark font-bold hover:text-red text-gray-100 text-lg w-full no-underline sm:w-auto sm:pr-4 py-2 sm:py-1 sm:pt-2" href="#P3L" target="_blank">About Us</a>
-                    <a className="text-dark font-bold hover:text-red text-gray-100 text-lg w-full no-underline sm:w-auto sm:px-4 py-2 sm:py-1 sm:pt-2" href="#P3L">Donate</a>
-                </div>
-            </nav>
-        </header>
+            </div>
+          </header>
     );
 } 
