@@ -10,11 +10,16 @@ class Authorizer extends React.Component {
         this.handleAuthorize = this.handleAuthorize.bind(this);
     }
 
+
+
     componentDidMount () {
+        const {
+            DEVELOPER_TOKEN
+        } = process.env;
         // Adding a didMount function to load a script tag into the dom in order to access the Music Kit JS lib
         document.addEventListener('musickitloaded', () => {
             this.setState({music: window.MusicKit.configure({
-                developerToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjI4TURDWTcyVFAifQ.eyJpc3MiOiI0Q1JDNEdGUVpXIiwiZXhwIjoxNjA4Mjg0MzU0LCJpYXQiOjE2MDgyNDExNTR9.nnv23e9I7dr8Yz1dmLvy1koQZhwE0Pe83GZuJ5Ne_LJWx85TAaLibHIhs8PDZujBxt6mQ_POmFqnjd-7e06HeA',
+                developerToken: DEVELOPER_TOKEN,
                 app: {
                   name: 'Playlist Connect',
                   build: '0.0.1'
