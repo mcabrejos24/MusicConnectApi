@@ -21,10 +21,10 @@ export default function Home() {
 
             <div class="text-center">
                 <div class="mt-24 text-6xl font-semibold">Playlist Connect</div>
-                <div class="my-10 text-2xl font-light">Collaborate instantly with peers on Apple Music and Spotify</div>
+                <div class="mt-10 mb-14 text-2xl font-light">Collaborate instantly with peers on Apple Music and Spotify</div>
             </div>
 
-            <div className="options-wrapper" >
+            <div className="options-wrapper">
                 <ConnectOptions description="Already have a Spotify and Apple Music playlist available" image={cool_guitar} imageAlt="Cool Guitar"/>
                 <ConnectOptions description="Only have a Spotify or Apple Music playlist available" image={cool_piano} imageAlt="Cool Piano"/>
                 <ConnectOptions description="Have neither Spotify or Apple Music playlist available" image={cool_drum} imageAlt="Cool Drum"/>
