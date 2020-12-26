@@ -10,8 +10,6 @@ class Authorizer extends React.Component {
         this.handleAuthorize = this.handleAuthorize.bind(this);
     }
 
-
-
     componentDidMount () {
         const {
             DEVELOPER_TOKEN

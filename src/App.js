@@ -1,4 +1,3 @@
-// import 'assets/styles/App.scss';
 import './assets/styles/App.scss';
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -7,7 +6,6 @@ import Redirect from './scenes/Redirect';
 import Navbar from './components/Navbar';
 
 class App extends React.Component {
-
   render() {
     return (
       <BrowserRouter>

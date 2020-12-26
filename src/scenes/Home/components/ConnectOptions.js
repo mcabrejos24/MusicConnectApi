@@ -1,4 +1,4 @@
-import './..//styles.scss';
+import './../styles.scss';
 
 export default function ConnectOptions(props) {
     const { description } = props;
