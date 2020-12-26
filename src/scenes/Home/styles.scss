@@ -6,14 +6,12 @@
 }
 
 .content {
-    background-color: lightblue;
     width: 100%;
     min-height: 100%;
     display: flex;
     flex-direction: column;
     position: absolute;
     top: 80px;
-
 
     @media screen and (min-width: 768px) {
         width: 90%;
@@ -30,7 +28,6 @@
     flex-direction: column;
     justify-content: space-between;
 
-
     @media screen and (min-width: 768px) {
         flex-direction: row;
         padding: 3% 0;
@@ -38,41 +35,39 @@
 }
 
 .Connect-Options {
-    // margin-left: 100px;
-    // margin-top: 100px;
-    width: 300px;
-    height: 100px;
+    width: 80%;
+    min-width: 245px;
+    max-width: 300px;
+    
     box-shadow: 0px 1rem 1.5rem rgba(0,0,0,0.5);
-    transition: all 0.3s ease-in-out;
+    // transition: all 0.3s ease-in-out;
 
-    &:hover {
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        transition: opacity 0.3s ease-in-out;
-    }
+    // &:hover {
+    //     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    //     transition: opacity 0.3s ease-in-out;
+    // }
     
     @media screen and (min-width: 768px) {
-
-        width: 400px;
-        height: 300px;
+        width: 30%;
+        min-width: 200px;
+        max-width: 400px;
     }
 }
 
 .connect-options-img {
-    height: 300px;
-    width: 100%;
     object-fit: cover;
-    object-position: 6% 10%;
+    object-position: 34% 10%;
     box-shadow: 0px 1rem 1.5rem rgba(0,0,0,0.5);
-    transition: all 0.3s ease-in-out;
+    // transition: all 0.3s ease-in-out;
 
-    &:hover {
-        // width: 100%;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        transition: opacity 0.3s ease-in-out;
-    }
+    // &:hover {
+    //     // width: 100%;
+    //     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    //     transition: opacity 0.3s ease-in-out;
+    // }
 }
 
-.description {
+.options-description {
     position: relative;
     font-size: 28px;
     bottom: 145px;
