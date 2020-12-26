@@ -3,7 +3,7 @@ import React from 'react';
 export default function Navbar() {
     
     return(
-        <header className="w-full bg-black fixed">
+        <header className="w-full bg-black fixed z-10">
             <div class="h-20 flex  xl:px-36 lg:px-24 md:px-20 justify-center md:justify-between">
                 <a href="/" className="self-center font-bold text-white text-xl">
                     Playlist Connect
