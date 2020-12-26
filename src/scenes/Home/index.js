@@ -25,9 +25,9 @@ export default function Home() {
             </div>
 
             <div className="options-wrapper">
-                <ConnectOptions description="Already have a Spotify and Apple Music playlist available" image={cool_guitar} imageAlt="Cool Guitar"/>
-                <ConnectOptions description="Only have a Spotify or Apple Music playlist available" image={cool_piano} imageAlt="Cool Piano"/>
-                <ConnectOptions description="Have neither Spotify nor Apple Music playlist available" image={cool_drum} imageAlt="Cool Drum"/>
+                <ConnectOptions description="Already have a Spotify and Apple Music playlist available" image={cool_guitar} imageAlt="Cool Guitar" url=""/>
+                <ConnectOptions description="Only have a Spotify or Apple Music playlist available" image={cool_piano} imageAlt="Cool Piano" url=""/>
+                <ConnectOptions description="Have neither Spotify nor Apple Music playlist available" image={cool_drum} imageAlt="Cool Drum" url=""/>
             </div>
         </div>
     );
