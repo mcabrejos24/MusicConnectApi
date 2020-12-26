@@ -1,0 +1,71 @@
+.container {
+    min-width: 100%;
+    height: 100%;
+}
+
+.content {
+    background-color: red;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 768px) {
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+.options-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        padding: 3% 3%;
+    }
+}
+
+.Connect-Options {
+    // margin-left: 100px;
+    // margin-top: 100px;
+    width: 300px;
+    height: 100px;
+    box-shadow: 0px 1rem 1.5rem rgba(0,0,0,0.5);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    @media screen and (min-width: 768px) {
+
+        width: 400px;
+        height: 300px;
+    }
+}
+
+.connect-options-img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    object-position: 6% 10%;
+    box-shadow: 0px 1rem 1.5rem rgba(0,0,0,0.5);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        // width: 100%;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        transition: opacity 0.3s ease-in-out;
+    }
+}
+
+.description {
+    position: relative;
+    font-size: 28px;
+    bottom: 145px;
+    width: 350px;
+    margin-left: 20px;
+    box-shadow: 0px 1rem 1.5rem rgba(0,0,0,0.5);
+}
