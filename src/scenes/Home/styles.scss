@@ -40,13 +40,24 @@
     max-width: 300px;
     
     box-shadow: 0px 1rem 1.5rem rgba(0,0,0,0.5);
-    // transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
-    // &:hover {
-    //     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    //     transition: opacity 0.3s ease-in-out;
-    // }
-    
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    &:hover {
+        transform: scale(1.2, 1.2);
+    }
+
+    &:hover::after {
+        opacity: 1;
+    }
+ 
     @media screen and (min-width: 768px) {
         width: 30%;
         min-width: 200px;
@@ -58,13 +69,6 @@
     object-fit: cover;
     object-position: 34% 10%;
     box-shadow: 0px 1rem 1.5rem rgba(0,0,0,0.5);
-    // transition: all 0.3s ease-in-out;
-
-    // &:hover {
-    //     // width: 100%;
-    //     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    //     transition: opacity 0.3s ease-in-out;
-    // }
 }
 
 .options-description {
