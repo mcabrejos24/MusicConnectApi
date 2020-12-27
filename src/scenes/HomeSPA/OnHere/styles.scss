@@ -1,0 +1,17 @@
+.music-header {
+    margin-top: 100px;
+    display: grid;
+    height: 125px;
+    font-size: 40px;
+    grid-template-columns: auto auto;
+    align-items: center;
+
+    a {
+        display: flex;
+        justify-content: center;
+
+        img {
+            width: 48%;
+        }
+    }
+}

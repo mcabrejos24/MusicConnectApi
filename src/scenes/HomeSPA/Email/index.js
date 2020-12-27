@@ -3,7 +3,7 @@ import React from 'react';
 export default function Email() {
 
     return (
-        <div className="App">
+        <div className="content">
             <p>Email Page</p>
         </div>
     );
