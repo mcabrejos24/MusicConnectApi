@@ -11,9 +11,9 @@ export default function Home() {
                 <div class="mt-10 mb-14 text-2xl font-light">Collaborate instantly with peers on Apple Music and Spotify</div>
             </div>
             <div className="options-wrapper">
-                <ConnectOptions description="Pair both playlists on here" image={cool_guitar} imageAlt="Cool Guitar" url=""/>
-                <ConnectOptions description="Pair via sending email to a friend" image={cool_piano} imageAlt="Cool Piano" url=""/>
-                <ConnectOptions description="Pair via sending text to a friend" image={cool_drum} imageAlt="Cool Drum" url=""/>
+                <ConnectOptions description="Pair both playlists on here" image={cool_guitar} imageAlt="Cool Guitar" url="/OnHere"/>
+                <ConnectOptions description="Pair via sending email to a friend" image={cool_piano} imageAlt="Cool Piano" url="Email"/>
+                <ConnectOptions description="Pair via sending text to a friend" image={cool_drum} imageAlt="Cool Drum" url="Texting"/>
             </div>
         </div>
     );
