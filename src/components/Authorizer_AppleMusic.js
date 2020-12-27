@@ -1,7 +1,7 @@
 import '../assets/styles/App.scss';
 import React from 'react'
 
-class Authorizer extends React.Component {
+class Authorizer_AppleMusic extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -36,13 +36,13 @@ class Authorizer extends React.Component {
 
     render() {
         return(
-            <div>
-                <button onClick={this.handleAuthorize}>
-                    Authorize me!
+            <div className="text-xl">
+                <button onClick={this.handleAuthorize} className="authorizer authorizer-applemusic">
+                    Authorize with Apple Music
                 </button>
             </div>
         )
     }
 }
 
-export default Authorizer;
+export default Authorizer_AppleMusic;

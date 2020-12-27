@@ -1,5 +1,10 @@
 // import axios from "axios";
 // import { useEffect, useState } from "react";
+import '../assets/styles/components/authorizer_spotify.scss'
+// import './../assets/styles/App.scss';
+// import './styles.scss';
+
+
 
 export default function Authorizer_Spotify() {
 
@@ -21,8 +26,10 @@ export default function Authorizer_Spotify() {
     };
 
     return (
-        <button variant="info" type="submit" onClick={handleLogin}>
-            Login to spotify
-        </button>
+        <div className="text-xl">
+            <button variant="info" type="submit" onClick={handleLogin} className="authorizer authorizer-spotify">
+                Authorize with Spotify
+            </button>
+        </div>
     );
 }
