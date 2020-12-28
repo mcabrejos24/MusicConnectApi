@@ -1,7 +1,7 @@
 import './styles.scss'
-import Authorizer_AppleMusic from './../../../components/Authorizer_AppleMusic';
-import Authorizer_Spotify from './../../../components/Authorizer_Spotify';
-
+import AuthorizerAppleMusic from '../../../components/AuthorizerAppleMusic';
+import AuthorizerSpotify from '../../../components/AuthorizerSpotify';
+import CustomInputBar from '../../../components/CustomInputBar';
 
 export default function OnHere() {
 
@@ -16,15 +16,11 @@ export default function OnHere() {
                         <a href="https://www.applemusic.com">Apple Music</a>
                     </div>
                     <div className="authorizer-button-wrapper">
-                        <Authorizer_AppleMusic></Authorizer_AppleMusic>
+                        <AuthorizerAppleMusic></AuthorizerAppleMusic>
                     </div>
                     <div className="playlist-checker">
                         <p>Enter the playlist you want to link, if empty then we will create a default one for you.</p>
-                        <label for="inp" class="inp playlist-input">
-                            <input type="text" id="inp" placeholder="&nbsp;"/>
-                            <span class="label">Playlist Name</span>
-                            <span class="focus-bg"></span>
-                        </label>
+                        <CustomInputBar service="apple"/>
                     </div>
                 </div>
 
@@ -36,15 +32,11 @@ export default function OnHere() {
                         </a>
                     </div>
                     <div className="authorizer-button-wrapper">
-                        <Authorizer_Spotify></Authorizer_Spotify>
+                        <AuthorizerSpotify></AuthorizerSpotify>
                     </div>
                     <div className="playlist-checker">
                         <p>Enter the playlist you want to link, if empty then we will create a default one for you.</p>
-                        <label for="inp" class="inp playlist-input">
-                            <input type="text" id="inp" placeholder="&nbsp;"/>
-                            <span class="label">Playlist Name</span>
-                            <span class="focus-bg"></span>
-                        </label>
+                        <CustomInputBar service="spotify"/>
                     </div>
                 </div>
                 
