@@ -8,19 +8,51 @@ export default function OnHere() {
     return (
         <div className="content">
 
-        <div class="music-header">
-            <a href="https://www.spotify.com">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Apple_Music_logo.svg/500px-Apple_Music_logo.svg.png" alt="Apple Music Logo"/>
-            </a>
-            <a href="https://www.spotify.com">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Spotify_logo_with_text.svg/500px-Spotify_logo_with_text.svg.png" alt="Spotify Logo"/>
-            </a>
-        </div>
+            <div className="authorization-wrapper">
 
-        <div class="authorizer-grid">
-            <Authorizer_AppleMusic></Authorizer_AppleMusic>
-            <Authorizer_Spotify></Authorizer_Spotify>
-        </div>
+                {/* Apple Music */}
+                <div className="applemusic-wrapper">
+                    <div className="music-header text-5xl">
+                        <a href="https://www.applemusic.com">Apple Music</a>
+                    </div>
+                    <div className="authorizer-button-wrapper">
+                        <Authorizer_AppleMusic></Authorizer_AppleMusic>
+                    </div>
+                    <div className="playlist-checker">
+                        <p>Enter the playlist you want to link, if empty then we will create a default one for you.</p>
+                        <label for="inp" class="inp playlist-input">
+                            <input type="text" id="inp" placeholder="&nbsp;"/>
+                            <span class="label">Playlist Name</span>
+                            <span class="focus-bg"></span>
+                        </label>
+                    </div>
+                </div>
+
+                {/* Spotify */}
+                <div className="spotify-wrapper">
+                    <div className="music-header text-5xl">
+                        <a href="https://www.spotify.com">
+                            Spotify
+                        </a>
+                    </div>
+                    <div className="authorizer-button-wrapper">
+                        <Authorizer_Spotify></Authorizer_Spotify>
+                    </div>
+                    <div className="playlist-checker">
+                        <p>Enter the playlist you want to link, if empty then we will create a default one for you.</p>
+                        <label for="inp" class="inp playlist-input">
+                            <input type="text" id="inp" placeholder="&nbsp;"/>
+                            <span class="label">Playlist Name</span>
+                            <span class="focus-bg"></span>
+                        </label>
+                    </div>
+                </div>
+                
+
+
+
+
+            </div>
 
         </div>
     );

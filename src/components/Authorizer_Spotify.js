@@ -1,6 +1,6 @@
 // import axios from "axios";
 // import { useEffect, useState } from "react";
-import '../assets/styles/components/authorizer_spotify.scss'
+import '../assets/styles/components/authorizer.scss'
 // import './../assets/styles/App.scss';
 // import './styles.scss';
 
