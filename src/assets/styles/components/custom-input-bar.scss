@@ -2,6 +2,7 @@ $primary: #4da6ff;
 $dark: #000;
 $contains: #33cc00;
 $doesNotContain: #ff1a1a;
+$createPlaylist: #ffcc00;
 
 .playlist-input {
   position: absolute;
@@ -102,3 +103,14 @@ $doesNotContain: #ff1a1a;
     }
   }
 }
+
+.create-playlist {
+  font-size: 15px;
+  color: $createPlaylist;
+  margin-top: 10px;
+  text-decoration: underline;
+}
+
+// .hidden {
+//   content: '';
+// }
