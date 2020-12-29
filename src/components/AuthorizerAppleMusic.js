@@ -1,6 +1,7 @@
 import '../assets/styles/App.scss';
 import React from 'react'
 
+
 class AuthorizerAppleMusic extends React.Component {
     constructor(props) {
         super(props)
@@ -11,9 +12,6 @@ class AuthorizerAppleMusic extends React.Component {
     }
 
     componentDidMount () {
-        const {
-            DEVELOPER_TOKEN
-        } = process.env;
         // Adding a didMount function to load a script tag into the dom in order to access the Music Kit JS lib
 
         window.MusicKit.configure({
