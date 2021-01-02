@@ -1,4 +1,4 @@
-import './styles.scss'
+import './styles.scss';
 import AuthorizerAppleMusic from '../../../components/AuthorizerAppleMusic';
 import AuthorizerSpotify from '../../../components/AuthorizerSpotify';
 import CustomInputBar from '../../../components/CustomInputBar';
@@ -39,13 +39,7 @@ export default function OnHere() {
                         <CustomInputBar service="spotify"/>
                     </div>
                 </div>
-                
-
-
-
-
             </div>
-
         </div>
     );
 }
