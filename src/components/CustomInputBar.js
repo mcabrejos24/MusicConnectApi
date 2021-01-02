@@ -3,7 +3,6 @@ import '../assets/styles/components/custom-input-bar.scss';
 import containsPlaylistApple from './../api/searchAppleAPI';
 import containsPlaylistSpotify from './../api/searchSpotifyAPI';
 
-
 export default function Authorizer_Spotify(props) {
     const { service } = props;
 
@@ -45,7 +44,7 @@ export default function Authorizer_Spotify(props) {
                 <span className="label">Playlist Name</span>
                 <span className="focus-bg"></span>
             </label>
-            <button className="create-playlist hidden">Create/sync a playlist using this name?</button>
+            <button className="create-playlist hidden">Playlist not found, would you like us to create and sync one for you with this name?</button>
         </div>
     );
 }

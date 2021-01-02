@@ -11,7 +11,7 @@ export default function OnHere() {
             <div className="authorization-wrapper">
 
                 {/* Apple Music */}
-                <div className="applemusic-wrapper">
+                <div className="music-wrapper music-wrapper-apple">
                     <div className="music-header text-5xl">
                         <a href="https://www.applemusic.com">Apple Music</a>
                     </div>
@@ -25,7 +25,7 @@ export default function OnHere() {
                 </div>
 
                 {/* Spotify */}
-                <div className="spotify-wrapper">
+                <div className="music-wrapper music-wrapper-spotify">
                     <div className="music-header text-5xl">
                         <a href="https://www.spotify.com">
                             Spotify

@@ -2,7 +2,7 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     padding-top: 100px;
-
+    justify-items: center;
 
     @media screen and (min-width: 768px) {
         grid-template-rows: unset;
@@ -15,6 +15,14 @@
         justify-content: center;
     }
     
+}
+
+.music-wrapper {
+    width: 90%;
+
+    @media screen and (min-width: 768px) {
+        width: 80%;
+    }
 }
 
 .music-header {
