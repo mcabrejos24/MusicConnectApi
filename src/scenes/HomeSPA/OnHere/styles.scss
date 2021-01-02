@@ -1,7 +1,9 @@
+$primary: #4da6ff;
+
 .authorization-wrapper {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    padding-top: 100px;
+    padding: 100px 0;
     justify-items: center;
 
     @media screen and (min-width: 768px) {
@@ -13,12 +15,16 @@
     a {
         display: flex;
         justify-content: center;
+        text-align: center;
     }
     
 }
 
 .music-wrapper {
     width: 90%;
+    box-shadow: 0 0 7px rgba($primary , 0.8);
+    padding: 10px 20px;
+    border-radius: 20px;
 
     @media screen and (min-width: 768px) {
         width: 80%;
@@ -26,10 +32,16 @@
 }
 
 .music-header {
-    padding-bottom: 20px;
+    position: relative;
+    padding: 30px 10px;
+    box-shadow: 0 0 5px rgba($primary , 0.8);
+    border-radius: 20px;
+    top: -60px;
+    background-color: #FFF;
+    
     
     @media screen and (min-width: 768px) {
-        padding-bottom: 60px;
+        // padding-bottom: 60px;
     }
 }
 
@@ -43,4 +55,8 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+
+    p {
+        text-align: center;
+    }
 }
