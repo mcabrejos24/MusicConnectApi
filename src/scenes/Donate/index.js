@@ -30,7 +30,7 @@ export default function Donate() {
             </div>
             <br></br>
             
-            <p className="text-xl"><strong className="italic">OR</strong> if you would like to suppport us by buying us a coffee, then click here <a href="https://chamberlaincoffee.com/"><button type="button" className="bg-yellow-700 border-2 border-yellow-900">Coffee!!</button></a></p> 
+            <p className="text-xl"><strong className="italic">OR</strong> if you would like to suppport us by buying us a coffee, then click here <a href="https://chamberlaincoffee.com/"><button type="button" className="bg-yellow-700 border-2 border-yellow-900 donate-button">Coffee!!</button></a></p> 
         </div>
         
     );
