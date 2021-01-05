@@ -3,7 +3,7 @@ import '../assets/styles/components/custom-input-bar.scss';
 import containsPlaylistApple from './../api/searchAppleAPI';
 import containsPlaylistSpotify from './../api/searchSpotifyAPI';
 
-export default function Authorizer_Spotify(props) {
+export default function CustomInputBar(props) {
     const { service } = props;
 
     function checkPlaylist({ target }) {
