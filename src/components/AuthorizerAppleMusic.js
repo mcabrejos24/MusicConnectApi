@@ -12,12 +12,12 @@ class Authorizer_AppleMusic extends React.Component {
 
     componentDidMount () {
         const {
-            DEVELOPER_TOKEN
+            REACT_APP_DEVELOPER_TOKEN
         } = process.env;
         // Adding a didMount function to load a script tag into the dom in order to access the Music Kit JS lib
         document.addEventListener('musickitloaded', () => {
             this.setState({music: window.MusicKit.configure({
-                developerToken: DEVELOPER_TOKEN,
+                developerToken: REACT_APP_DEVELOPER_TOKEN,
                 app: {
                   name: 'Playlist Connect',
                   build: '0.0.1'

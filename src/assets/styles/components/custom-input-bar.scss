@@ -5,7 +5,7 @@ $doesNotContain: #ff1a1a;
 $createPlaylist: #ffcc00;
 
 .playlist-input {
-  position: absolute;
+  position: relative;
   margin: auto;
   width: 100%;
   max-width: 280px;
@@ -83,6 +83,8 @@ $createPlaylist: #ffcc00;
 }
 
 .input-contains {
+  border-width: 2px;
+  border-color: $contains;
   input {
     &:focus {
       box-shadow: inset 0 -2px 0 $contains !important;
@@ -94,6 +96,9 @@ $createPlaylist: #ffcc00;
 }
 
 .input-does-not-contain {
+  border-width: 2px;
+  border-color: $doesNotContain;
+  margin-bottom: 20px !important;
   input {
     &:focus {
       box-shadow: inset 0 -2px 0 $doesNotContain !important;
@@ -111,6 +116,9 @@ $createPlaylist: #ffcc00;
   text-decoration: underline;
 }
 
-// .hidden {
-//   content: '';
-// }
+.playlist-input-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
