@@ -1,0 +1,44 @@
+$primary: #4da6ff;
+
+.music-wrapper {
+    width: 90%;
+    // height: 240px;
+    box-shadow: 0 0 7px rgba($primary , 0.8);
+    padding: 10px 20px;
+    border-radius: 20px;
+
+    @media screen and (min-width: 768px) {
+        width: 80%;
+        padding: 10px 20px;
+
+    }
+}
+
+.music-header {
+    position: relative;
+    padding: 30px 10px;
+    box-shadow: 0 0 5px rgba($primary , 0.8);
+    border-radius: 20px;
+    top: -60px;
+    background-color: #FFF;
+    
+    
+    @media screen and (min-width: 768px) {
+    }
+}
+
+.authorizer-button-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+}
+
+.playlist-checker {
+    // display: flex;
+    // justify-content: center;
+    // flex-direction: column;
+
+    p {
+        text-align: center;
+    }
+}
