@@ -1,12 +1,18 @@
 // import axios from "axios";
 // import { useEffect, useState } from "react";
+import { useEffect } from 'react';
 import '../assets/styles/components/authorizer.scss'
 // import './../assets/styles/App.scss';
 // import './styles.scss';
 
 
 
-export default function Authorizer_Spotify() {
+export default function Authorizer_Spotify(props) {
+    const { setter } = props;
+
+    useEffect(() => {
+        setter(true);
+    });
 
     const {
         REACT_APP_CLIENT_ID,
