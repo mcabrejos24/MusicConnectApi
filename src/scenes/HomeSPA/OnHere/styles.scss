@@ -1,8 +1,8 @@
 .authorization-wrapper {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    padding-top: 100px;
-
+    padding: 100px 0;
+    justify-items: center;
 
     @media screen and (min-width: 768px) {
         grid-template-rows: unset;
@@ -13,25 +13,6 @@
     a {
         display: flex;
         justify-content: center;
+        text-align: center;
     }
-    
-}
-
-.music-header {
-    padding-bottom: 20px;
-    
-    @media screen and (min-width: 768px) {
-        padding-bottom: 60px;
-    }
-}
-
-.authorizer-button-wrapper {
-    display: flex;
-    justify-content: center;
-    padding: 50px 0;
-}
-
-.playlist-checker {
-    display: flex;
-    justify-content: center;
 }

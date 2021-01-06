@@ -15,18 +15,15 @@ class AuthorizerAppleMusic extends React.Component {
         const {
             REACT_APP_DEVELOPER_TOKEN
         } = process.env;
-        // Adding a didMount function to load a script tag into the dom in order to access the Music Kit JS lib
-        
+        // Adding a didMount function to load a script tag into the dom in order to access the Music Kit JS lib        
         window.MusicKit.configure({
             developerToken: REACT_APP_DEVELOPER_TOKEN,
             app: {
               name: 'Playlist Connect',
               build: '0.0.1'
             }
-        });
 
         this.setState({music: window.MusicKit.getInstance()});
-
     }
 
     // Click handler that prompts user for authorization upon clicking it
