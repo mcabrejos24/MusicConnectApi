@@ -22,7 +22,8 @@ class AuthorizerAppleMusic extends React.Component {
               name: 'Playlist Connect',
               build: '0.0.1'
             }
-
+        });
+        
         this.setState({music: window.MusicKit.getInstance()});
     }
 
