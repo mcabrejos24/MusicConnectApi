@@ -5,8 +5,7 @@ export default function Redirect() {
     const token = window.location.hash.substr(1).split('&')[0].split("=")[1];
 
     if (token) {
-        console.log('vijay');
-        window.opener.spotifyCallback(token)
+        window.opener.spotifyCallback(token);
     } 
 
     return (

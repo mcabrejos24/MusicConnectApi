@@ -10,7 +10,6 @@ export default function MusicCard(props) {
 
     const authorized = false; // variable used to check if user has authorized previously
     const [showInput, setShowInput] = useState(authorized ? true : false);
-    console.log(showInput);
 
     if (!service || !link ||! linkName) {
         console.error('No service, link or linkName was given. Check MusicCard.js');

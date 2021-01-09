@@ -1,14 +1,7 @@
-// import axios from "axios";
-// import { useEffect, useState } from "react";
 import { useEffect } from 'react';
-import '../assets/styles/components/authorizer.scss'
-// import './../assets/styles/App.scss';
-// import './styles.scss';
-
-
+import '../assets/styles/components/authorizer.scss';
 
 export default function Authorizer_Spotify(props) {
-
     const {
         REACT_APP_CLIENT_ID,
         REACT_APP_AUTHORIZE_URL,
@@ -24,17 +17,8 @@ export default function Authorizer_Spotify(props) {
             window.$popup.close();
             console.log('token: '+payload);
             setter(true);
-            // fetch('https://api.spotify.com/v1/me', {
-            //   headers: {
-            //     'Authorization': `Bearer ${payload}`
-            //   }
-            // }).then(response => {
-            //   return response.json()
-            // }).then(data => {
-            //   // do something with data
-            //   console.warn(data);
-            // })
         }
+
     },[props]);
 
     function login() {
