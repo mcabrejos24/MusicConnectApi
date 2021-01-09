@@ -17,6 +17,11 @@ export default function MusicCard(props) {
         return;
     }
 
+    if(showInput) {
+        document.querySelector(`.authorizer-button-wrapper-${service}`).classList.add('hidden');
+        document.querySelector(`.playlist-checker-${service}`).classList.remove('hidden');
+    }
+
     return(
         <div className={`music-wrapper music-wrapper-${service}`}>
             <div className="music-header text-5xl">
@@ -25,7 +30,7 @@ export default function MusicCard(props) {
             <div className={`authorizer-button-wrapper authorizer-button-wrapper-${service}`}>
                 {React.cloneElement(props.children, {setter: setShowInput})}
             </div>
-            <div className="playlist-checker hidden">
+            <div className={`playlist-checker playlist-checker-${service} hidden`}>
                 <p>Enter the playlist you want to link, if empty then we will create a default one for you.</p>
                 <CustomInputBar service={service}/>
             </div>

@@ -9,13 +9,6 @@ import '../assets/styles/components/authorizer.scss'
 
 export default function Authorizer_Spotify(props) {
 
-    const token = window.location.hash.substr(1).split('&')[0].split("=")[1];
-
-      if (token) {
-        window.opener.spotifyCallback(token)
-    } 
-
-    
     const {
         REACT_APP_CLIENT_ID,
         REACT_APP_AUTHORIZE_URL,
@@ -52,15 +45,6 @@ export default function Authorizer_Spotify(props) {
         )
     }
     
-
-
-  
-
-
-    // const handleLogin = () => {
-    //     window.location = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&redirect_uri=${REACT_APP_REDIRECT_URL}&response_type=token&show_dialog=true`;
-    // };
-
     return (
         <div className="text-xl">
             <button variant="info" type="submit" onClick={login} className="authorizer authorizer-spotify">

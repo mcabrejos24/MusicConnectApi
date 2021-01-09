@@ -12,6 +12,8 @@ import Texting from './scenes/HomeSPA/Texting';
 import Donate from './scenes/Donate';
 import ContactUs from './scenes/ContactUs';
 import LearnMore from'./scenes/LearnMore';
+import Redirect from'./scenes/Redirect';
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
           <Route path="/donate" component={ Donate } />
           <Route path="/contact-us" component={ ContactUs } />
           <Route path="/learn-more" component={ LearnMore } />
+          <Route path="/redirect" component={ Redirect } />
         </Switch>
       </div>
     </BrowserRouter>
