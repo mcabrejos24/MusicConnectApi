@@ -1,39 +1,38 @@
-// import axios from "axios";
-// import { useEffect, useState } from "react";
 import { useEffect } from 'react';
-import '../assets/styles/components/authorizer.scss'
-// import './../assets/styles/App.scss';
-// import './styles.scss';
-
-
+import '../assets/styles/components/authorizer.scss';
+import { authValue } from '../variables/authValues';
 
 export default function Authorizer_Spotify(props) {
-    const { setter } = props;
-
-    useEffect(() => {
-        setter(true);
-    });
-
     const {
         REACT_APP_CLIENT_ID,
         REACT_APP_AUTHORIZE_URL,
         REACT_APP_REDIRECT_URL
     } = process.env;
 
-//    useEffect(() => {
-//     axios.get(`https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=code&redirect_uri=${redirect_uri}&scope=user-read-private%20user-read-email&state=34fFs29kd09`)
-//         .then(res => {
-//             console.log('spiderman: '+res);
-//         })
-//     },[]);
+    const url = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&response_type=token&redirect_uri=${REACT_APP_REDIRECT_URL}&show_dialog=true`;
 
-    const handleLogin = () => {
-        window.location = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&redirect_uri=${REACT_APP_REDIRECT_URL}&response_type=token&show_dialog=true`;
-    };
+    useEffect(() => {
+        const { setter } = props;
 
+        window.spotifyCallback = (payload) => {
+            window.$popup.close();
+            setter(true); // maybe instead of setter, it changing the styles right here, making it hidden or not
+            authValue.spotify = payload;
+        }
+
+    },[props]);
+
+    function login() {
+        window.$popup = window.open(
+            url,
+            'Login with Spotify',
+            'width=500,height=650,left=-250'
+        )
+    }
+    
     return (
         <div className="text-xl">
-            <button variant="info" type="submit" onClick={handleLogin} className="authorizer authorizer-spotify">
+            <button variant="info" type="submit" onClick={login} className="authorizer authorizer-spotify">
                 Authorize with Spotify
             </button>
         </div>
