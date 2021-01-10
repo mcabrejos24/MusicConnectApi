@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import '../assets/styles/components/authorizer.scss';
+import { authValue } from '../variables/authValues';
 
 export default function Authorizer_Spotify(props) {
     const {
@@ -8,15 +9,15 @@ export default function Authorizer_Spotify(props) {
         REACT_APP_REDIRECT_URL
     } = process.env;
 
-    const url = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&response_type=token&redirect_uri=${REACT_APP_REDIRECT_URL}&scope=user-top-read&show_dialog=true`;
+    const url = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&response_type=token&redirect_uri=${REACT_APP_REDIRECT_URL}&show_dialog=true`;
 
     useEffect(() => {
         const { setter } = props;
 
         window.spotifyCallback = (payload) => {
             window.$popup.close();
-            console.log('token: '+payload);
-            setter(true);
+            setter(true); // maybe instead of setter, it changing the styles right here, making it hidden or not
+            authValue.spotify = payload;
         }
 
     },[props]);
@@ -25,7 +26,7 @@ export default function Authorizer_Spotify(props) {
         window.$popup = window.open(
             url,
             'Login with Spotify',
-            'width=800,height=600'
+            'width=500,height=650,left=-250'
         )
     }
     
