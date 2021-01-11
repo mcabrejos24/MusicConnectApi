@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import '../assets/styles/components/authorizer.scss';
-import { authValue } from '../variables/authValues';
+import { setAuthValue } from '../variables/authValues';
 
 export default function Authorizer_Spotify(props) {
     const {
@@ -17,7 +17,8 @@ export default function Authorizer_Spotify(props) {
         window.spotifyCallback = (payload) => {
             window.$popup.close();
             setter(true); // maybe instead of setter, it changing the styles right here, making it hidden or not
-            authValue.spotify = payload;
+            let successSettingPayload = setAuthValue('spotify', payload);
+            if(!successSettingPayload) console.error('Failed to set Auth Value');
         }
 
     },[props]);

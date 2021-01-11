@@ -6,7 +6,10 @@ export default function Redirect() {
 
     if (token) {
         window.opener.spotifyCallback(token);
-    } 
+    } else {
+        console.log('User cancelled authorization');
+        window.opener.$popup.close();
+    }
 
     return (
         <div className="content">
