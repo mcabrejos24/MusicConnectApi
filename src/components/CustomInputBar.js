@@ -10,7 +10,7 @@ export default function CustomInputBar(props) {
         let inputElementWrapper = document.querySelector(`.playlist-input-${ target.name }`);
         let createButton = inputElementWrapper.nextSibling;
         let contains = (target.name === 'apple' ? containsPlaylistApple(target.value) : containsPlaylistSpotify(target.value));
-
+        
         if (!target.value) {
             inputElementWrapper.classList.remove('input-contains');
             inputElementWrapper.classList.remove('input-does-not-contain');
