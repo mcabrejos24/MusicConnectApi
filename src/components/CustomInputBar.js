@@ -6,23 +6,26 @@ import containsPlaylistSpotify from './../api/searchSpotifyAPI';
 export default function CustomInputBar(props) {
     const { service } = props;
 
-    function checkPlaylist({ target }) {
+    async function checkPlaylist({ target }) {
         let inputElementWrapper = document.querySelector(`.playlist-input-${ target.name }`);
         let createButton = inputElementWrapper.nextSibling;
-        let contains = (target.name === 'apple' ? containsPlaylistApple(target.value) : containsPlaylistSpotify(target.value));
-        
+
+        let contains = await (target.name === 'apple' ? containsPlaylistApple(target.value) : containsPlaylistSpotify(target.value));
+
+        // maybe add a conditional in case contains fails (will need to check what happens with promise fails)
         if (!target.value) {
             inputElementWrapper.classList.remove('input-contains');
             inputElementWrapper.classList.remove('input-does-not-contain');
             if (!createButton.classList.contains('hidden')) createButton.classList.add('hidden');
             return;
         }
-
         if (contains) {
             inputElementWrapper.classList.add('input-contains');
+            if (inputElementWrapper.classList.contains('input-does-not-contain')) inputElementWrapper.classList.remove('input-does-not-contain');
             if (!createButton.classList.contains('hidden')) createButton.classList.add('hidden');
         } else {
             inputElementWrapper.classList.add('input-does-not-contain');
+            if (inputElementWrapper.classList.contains('input-contains')) inputElementWrapper.classList.remove('input-contains');
             createButton.classList.remove('hidden');
         }
     }
