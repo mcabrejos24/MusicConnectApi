@@ -3,5 +3,19 @@
 
 export default function containsPlaylistApple(playlistName) {
     // console.log('searching for playlist in apple music');
-    return true // will be true if contains false if
+    let returnValue = false;
+    let mk = window.MusicKit.getInstance();
+
+    return mk.api.library.playlists().then(function(data) {
+        data.forEach(playlist => {
+          if (playlist.attributes.name.toLowerCase() === playlistName.toLowerCase()) {
+              console.log("ding")
+              returnValue = true
+              return;
+          }
+        });
+        return returnValue;
+    });
+
+    
 }
