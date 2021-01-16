@@ -9,7 +9,6 @@ export default function containsPlaylistApple(playlistName) {
     return mk.api.library.playlists().then(function(data) {
         data.forEach(playlist => {
           if (playlist.attributes.name.toLowerCase() === playlistName.toLowerCase()) {
-              console.log("ding")
               returnValue = true
               return;
           }
