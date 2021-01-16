@@ -18,7 +18,6 @@ export default function CustomInputBar(props) {
             return;
         }
         let contains = await (target.name === 'apple' ? containsPlaylistApple(target.value) : containsPlaylistSpotify(target.value));
-        // maybe add a conditional in case contains fails (will need to check what happens with promise fails)
         if (contains) {
             inputElementWrapper.classList.add('input-contains');
             if (inputElementWrapper.classList.contains('input-does-not-contain')) inputElementWrapper.classList.remove('input-does-not-contain');
@@ -39,6 +38,14 @@ export default function CustomInputBar(props) {
 
     const handleChange = event => {
         const {target: nextTarget} = event;
+        if (nextTarget.value.length === 0) {
+            let inputElementWrapper = document.querySelector(`.playlist-input-${ nextTarget.name }`);
+            let createButton = inputElementWrapper.nextSibling;
+            inputElementWrapper.classList.remove('input-contains');
+            inputElementWrapper.classList.remove('input-does-not-contain');
+            if (!createButton.classList.contains('hidden')) createButton.classList.add('hidden');
+            return;
+        }
 		debouncedSave(nextTarget);
 	};
 
