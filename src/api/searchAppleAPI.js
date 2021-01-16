@@ -1,8 +1,4 @@
-
-
-
 export default function containsPlaylistApple(playlistName) {
-    // console.log('searching for playlist in apple music');
     let returnValue = false;
     let mk = window.MusicKit.getInstance();
 
@@ -15,6 +11,4 @@ export default function containsPlaylistApple(playlistName) {
         });
         return returnValue;
     });
-
-    
 }
