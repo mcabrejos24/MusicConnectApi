@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import '../assets/styles/components/authorizer.scss';
 import { setAuthValue } from '../variables/authValues';
 
-export default function Authorizer_Spotify(props) {
+export default function AuthorizerSpotify(props) {
     const {
         REACT_APP_CLIENT_ID,
         REACT_APP_AUTHORIZE_URL,
