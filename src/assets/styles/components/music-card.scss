@@ -20,6 +20,7 @@ $primary: #4da6ff;
     border-radius: 20px;
     top: -60px;
     background-color: #FFF;
+    font-family: crayonFontHeavy;
     
     @media screen and (min-width: 768px) {
     }
@@ -29,6 +30,8 @@ $primary: #4da6ff;
     display: flex;
     justify-content: center;
     padding-bottom: 40px;
+    font-family: crayonFontLight;
+    font-size: 25px;
 }
 
 .playlist-checker {
@@ -44,3 +47,12 @@ $primary: #4da6ff;
     }
 }
 
+@font-face {
+	font-family: crayonFontHeavy;
+	src: url("../../fonts/dk-cool-crayon-font/DkCoolCrayon-xJyV.ttf");
+}
+
+@font-face {
+	font-family: crayonFontLight;
+	src: url("../../fonts/dk-crayon-crumble-font/DkCrayonCrumble-ddll.ttf");
+}
