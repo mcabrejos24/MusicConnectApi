@@ -5,7 +5,7 @@ $tertiary: rgb(158, 131, 12);
 .sync {
     border-radius: 20px;
 	padding: 20px;
-	background: linear-gradient( $primary, #77ff33 80%, $secondary);
+	// background: linear-gradient( $primary, #77ff33 80%, $secondary);
 	box-shadow: 0 0 7px rgba($primary , 0.8);
 	color: rgb(158, 131, 12);
 	text-transform: uppercase;
@@ -24,13 +24,13 @@ $tertiary: rgb(158, 131, 12);
 		color: transparent;
 		&:before {
 			content: attr(data-marquee);
-			color: rgb(158, 131, 12);
+			color: rgb(178, 93, 199);
 			position: absolute;
 			animation: scrolling 5s linear infinite;
 		}
 
 		&:hover {
-			box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
+			box-shadow: 1px 1px 3px 3px $primary;
 		}
 	}
 
@@ -51,7 +51,7 @@ $tertiary: rgb(158, 131, 12);
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			color: $primary;
+			color: rgb(178, 93, 199);
 			left: 0;
 		}
 	}
