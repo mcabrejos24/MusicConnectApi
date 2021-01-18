@@ -32,8 +32,15 @@ $primary: #4da6ff;
 }
 
 .playlist-checker {
-
     p {
         text-align: center;
     }
+
+    .confirm-wrapper {
+        background-color: blue;
+        color: white;
+        width: 100%;
+    
+    }
 }
+

@@ -7,6 +7,7 @@ import { useCallback } from 'react';
 
 export default function CustomInputBar(props) {
     const { service } = props;
+    const { confirmPlaylist } = props;
 
     async function checkPlaylist(target) {
         let inputElementWrapper = document.querySelector(`.playlist-input-${ target.name }`);
@@ -37,6 +38,7 @@ export default function CustomInputBar(props) {
 	);
 
     const handleChange = event => {
+        confirmPlaylist(false);
         const {target: nextTarget} = event;
         if (nextTarget.value.length === 0) {
             let inputElementWrapper = document.querySelector(`.playlist-input-${ nextTarget.name }`);
