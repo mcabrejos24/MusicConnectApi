@@ -8,7 +8,7 @@ import { useState } from 'react';
 export default function OnHere() {
     const [appleReady, setAppleReady] = useState(false);
     const [spotifyReady, setSpotifyReady] = useState(false);
-    console.log(spotifyReady);
+
     return (
         <div className="content">
             <div className="authorization-wrapper">
