@@ -19,7 +19,7 @@ export default function SyncButton(props) {
     },[spotifyConfirmed, appleConfirmed]);
 
     return (
-            <button class="sync" data-marquee="Sync Playlists" disabled>
+            <button className="sync" data-marquee="Sync Playlists" disabled>
                 Sync Playlists
             </button>
     )
