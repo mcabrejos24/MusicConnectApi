@@ -7,7 +7,7 @@ export default function SyncButton(props) {
 
     useEffect(() => {
         let syncButton = document.querySelector(".sync");
-        if(spotifyConfirmed) {
+        if(spotifyConfirmed && appleConfirmed) {
             syncButton.classList.add('sync--marquee');
             syncButton.classList.add('sync--slidemation');
             syncButton.disabled = false;
