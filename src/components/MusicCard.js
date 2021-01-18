@@ -7,6 +7,7 @@ export default function MusicCard(props) {
     const { service } = props;
     const { link } = props;
     const { linkName } = props;
+    const { confirmPlaylist } = props;
 
     const authorized = false; // variable used to check if user has authorized previously
     const [showInput, setShowInput] = useState(authorized ? true : false);
@@ -31,7 +32,7 @@ export default function MusicCard(props) {
             </div>
             <div className={`playlist-checker playlist-checker-${service} hidden`}>
                 <p>Enter the playlist you want to link, if empty then we will create a default one for you.</p>
-                <CustomInputBar service={service}/>
+                <CustomInputBar service={service} confirmPlaylist={confirmPlaylist}/>
             </div>
         </div>
     );

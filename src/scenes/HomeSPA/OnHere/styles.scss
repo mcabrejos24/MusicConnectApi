@@ -3,8 +3,10 @@
     grid-template-rows: 1fr 1fr;
     padding: 100px 0;
     justify-items: center;
+    row-gap: 130px;
 
     @media screen and (min-width: 768px) {
+        row-gap: unset;
         grid-template-rows: unset;
         grid-template-columns: 1fr 1fr;
 
@@ -15,4 +17,9 @@
         justify-content: center;
         text-align: center;
     }
+}
+
+.sync-button-wrapper {
+    display: flex;
+    justify-content: center;
 }

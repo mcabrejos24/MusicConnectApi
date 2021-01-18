@@ -7,6 +7,7 @@ import { useCallback } from 'react';
 
 export default function CustomInputBar(props) {
     const { service } = props;
+    const { confirmPlaylist } = props;
 
     async function checkPlaylist(target) {
         let inputElementWrapper = document.querySelector(`.playlist-input-${ target.name }`);
@@ -17,12 +18,14 @@ export default function CustomInputBar(props) {
             if (!createButton.classList.contains('hidden')) createButton.classList.add('hidden');
             return;
         }
-        let contains = await (target.name === 'apple' ? containsPlaylistApple(target.value) : containsPlaylistSpotify(target.value));
+        let contains = await (target.name === 'apple' ? containsPlaylistApple(target.value) : containsPlaylistSpotify(target.value)); // TRIM WHITE SPACES FOR JUST ONE SPACE
         if (contains) {
+            confirmPlaylist(true);
             inputElementWrapper.classList.add('input-contains');
             if (inputElementWrapper.classList.contains('input-does-not-contain')) inputElementWrapper.classList.remove('input-does-not-contain');
             if (!createButton.classList.contains('hidden')) createButton.classList.add('hidden');
         } else {
+            confirmPlaylist(false);
             inputElementWrapper.classList.add('input-does-not-contain');
             if (inputElementWrapper.classList.contains('input-contains')) inputElementWrapper.classList.remove('input-contains');
             createButton.classList.remove('hidden');
@@ -37,6 +40,7 @@ export default function CustomInputBar(props) {
 	);
 
     const handleChange = event => {
+        confirmPlaylist(false);
         const {target: nextTarget} = event;
         if (nextTarget.value.length === 0) {
             let inputElementWrapper = document.querySelector(`.playlist-input-${ nextTarget.name }`);
