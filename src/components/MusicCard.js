@@ -42,7 +42,7 @@ export default function MusicCard(props) {
             <div className={`playlist-checker playlist-checker-${service} hidden`}>
                 <p>Enter the playlist you want to link, if empty then we will create a default one for you.</p>
                 <CustomInputBar service={service} confirmPlaylist={confirmPlaylist}/>
-                <div class={`confirm-wrapper confirm-wrapper--${service}`}>
+                <div className={`confirm-wrapper confirm-wrapper--${service}`}>
                     <button onClick={ confirmPlay }>Confirm Playlist</button>
                 </div>
             </div>
