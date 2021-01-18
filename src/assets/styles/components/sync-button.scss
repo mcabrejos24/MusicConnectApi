@@ -11,6 +11,8 @@ $tertiary: rgb(158, 131, 12);
 	text-transform: uppercase;
 	position: relative;
 	overflow: hidden;
+	font-family: myFirstFont;
+	font-size: 25px;
 
 	&[disabled] {
         opacity: 0.5;
@@ -61,4 +63,9 @@ $tertiary: rgb(158, 131, 12);
 	to {
 		transform: translatex(calc(-100% - 30px));
 	}
+}
+
+@font-face {
+	font-family: myFirstFont;
+	src: url("../../fonts/dk-crayon-crumble-font/DkCrayonCrumble-ddll.ttf");
 }
