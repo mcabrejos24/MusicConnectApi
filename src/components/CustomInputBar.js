@@ -18,7 +18,7 @@ export default function CustomInputBar(props) {
             if (!createButton.classList.contains('hidden')) createButton.classList.add('hidden');
             return;
         }
-        let contains = await (target.name === 'apple' ? containsPlaylistApple(target.value) : containsPlaylistSpotify(target.value));
+        let contains = await (target.name === 'apple' ? containsPlaylistApple(target.value) : containsPlaylistSpotify(target.value)); // TRIM WHITE SPACES FOR JUST ONE SPACE
         if (contains) {
             inputElementWrapper.classList.add('input-contains');
             if (inputElementWrapper.classList.contains('input-does-not-contain')) inputElementWrapper.classList.remove('input-does-not-contain');

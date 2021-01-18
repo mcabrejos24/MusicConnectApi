@@ -23,7 +23,12 @@ export default function MusicCard(props) {
     }
 
     function confirmPlay() {
-        confirmPlaylist(true);        
+        const serviceInput = document.querySelector(`#input-box-${service}`);
+        if(serviceInput.value.trim()) {
+            confirmPlaylist(true); 
+        } else {
+            confirmPlaylist(false); 
+        }
     }
 
     return(
@@ -36,7 +41,6 @@ export default function MusicCard(props) {
             </div>
             <div className={`playlist-checker playlist-checker-${service} hidden`}>
                 <p>Enter the playlist you want to link, if empty then we will create a default one for you.</p>
-                {/* pass in confirm to custom input as well so that confirm is reset each time they type something in  */}
                 <CustomInputBar service={service} confirmPlaylist={confirmPlaylist}/>
                 <div class={`confirm-wrapper confirm-wrapper--${service}`}>
                     <button onClick={ confirmPlay }>Confirm Playlist</button>
