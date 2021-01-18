@@ -40,16 +40,14 @@ export default function CustomInputBar(props) {
 	);
 
     const handleChange = event => {
-        confirmPlaylist(false);
         const {target: nextTarget} = event;
-        if (nextTarget.value.length === 0) {
-            let inputElementWrapper = document.querySelector(`.playlist-input-${ nextTarget.name }`);
-            let createButton = inputElementWrapper.nextSibling;
-            inputElementWrapper.classList.remove('input-contains');
-            inputElementWrapper.classList.remove('input-does-not-contain');
-            if (!createButton.classList.contains('hidden')) createButton.classList.add('hidden');
-            return;
-        }
+        let inputElementWrapper = document.querySelector(`.playlist-input-${ nextTarget.name }`);
+        let createButton = inputElementWrapper.nextSibling;
+        inputElementWrapper.classList.remove('input-contains');
+        inputElementWrapper.classList.remove('input-does-not-contain');
+        if (!createButton.classList.contains('hidden')) createButton.classList.add('hidden');
+        if (nextTarget.value.length === 0) return;
+        confirmPlaylist(false);
 		debouncedSave(nextTarget);
 	};
 
