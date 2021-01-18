@@ -2,6 +2,7 @@ import './styles.scss';
 import AuthorizerAppleMusic from '../../../components/AuthorizerAppleMusic';
 import AuthorizerSpotify from '../../../components/AuthorizerSpotify';
 import MusicCard from '../../../components/MusicCard';
+import SyncButton from '../../../components/SyncButton';
 
 export default function OnHere() {
 
@@ -17,6 +18,9 @@ export default function OnHere() {
                 <MusicCard service={'spotify'} link={'https://www.spotify.com'} linkName={'Spotify'} >
                     <AuthorizerSpotify></AuthorizerSpotify>
                 </MusicCard>
+            </div>
+            <div className="sync-button-wrapper">
+                <SyncButton></SyncButton>
             </div>
         </div>
     );
