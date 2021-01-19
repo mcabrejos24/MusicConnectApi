@@ -4,7 +4,6 @@ import '../assets/styles/components/sync-button.scss';
 export default function SyncButton(props) {
     const { spotifyConfirmed } = props;
     const { appleConfirmed } = props;
-    // const [progress, setProgress] = useState(0);
 
     useEffect(() => {
         let syncButton = document.querySelector(".sync");
