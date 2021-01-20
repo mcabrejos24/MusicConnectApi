@@ -1,5 +1,6 @@
 import '../assets/styles/App.scss';
 import React, { useEffect } from 'react';
+import { setAuthValue } from '../variables/authValues';
 
 export default function AuthorizerAppleMusic(props) {
     const { setter } = props;
@@ -20,7 +21,13 @@ export default function AuthorizerAppleMusic(props) {
             .then(musicUserToken => {
                 console.log(`Authorized, music-user-token: ${musicUserToken}`);
                 setter(true);
+                let successSettingPayload = setAuthValue('apple', musicUserToken);
+                if(!successSettingPayload) console.error('Failed to set Auth Value');
+                window.localStorage.clear();
         });
+        window.MusicKit = undefined;
+        document.getElementById('musicKit').remove();
+        document.getElementById("apple-music-player").remove();
     }
 
     return(
