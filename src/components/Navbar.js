@@ -9,7 +9,7 @@ export default function Navbar() {
                     Playlist Connect
                 </a>
                 <div className="hidden md:flex md:flex-row md:self-center md:font-light">
-                    <a className="hover:underline text-white text-lg pr-4" href="/learn-more">Learn more</a>
+                    <a className="hover:underline text-white text-lg pr-4" href="/about-us">About Us</a>
                     <a className="hover:underline text-white text-lg px-4" href="/donate">Donate</a>
                     <a className="hover:underline text-white text-lg pl-4" href="/contact-us">Contact Us</a>
                 </div>
