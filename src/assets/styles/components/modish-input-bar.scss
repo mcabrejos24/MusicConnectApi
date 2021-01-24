@@ -5,55 +5,13 @@ $contains: #33cc00;
 $doesNotContain: #ff1a1a;
 $createPlaylist: #ffcc00;
 
-.create-playlist {
-  font-size: 15px;
-  color: $createPlaylist;
-  margin-top: 10px;
-  text-decoration: underline;
-}
-
-.playlist-input-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  .input-contains {
-    border-width: 2px;
-    border-color: $contains;
-    input {
-      &:focus {
-        box-shadow: inset 0 -2px 0 $contains !important;
-        + .label {
-          color: $contains !important;
-        }
-      }
-    }
-  }
-  
-  .input-does-not-contain {
-    border-width: 2px;
-    border-color: $doesNotContain;
-    margin-bottom: 20px !important;
-    input {
-      &:focus {
-        box-shadow: inset 0 -2px 0 $doesNotContain !important;
-        + .label {
-          color: $doesNotContain !important;
-        }
-      }
-    }
-  }
-}
-
-// new
 .modish-input-bar {
   position: relative;
   display: flex;
   flex-direction: column;
   margin-top: 40px;
 
-  .input-bar-wrapper {
+  &--wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -73,21 +31,17 @@ $createPlaylist: #ffcc00;
       }
     }
 
-    .btn {
-      z-index: 1;
-      
-      &--primary {
+    .input-tab {
+        z-index: 1;
         background-color: $color-white;
         color: $color-white;
         box-shadow: 0 0 5px #7f8ff4;
         border-radius: 15px;
         padding: 25px 36px;
-      }
-      
-      &--inside {
         margin-left: -11%;
       }
-    }
+
+
   }
 
   .input-contains {
@@ -106,5 +60,12 @@ $createPlaylist: #ffcc00;
         box-shadow: 0 0 20px 5px #fd5b5b !important;
       }
     }
+  }
+
+  .create-playlist {
+    font-size: 15px;
+    color: $createPlaylist;
+    margin-top: 10px;
+    text-decoration: underline;
   }
 }

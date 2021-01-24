@@ -1,5 +1,5 @@
 
-import '../assets/styles/components/custom-input-bar.scss';
+import '../assets/styles/components/modish-input-bar.scss';
 import containsPlaylistApple from '../api/searchAppleAPI';
 import containsPlaylistSpotify from '../api/searchSpotifyAPI';
 import debounce from 'lodash/debounce';
@@ -11,7 +11,7 @@ export default function ModishInputBar(props) {
 
     async function checkPlaylist(target) {
         
-        let inputElementWrapper = document.querySelector(`.input-bar-wrapper-${ target.name }`);
+        let inputElementWrapper = document.querySelector(`.modish-input-bar--wrapper-${ target.name }`);
         
         console.warn(inputElementWrapper);
         
@@ -45,7 +45,7 @@ export default function ModishInputBar(props) {
 
     const handleChange = event => {
         const {target: nextTarget} = event;
-        let inputElementWrapper = document.querySelector(`.input-bar-wrapper-${ nextTarget.name }`);
+        let inputElementWrapper = document.querySelector(`.modish-input-bar--wrapper-${ nextTarget.name }`);
         let createButton = inputElementWrapper.nextSibling;
         inputElementWrapper.classList.remove('input-contains');
         inputElementWrapper.classList.remove('input-does-not-contain');
@@ -58,15 +58,16 @@ export default function ModishInputBar(props) {
 
     return (
             <div className = {`modish-input-bar`}>
-                <div className={`input-bar-wrapper input-bar-wrapper-${ service }`}>
+                <div className={`modish-input-bar--wrapper modish-input-bar--wrapper-${ service }`}>
                     <input 
                         onChange = { handleChange }
                         name = { service }
                         type = "text" 
-                        className = {`input-bar input-bar-${ service }`} 
+                        // className = {`input-bar input-bar-${ service }`} 
+                        className = "input-bar" 
                         placeholder = "Playlist Name" 
                     />
-                    <div className={`btn btn--primary btn--inside btn--${ service }`}></div>
+                    <div className={`input-tab`}></div>
                 </div>
                 <button className="create-playlist hidden">Playlist not found, would you like us to create and sync one for you with this name?</button>
             </div>
