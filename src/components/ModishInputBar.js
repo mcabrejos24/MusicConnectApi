@@ -1,16 +1,20 @@
 
 import '../assets/styles/components/custom-input-bar.scss';
-import containsPlaylistApple from './../api/searchAppleAPI';
-import containsPlaylistSpotify from './../api/searchSpotifyAPI';
+import containsPlaylistApple from '../api/searchAppleAPI';
+import containsPlaylistSpotify from '../api/searchSpotifyAPI';
 import debounce from 'lodash/debounce';
 import { useCallback } from 'react';
 
-export default function CustomInputBar(props) {
+export default function ModishInputBar(props) {
     const { service } = props;
     const { confirmPlaylist } = props;
 
     async function checkPlaylist(target) {
-        let inputElementWrapper = document.querySelector(`.playlist-input-${ target.name }`);
+        
+        let inputElementWrapper = document.querySelector(`.input-bar-wrapper-${ target.name }`);
+        
+        console.warn(inputElementWrapper);
+        
         let createButton = inputElementWrapper.nextSibling;
         if (!target.value) {
             inputElementWrapper.classList.remove('input-contains');
@@ -41,7 +45,7 @@ export default function CustomInputBar(props) {
 
     const handleChange = event => {
         const {target: nextTarget} = event;
-        let inputElementWrapper = document.querySelector(`.playlist-input-${ nextTarget.name }`);
+        let inputElementWrapper = document.querySelector(`.input-bar-wrapper-${ nextTarget.name }`);
         let createButton = inputElementWrapper.nextSibling;
         inputElementWrapper.classList.remove('input-contains');
         inputElementWrapper.classList.remove('input-does-not-contain');
@@ -53,23 +57,18 @@ export default function CustomInputBar(props) {
 
 
     return (
-        <div className = {`playlist-input-wrapper playlist-input-wrapper-${service}`}>
-            <label 
-                htmlFor = {`input-box-${service}`}
-                className = {`playlist-input playlist-input-${service}`}
-            >
-                <input
-                    id = {`input-box-${service}`}
-                    onChange = { handleChange }
-                    className="input-box" 
-                    type="text" 
-                    name = { service }
-                    placeholder=" " 
-                />
-                <span className="label">Playlist Name</span>
-                <span className="focus-bg"></span>
-            </label>
-            <button className="create-playlist hidden">Playlist not found, would you like us to create and sync one for you with this name?</button>
-        </div>
+            <div className = {`modish-input-bar`}>
+                <div className={`input-bar-wrapper input-bar-wrapper-${ service }`}>
+                    <input 
+                        onChange = { handleChange }
+                        name = { service }
+                        type = "text" 
+                        className = {`input-bar input-bar-${ service }`} 
+                        placeholder = "Playlist Name" 
+                    />
+                    <div className={`btn btn--primary btn--inside btn--${ service }`}></div>
+                </div>
+                <button className="create-playlist hidden">Playlist not found, would you like us to create and sync one for you with this name?</button>
+            </div>
     );
 }
