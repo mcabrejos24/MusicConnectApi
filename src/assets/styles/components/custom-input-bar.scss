@@ -1,113 +1,9 @@
 $primary: #4da6ff;
-$dark: #000;
+$color-black: #000;
+$color-white: #FFF;
 $contains: #33cc00;
 $doesNotContain: #ff1a1a;
 $createPlaylist: #ffcc00;
-
-.playlist-input {
-  position: relative;
-  margin: auto;
-  width: 100%;
-  max-width: 280px;
-  border-radius: 3px;
-  overflow: hidden;
-  margin: 100px 0 !important;
-
-
-    .label {
-        position: absolute;
-        top: 20px;
-        left: 12px;
-        font-size: 16px;
-        color: rgba($dark,.5);
-        font-weight: 500;
-        transform-origin: 0 0;
-        transform: translate3d(0,0,0);
-        transition: all .2s ease;
-        pointer-events: none;
-    }
-
-  .focus-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba($dark,.05);
-    z-index: -1;
-    transform: scaleX(0);
-    transform-origin: left;
-  }
-
-  input {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    border: 0;
-    font-family: inherit;
-    padding: 16px 12px 0 12px;
-    height: 56px;
-    font-size: 16px;
-    font-weight: 400;
-    background: rgba($dark,.02);
-    box-shadow: inset 0 -1px 0 rgba($dark,.3);
-    color: $dark;
-    transition: all .15s ease;
-
-    &:hover {
-      background: rgba($dark,.04);
-      box-shadow: inset 0 -1px 0 rgba($dark,.5);
-    }
-    
-    &:not(:placeholder-shown) {
-      + .label {
-        color: rgba($dark,.5);
-        transform: translate3d(0,-12px,0) scale(.75);
-      }
-    }
-    
-    &:focus {
-      background: rgba($dark,.05);
-      outline: none;
-      box-shadow: inset 0 -2px 0 $primary;
-      + .label {
-        color: $primary;
-        transform: translate3d(0,-12px,0) scale(.75);
-        + .focus-bg {
-          transform: scaleX(1);
-          transition: all .1s ease;
-        }
-    }
-    }
-  }
-}
-
-.input-contains {
-  border-width: 2px;
-  border-color: $contains;
-  input {
-    &:focus {
-      box-shadow: inset 0 -2px 0 $contains !important;
-      + .label {
-        color: $contains !important;
-      }
-    }
-  }
-}
-
-.input-does-not-contain {
-  border-width: 2px;
-  border-color: $doesNotContain;
-  margin-bottom: 20px !important;
-  input {
-    &:focus {
-      box-shadow: inset 0 -2px 0 $doesNotContain !important;
-      + .label {
-        color: $doesNotContain !important;
-      }
-    }
-  }
-}
 
 .create-playlist {
   font-size: 15px;
@@ -121,4 +17,94 @@ $createPlaylist: #ffcc00;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .input-contains {
+    border-width: 2px;
+    border-color: $contains;
+    input {
+      &:focus {
+        box-shadow: inset 0 -2px 0 $contains !important;
+        + .label {
+          color: $contains !important;
+        }
+      }
+    }
+  }
+  
+  .input-does-not-contain {
+    border-width: 2px;
+    border-color: $doesNotContain;
+    margin-bottom: 20px !important;
+    input {
+      &:focus {
+        box-shadow: inset 0 -2px 0 $doesNotContain !important;
+        + .label {
+          color: $doesNotContain !important;
+        }
+      }
+    }
+  }
+}
+
+// new
+.modish-input-bar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+
+  .input-bar-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+
+    .input-bar {
+      width: 70%;
+      padding: 22px 18px;
+      border-radius: 20px;
+      box-shadow: 0 0 5px rgba(221, 153, 255, 0.8);
+      outline: none;
+
+
+      &:focus {
+        box-shadow: 0 0 20px 5px rgba(221, 153, 255, 0.8);
+      }
+    }
+
+    .btn {
+      z-index: 1;
+      
+      &--primary {
+        background-color: $color-white;
+        color: $color-white;
+        box-shadow: 0 0 5px #7f8ff4;
+        border-radius: 15px;
+        padding: 25px 36px;
+      }
+      
+      &--inside {
+        margin-left: -11%;
+      }
+    }
+  }
+
+  .input-contains {
+    * {
+      box-shadow: 0 0 5px #44ff82 !important;
+      &:focus {
+        box-shadow: 0 0 20px 5px #44ff82 !important;
+      }
+    }
+  }
+
+  .input-does-not-contain {
+    > * {
+      box-shadow: 0 0 5px #fd5b5b !important;
+      &:focus {
+        box-shadow: 0 0 20px 5px #fd5b5b !important;
+      }
+    }
+  }
 }
