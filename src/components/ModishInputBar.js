@@ -12,13 +12,15 @@ export default function ModishInputBar(props) {
     async function checkPlaylist(target) {
         let inputElementWrapper = document.querySelector(`.modish-input-bar--wrapper-${ target.name }`);
         let createButton = inputElementWrapper.nextSibling;
-        if (!target.value) {
+        if (!target.value) { // need this so that the api doesn't get called if the value is empty
             inputElementWrapper.classList.remove('input-contains');
             inputElementWrapper.classList.remove('input-does-not-contain');
             if (!createButton.classList.contains('hidden')) createButton.classList.add('hidden');
+            if(inputElementWrapper.classList.contains('loading')) inputElementWrapper.classList.remove('loading');
             return;
         }
-        let contains = await (target.name === 'apple' ? containsPlaylistApple(target.value) : containsPlaylistSpotify(target.value)); // TRIM WHITE SPACES FOR JUST ONE SPACE
+        let contains = await (target.name === 'apple' ? containsPlaylistApple(target.value) : containsPlaylistSpotify(target.value));
+        if(inputElementWrapper.classList.contains('loading')) inputElementWrapper.classList.remove('loading');
         if (contains) {
             confirmPlaylist(true);
             inputElementWrapper.classList.add('input-contains');
@@ -37,7 +39,7 @@ export default function ModishInputBar(props) {
             checkPlaylist(nextTarget); 
         }, 1000),
 		[], 
-	);
+    );
 
     const handleChange = event => {
         const {target: nextTarget} = event;
@@ -46,8 +48,13 @@ export default function ModishInputBar(props) {
         inputElementWrapper.classList.remove('input-contains');
         inputElementWrapper.classList.remove('input-does-not-contain');
         if (!createButton.classList.contains('hidden')) createButton.classList.add('hidden');
-        if (nextTarget.value.length === 0) return;
+        nextTarget.nextSibling.innerHTML = "";
+        if (nextTarget.value.length === 0 || nextTarget.value.trim() === "") {
+            if(inputElementWrapper.classList.contains('loading')) inputElementWrapper.classList.remove('loading');
+            return; 
+        }
         confirmPlaylist(false);
+        if(!inputElementWrapper.classList.contains('loading')) inputElementWrapper.classList.add('loading');
 		debouncedSave(nextTarget);
 	};
 
@@ -59,7 +66,6 @@ export default function ModishInputBar(props) {
                         onChange = { handleChange }
                         name = { service }
                         type = "text" 
-                        // className = {`input-bar input-bar-${ service }`} 
                         className = "input-bar" 
                         placeholder = "Playlist Name" 
                     />
