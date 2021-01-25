@@ -10,11 +10,7 @@ export default function ModishInputBar(props) {
     const { confirmPlaylist } = props;
 
     async function checkPlaylist(target) {
-        
         let inputElementWrapper = document.querySelector(`.modish-input-bar--wrapper-${ target.name }`);
-        
-        console.warn(inputElementWrapper);
-        
         let createButton = inputElementWrapper.nextSibling;
         if (!target.value) {
             inputElementWrapper.classList.remove('input-contains');

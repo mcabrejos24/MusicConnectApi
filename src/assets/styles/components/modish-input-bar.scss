@@ -1,6 +1,6 @@
 $primary: #4da6ff;
 $color-black: #000;
-$color-white: #FFF;
+$color-white: #fff;
 $contains: #33cc00;
 $doesNotContain: #ff1a1a;
 $createPlaylist: #ffcc00;
@@ -25,23 +25,20 @@ $createPlaylist: #ffcc00;
       box-shadow: 0 0 5px rgba(221, 153, 255, 0.8);
       outline: none;
 
-
       &:focus {
         box-shadow: 0 0 20px 5px rgba(221, 153, 255, 0.8);
       }
     }
 
     .input-tab {
-        z-index: 1;
-        background-color: $color-white;
-        color: $color-white;
-        box-shadow: 0 0 5px #7f8ff4;
-        border-radius: 15px;
-        padding: 25px 36px;
-        margin-left: -11%;
-      }
-
-
+      z-index: 1;
+      background-color: $color-white;
+      color: $color-white;
+      box-shadow: 0 0 5px #7f8ff4;
+      border-radius: 15px;
+      padding: 25px 36px;
+      margin-left: -11%;
+    }
   }
 
   .input-contains {
@@ -51,6 +48,12 @@ $createPlaylist: #ffcc00;
         box-shadow: 0 0 20px 5px #44ff82 !important;
       }
     }
+
+    > div {
+      content: url("../../img/svg/found.svg");
+      padding: 10px 21px;
+    }
+
   }
 
   .input-does-not-contain {
@@ -60,6 +63,12 @@ $createPlaylist: #ffcc00;
         box-shadow: 0 0 20px 5px #fd5b5b !important;
       }
     }
+
+    > div {
+      content: url("../../img/svg/not_found.svg");
+      padding: 10px 21px;
+    }
+
   }
 
   .create-playlist {
