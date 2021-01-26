@@ -31,7 +31,7 @@ export default function MusicCard(props) {
                 {React.cloneElement(props.children, {setter: setShowInput})}
             </div>
             <div className={`playlist-checker playlist-checker-${service} hidden`}>
-                <p>Enter the playlist you want to link, if empty then we will create a default one for you.</p>
+                <p className="music-card-description">Enter the name of the playlist you want to link</p>
                 <ModishInputBar service={service} confirmPlaylist={confirmPlaylist}/>
             </div>
         </div>
