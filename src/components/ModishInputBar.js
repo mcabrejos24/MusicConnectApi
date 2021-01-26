@@ -18,6 +18,7 @@ export default function ModishInputBar(props) {
             inputElementWrapper.classList.remove('input-does-not-contain');
             if (!createButton.classList.contains('hidden')) createButton.classList.add('hidden');
             if(inputElementWrapper.classList.contains('loading')) inputElementWrapper.classList.remove('loading');
+            setPlaylistValue("");
             return;
         }
         let contains = await (target.name === 'apple' ? containsPlaylistApple(target.value) : containsPlaylistSpotify(target.value));
