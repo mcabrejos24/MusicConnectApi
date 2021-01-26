@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import '../assets/styles/components/music-card.scss';
-import CustomInputBar from './CustomInputBar';
+import ModishInputBar from './ModishInputBar';
 
 export default function MusicCard(props) {
     const { service } = props;
@@ -32,7 +32,7 @@ export default function MusicCard(props) {
             </div>
             <div className={`playlist-checker playlist-checker-${service} hidden`}>
                 <p>Enter the playlist you want to link, if empty then we will create a default one for you.</p>
-                <CustomInputBar service={service} confirmPlaylist={confirmPlaylist}/>
+                <ModishInputBar service={service} confirmPlaylist={confirmPlaylist}/>
             </div>
         </div>
     );

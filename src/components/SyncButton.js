@@ -33,7 +33,7 @@ export default function SyncButton(props) {
     return (
             <div className="sync-wrapper">
                 <button className="sync" data-marquee="Sync Playlists" disabled>
-                    <div class="sync--text-wrapper">Sync Playlists</div>
+                    <div className="sync--text-wrapper">Sync Playlists</div>
                 </button>
             </div>
     )
