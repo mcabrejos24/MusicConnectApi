@@ -9,7 +9,7 @@ export default function AuthorizerSpotify(props) {
         REACT_APP_REDIRECT_URL
     } = process.env;
 
-    const url = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&response_type=token&redirect_uri=${REACT_APP_REDIRECT_URL}&show_dialog=true`;
+    const url = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&response_type=token&redirect_uri=${REACT_APP_REDIRECT_URL}&show_dialog=true&scope=playlist-read-private%20playlist-read-collaborative`;
 
     useEffect(() => {
         const { setter } = props;
@@ -27,7 +27,7 @@ export default function AuthorizerSpotify(props) {
         window.$popup = window.open(
             url,
             'Login with Spotify',
-            'width=500,height=650,left=-250'
+            'width=500,height=750,left=-250'
         )
     }
     
