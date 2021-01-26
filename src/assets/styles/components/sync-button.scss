@@ -15,8 +15,8 @@ $tertiary: #b25dc7;
 	text-transform: uppercase;
 	position: relative;
 	overflow: hidden;
-	font-family: crayonFontLight;
-	font-size: 25px;
+	font-family: system-ui, sans-serif;;
+	font-size: 23px;
 	margin-bottom: 100px;
 
 	&[disabled] {
@@ -117,9 +117,4 @@ $tertiary: #b25dc7;
 	to {
 		left: 0;
 	}
-}
-
-@font-face {
-	font-family: crayonFontLight;
-	src: url("../../fonts/dk-crayon-crumble-font/DkCrayonCrumble-ddll.ttf");
 }
