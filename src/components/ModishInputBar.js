@@ -1,13 +1,14 @@
 
 import '../assets/styles/components/modish-input-bar.scss';
-import containsPlaylistApple from '../api/searchAppleAPI';
-import containsPlaylistSpotify from '../api/searchSpotifyAPI';
+import { containsPlaylistApple, createPlaylistApple }  from '../api/searchAppleAPI';
+import { containsPlaylistSpotify, createPlaylistSpotify } from '../api/searchSpotifyAPI';
 import debounce from 'lodash/debounce';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 export default function ModishInputBar(props) {
     const { service } = props;
     const { confirmPlaylist } = props;
+    const [playlistValue, setPlaylistValue] = useState("");
 
     async function checkPlaylist(target) {
         let inputElementWrapper = document.querySelector(`.modish-input-bar--wrapper-${ target.name }`);
@@ -21,6 +22,7 @@ export default function ModishInputBar(props) {
         }
         let contains = await (target.name === 'apple' ? containsPlaylistApple(target.value) : containsPlaylistSpotify(target.value));
         if(inputElementWrapper.classList.contains('loading')) inputElementWrapper.classList.remove('loading');
+        setPlaylistValue(target.value);
         if (contains) {
             confirmPlaylist(true);
             inputElementWrapper.classList.add('input-contains');
@@ -48,9 +50,9 @@ export default function ModishInputBar(props) {
         inputElementWrapper.classList.remove('input-contains');
         inputElementWrapper.classList.remove('input-does-not-contain');
         if (!createButton.classList.contains('hidden')) createButton.classList.add('hidden');
-        nextTarget.nextSibling.innerHTML = "";
         if (nextTarget.value.length === 0 || nextTarget.value.trim() === "") {
             if(inputElementWrapper.classList.contains('loading')) inputElementWrapper.classList.remove('loading');
+            setPlaylistValue("");
             return; 
         }
         confirmPlaylist(false);
@@ -58,6 +60,11 @@ export default function ModishInputBar(props) {
 		debouncedSave(nextTarget);
 	};
 
+    function createPlaylist({target}) { // make this also update the input on success of playlist creation
+        if(!playlistValue) return;
+        let creationSuccessful = (target.name === 'apple' ? createPlaylistApple(playlistValue) : createPlaylistSpotify(playlistValue));
+        console.log(creationSuccessful); // will update input and say created successfull, or if failed will say failed, either way the input will be reset (maybe reset instead of green)
+    }
 
     return (
             <div className = {`modish-input-bar`}>
@@ -71,7 +78,7 @@ export default function ModishInputBar(props) {
                     />
                     <div className={`input-tab`}></div>
                 </div>
-                <button className="create-playlist hidden">Playlist not found: click here to create and sync one with this name</button>
+                <button className="create-playlist hidden" name={ service } onClick={ createPlaylist }>Playlist not found: click here to create and sync one with this name</button>
             </div>
     );
 }
