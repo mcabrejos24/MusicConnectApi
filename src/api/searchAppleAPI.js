@@ -1,4 +1,4 @@
-export default function containsPlaylistApple(playlistName) {
+export function containsPlaylistApple(playlistName) {
     let returnValue = false;
     let mk = window.MusicKit.getInstance();
 
@@ -11,4 +11,11 @@ export default function containsPlaylistApple(playlistName) {
         });
         return returnValue;
     });
+}
+
+export function createPlaylistApple(playlistName) {
+    console.log(playlistName);
+
+
+
 }
