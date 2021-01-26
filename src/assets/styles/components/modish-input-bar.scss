@@ -5,13 +5,16 @@ $color-black: #000;
 $color-white: #fff;
 $contains: #44ff82;
 $doesNotContain: #fd5b5b;
-$createPlaylist: #ffcc00;
+$createPlaylist: #dde01a;
+$text-color: #65676b;
 
 .modish-input-bar {
   position: relative;
   display: flex;
   flex-direction: column;
   margin-top: 40px;
+  color: $text-color;
+  // align-items: center;
 
   &--wrapper {
     display: flex;
@@ -80,9 +83,14 @@ $createPlaylist: #ffcc00;
   }
 
   .create-playlist {
-    font-size: 15px;
-    color: $createPlaylist;
-    margin-top: 10px;
+    font-size: 14px;
+    color: $secondary;
+    border-radius: 14px;
+    // box-shadow: 0 0 5px $secondary;
     text-decoration: underline;
+    font-family: system-ui, sans-serif;;
+    width: 100%;
+    padding: 0 40px;
+    margin-bottom: 20px;
   }
 }
