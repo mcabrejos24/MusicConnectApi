@@ -13,7 +13,6 @@ export function containsPlaylistSpotify(playlistName) {
         },
     })
     .then((response) => {
-        console.log(response.data.items);
         response.data.items.forEach(playlist => {
             if(playlistName.toLowerCase() === playlist.name.toLowerCase()) {
                 returnValue = true; //success in finding the playlist;
@@ -22,12 +21,47 @@ export function containsPlaylistSpotify(playlistName) {
         })
         return returnValue;
     })
+    .catch((e) => {
+        console.error(e);
+    })
 }
-// maybe should add a catch
 
-export function createPlaylistSpotify(playlistName) {
-    console.log(playlistName);
+export async function createPlaylistSpotify(playlistName) {
+    let userID = await getUserId();
+    return axios.post(`https://api.spotify.com/v1/users/${userID}/playlists`, 
+        {
+            'name': playlistName,
+            'description': 'Playlist created through Playlist Connect',
+            'public':true,
+        },
+        {
+            headers: {
+                'Authorization': `Bearer ${getAuthValue('spotify')}`
+            },
+        }
+    )
+    .then((response) => {
+        console.log(response);
+        return true;
+    })
+    .catch((e) => {
+        console.error(e);
+        return false;
+    })
+}
 
+export function getUserId() {
+    return axios.get('https://api.spotify.com/v1/me', {
+        headers: {
+            'Authorization': `Bearer ${getAuthValue('spotify')}`
+        }
+    })
+    .then((response) => {
+        console.log(response.data.id);
+        return response.data.id;
+    })
+    .catch((e) => {
+        console.error(e);
+    })
 
-    return true;
 }
