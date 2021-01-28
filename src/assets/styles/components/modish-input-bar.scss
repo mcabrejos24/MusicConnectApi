@@ -13,7 +13,6 @@ $text-color: #65676b;
   flex-direction: column;
   margin-top: 40px;
   color: $text-color;
-  // align-items: center;
 
   &--wrapper {
     display: flex;
@@ -90,6 +89,7 @@ $text-color: #65676b;
     padding: 0 40px;
     margin-bottom: 20px;
     outline: none;
+    cursor: pointer;
 
     &:hover {
       text-decoration: underline;
@@ -99,6 +99,25 @@ $text-color: #65676b;
     &:active {
       text-decoration: underline;
       color: darken($secondary, 10);
+      cursor: progress;
+    }
+
+    &.created {
+      color: darken($contains, 20);
+
+      &:hover {
+        text-decoration: none;
+        cursor: default;
+      }
+    }
+
+    &.failed-to-create {
+      color: darken($doesNotContain, 20);
+
+      &:hover {
+        text-decoration: none;
+        cursor: default;
+      }
     }
   }
 }

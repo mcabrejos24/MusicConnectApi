@@ -26,6 +26,7 @@ export function containsPlaylistSpotify(playlistName) {
     })
 }
 
+// maybe add a check here to make sure  that the playlist name contains something or else return false
 export async function createPlaylistSpotify(playlistName) {
     let userID = await getUserId();
     return axios.post(`https://api.spotify.com/v1/users/${userID}/playlists`, 
@@ -41,6 +42,7 @@ export async function createPlaylistSpotify(playlistName) {
         }
     )
     .then((response) => {
+        console.log(response);
         return true;
     })
     .catch((e) => {
@@ -56,6 +58,7 @@ export function getUserId() {
         }
     })
     .then((response) => {
+        console.log(response.data.id);
         return response.data.id;
     })
     .catch((e) => {

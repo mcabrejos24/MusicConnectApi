@@ -48,6 +48,13 @@ export default function ModishInputBar(props) {
         const {target: nextTarget} = event;
         let inputElementWrapper = document.querySelector(`.modish-input-bar--wrapper-${ nextTarget.name }`);
         let createButton = inputElementWrapper.nextSibling;
+        let createPlaylistButton = document.querySelector(`.create-playlist[name=${ nextTarget.name }]`);
+        if (createPlaylistButton.classList.contains('created') || createPlaylistButton.classList.contains('failed-to-create')) { // if create playlist button has already created something
+            createPlaylistButton.innerHTML = "Playlist not found: click here to create and sync one with this name";
+            createPlaylistButton.classList.remove("created");
+            createPlaylistButton.classList.remove("failed-to-create");
+            createPlaylistButton.disabled = false;
+        }
         inputElementWrapper.classList.remove('input-contains');
         inputElementWrapper.classList.remove('input-does-not-contain');
         if (!createButton.classList.contains('hidden')) createButton.classList.add('hidden');
@@ -58,12 +65,24 @@ export default function ModishInputBar(props) {
         }
         confirmPlaylist(false);
         if(!inputElementWrapper.classList.contains('loading')) inputElementWrapper.classList.add('loading');
-		debouncedSave(nextTarget);
+        debouncedSave(nextTarget);
 	};
 
     async function createPlaylist({target}) { // make this also update the input on success of playlist creation
         if(!playlistValue) return;
         let creationSuccessful = await (target.name === 'apple' ? createPlaylistApple(playlistValue) : createPlaylistSpotify(playlistValue));
+        let createPlaylistButton = document.querySelector(`.create-playlist[name=${ target.name }]`);
+
+        if (creationSuccessful) {
+            createPlaylistButton.innerHTML = "Playlist creation successful!";
+            createPlaylistButton.classList.add("created");
+            createPlaylistButton.disabled = true;
+        } else {
+            createPlaylistButton.innerHTML = "Failed to create playlist, please check your connection and try again.";
+            createPlaylistButton.classList.add("failed-to-create");
+            createPlaylistButton.disabled = true;
+            console.error('Error: playlist creation failed. Developer please check for issue.');
+        }
         console.log(creationSuccessful); // will update input and say created successfull, or if failed will say failed, either way the input will be reset (maybe reset instead of green)
         // need to tell user that we make them all public and they should change it to collabaroative or private if they want
         // if false, say playlist creation failed, check connection
