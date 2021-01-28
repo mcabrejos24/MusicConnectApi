@@ -41,7 +41,6 @@ export async function createPlaylistSpotify(playlistName) {
         }
     )
     .then((response) => {
-        console.log(response);
         return true;
     })
     .catch((e) => {
@@ -57,7 +56,6 @@ export function getUserId() {
         }
     })
     .then((response) => {
-        console.log(response.data.id);
         return response.data.id;
     })
     .catch((e) => {
