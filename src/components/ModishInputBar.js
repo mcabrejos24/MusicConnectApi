@@ -66,6 +66,7 @@ export default function ModishInputBar(props) {
         let creationSuccessful = await (target.name === 'apple' ? createPlaylistApple(playlistValue) : createPlaylistSpotify(playlistValue));
         console.log(creationSuccessful); // will update input and say created successfull, or if failed will say failed, either way the input will be reset (maybe reset instead of green)
         // need to tell user that we make them all public and they should change it to collabaroative or private if they want
+        // if false, say playlist creation failed, check connection
     }
 
     return (

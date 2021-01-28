@@ -32,9 +32,23 @@ $color-white: #fff;
     font-size: 25px;
 }
 
-.playlist-checker > p.music-card-description {
+.playlist-checker {
+    
+    p.music-card-description {
         font-size: 18px;
         color: $text-color;
         font-family: system-ui, sans-serif;
         text-align: center;
+    }
+
+    p.music-card-note {
+        margin-top: 15px;
+        font-size: 12px;
+        font-style: italic;
+        text-align: center;
+        font-family: system-ui, sans-serif;
+        color: $text-color;
+
+    }
+
 }
