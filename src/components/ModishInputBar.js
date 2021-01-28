@@ -1,4 +1,3 @@
-
 import '../assets/styles/components/modish-input-bar.scss';
 import { containsPlaylistApple, createPlaylistApple }  from '../api/searchAppleAPI';
 import { containsPlaylistSpotify, createPlaylistSpotify } from '../api/searchSpotifyAPI';
@@ -50,7 +49,7 @@ export default function ModishInputBar(props) {
         let createButton = inputElementWrapper.nextSibling;
         let createPlaylistButton = document.querySelector(`.create-playlist[name=${ nextTarget.name }]`);
         if (createPlaylistButton.classList.contains('created') || createPlaylistButton.classList.contains('failed-to-create')) { // if create playlist button has already created something
-            createPlaylistButton.innerHTML = "Playlist not found: click here to create and sync one with this name";
+            createPlaylistButton.innerHTML = "Playlist not found: click here to create and sync one with this name (created as public)";
             createPlaylistButton.classList.remove("created");
             createPlaylistButton.classList.remove("failed-to-create");
             createPlaylistButton.disabled = false;
@@ -74,6 +73,12 @@ export default function ModishInputBar(props) {
         let createPlaylistButton = document.querySelector(`.create-playlist[name=${ target.name }]`);
 
         if (creationSuccessful) {
+            // updates input bar to green
+            let inputElementWrapper = document.querySelector(`.modish-input-bar--wrapper-${ target.name }`);
+            confirmPlaylist(true);
+            inputElementWrapper.classList.add('input-contains');
+            if (inputElementWrapper.classList.contains('input-does-not-contain')) inputElementWrapper.classList.remove('input-does-not-contain');
+            // updates create button text
             createPlaylistButton.innerHTML = "Playlist creation successful!";
             createPlaylistButton.classList.add("created");
             createPlaylistButton.disabled = true;
@@ -83,9 +88,6 @@ export default function ModishInputBar(props) {
             createPlaylistButton.disabled = true;
             console.error('Error: playlist creation failed. Developer please check for issue.');
         }
-        console.log(creationSuccessful); // will update input and say created successfull, or if failed will say failed, either way the input will be reset (maybe reset instead of green)
-        // need to tell user that we make them all public and they should change it to collabaroative or private if they want
-        // if false, say playlist creation failed, check connection
     }
 
     return (
@@ -100,7 +102,7 @@ export default function ModishInputBar(props) {
                     />
                     <div className={`input-tab`}></div>
                 </div>
-                <button className="create-playlist hidden" name={ service } onClick={ createPlaylist }>Playlist not found: click here to create and sync one with this name</button>
+                <button className="create-playlist hidden" name={ service } onClick={ createPlaylist }>Playlist not found: click here to create and sync one with this name (created as public)</button>
             </div>
     );
 }
