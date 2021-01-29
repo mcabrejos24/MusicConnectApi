@@ -32,6 +32,7 @@ export default function MusicCard(props) {
             </div>
             <div className={`playlist-checker playlist-checker-${service} hidden`}>
                 <p className="music-card-description">Enter the name of the playlist you want to link</p>
+                <p className="music-card-note">Note: In order for us to successfuly link your playlist of choice, you must be the owner of this playlist.</p>
                 <ModishInputBar service={service} confirmPlaylist={confirmPlaylist}/>
             </div>
         </div>
