@@ -25,7 +25,6 @@ export default function AuthorizerAppleMusic(props) {
                 if(!successSettingPayload) console.error('Failed to set Auth Value');
                 window.localStorage.clear();
         });
-        window.MusicKit = undefined;
         document.getElementById('musicKit').remove();
         document.getElementById("apple-music-player").remove();
     }
