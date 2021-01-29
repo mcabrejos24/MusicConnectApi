@@ -1,9 +1,10 @@
+
 import axios from "axios";
 import { getAuthValue } from "../variables/authValues";
 
-export default function containsPlaylistApple(playlistName) {
+const { REACT_APP_DEVELOPER_TOKEN } = process.env;
 
-    const { REACT_APP_DEVELOPER_TOKEN } = process.env;
+export function containsPlaylistApple(playlistName) {
 
     let returnValue = false;
 
@@ -23,4 +24,11 @@ export default function containsPlaylistApple(playlistName) {
         })
         return returnValue;
     });
+}
+
+export function createPlaylistApple(playlistName) {
+    console.log(playlistName);
+
+
+
 }

@@ -1,4 +1,6 @@
 $primary: #4da6ff;
+$text-color: #65676b;
+$color-white: #fff;
 
 .music-wrapper {
     width: 90%;
@@ -9,7 +11,6 @@ $primary: #4da6ff;
     @media screen and (min-width: 768px) {
         width: 80%;
         padding: 10px 20px;
-
     }
 }
 
@@ -19,40 +20,35 @@ $primary: #4da6ff;
     box-shadow: 0 0 5px rgba($primary , 0.8);
     border-radius: 20px;
     top: -60px;
-    background-color: #FFF;
-    font-family: crayonFontHeavy;
-    
-    @media screen and (min-width: 768px) {
-    }
+    background-color: $color-white;
+    font-family: system-ui, sans-serif;
 }
 
 .authorizer-button-wrapper {
     display: flex;
     justify-content: center;
     padding-bottom: 40px;
-    font-family: crayonFontLight;
+    font-family: system-ui, sans-serif;
     font-size: 25px;
 }
 
 .playlist-checker {
-    p {
+    
+    p.music-card-description {
+        font-size: 18px;
+        color: $text-color;
+        font-family: system-ui, sans-serif;
         text-align: center;
     }
 
-    .confirm-wrapper {
-        background-color: blue;
-        color: white;
-        width: 100%;
-    
+    p.music-card-note {
+        margin-top: 15px;
+        font-size: 12px;
+        font-style: italic;
+        text-align: center;
+        font-family: system-ui, sans-serif;
+        color: $text-color;
+
     }
-}
 
-@font-face {
-	font-family: crayonFontHeavy;
-	src: url("../../fonts/dk-cool-crayon-font/DkCoolCrayon-xJyV.ttf");
-}
-
-@font-face {
-	font-family: crayonFontLight;
-	src: url("../../fonts/dk-crayon-crumble-font/DkCrayonCrumble-ddll.ttf");
 }

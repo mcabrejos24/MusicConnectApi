@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import '../assets/styles/components/music-card.scss';
-import CustomInputBar from './CustomInputBar';
+import ModishInputBar from './ModishInputBar';
 
 export default function MusicCard(props) {
     const { service } = props;
@@ -31,8 +31,9 @@ export default function MusicCard(props) {
                 {React.cloneElement(props.children, {setter: setShowInput})}
             </div>
             <div className={`playlist-checker playlist-checker-${service} hidden`}>
-                <p>Enter the playlist you want to link, if empty then we will create a default one for you.</p>
-                <CustomInputBar service={service} confirmPlaylist={confirmPlaylist}/>
+                <p className="music-card-description">Enter the name of the playlist you want to link</p>
+                <p className="music-card-note">Note: In order for us to successfuly link your playlist of choice, you must be the owner of this playlist.</p>
+                <ModishInputBar service={service} confirmPlaylist={confirmPlaylist}/>
             </div>
         </div>
     );

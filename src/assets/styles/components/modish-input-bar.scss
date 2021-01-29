@@ -1,0 +1,123 @@
+$primary: #4da6ff;
+$secondary: #dd99ffcc;
+$tertiary: #7f8ff4;
+$color-black: #000;
+$color-white: #fff;
+$contains: #44ff82;
+$doesNotContain: #fd5b5b;
+$text-color: #65676b;
+
+.modish-input-bar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  color: $text-color;
+
+  &--wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+
+    .input-bar {
+      width: 70%;
+      padding: 22px 18px;
+      border-radius: 20px;
+      box-shadow: 0 0 5px $secondary;
+      outline: none;
+
+      &:focus {
+        box-shadow: 0 0 20px 5px $secondary;
+      }
+    }
+
+    .input-tab {
+      z-index: 1;
+      background-color: $color-white;
+      color: $color-white;
+      box-shadow: 0 0 5px $tertiary;
+      border-radius: 15px;
+      padding: 10px 21px;
+      margin-left: -11%;
+      content: url("../../img/svg/loading_still.svg");
+    }
+  }
+
+  .input-contains {
+    * {
+      box-shadow: 0 0 5px $contains !important;
+      &:focus {
+        box-shadow: 0 0 20px 5px $contains !important;
+      }
+    }
+
+    > div {
+      content: url("../../img/svg/found.svg");
+      padding: 10px 21px;
+    }
+  }
+
+  .input-does-not-contain {
+    > * {
+      box-shadow: 0 0 5px $doesNotContain !important;
+      &:focus {
+        box-shadow: 0 0 20px 5px $doesNotContain !important;
+      }
+    }
+
+    > div {
+      content: url("../../img/svg/not_found.svg");
+      padding: 10px 21px;
+    }
+  }
+
+  .loading {
+    > div {
+      content: url("../../img/svg/loading.svg");
+      padding: 10px 21px;
+    }
+  }
+
+  .create-playlist {
+    font-size: 14px;
+    color: $secondary;
+    border-radius: 14px;
+    font-family: system-ui, sans-serif;
+    width: 100%;
+    padding: 0 40px;
+    margin-bottom: 20px;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+      color: darken($secondary, 4);
+    }
+
+    &:active {
+      text-decoration: underline;
+      color: darken($secondary, 10);
+      cursor: progress;
+    }
+
+    &.created {
+      color: darken($contains, 20);
+
+      &:hover {
+        text-decoration: none;
+        cursor: default;
+      }
+    }
+
+    &.failed-to-create {
+      color: darken($doesNotContain, 20);
+
+      &:hover {
+        text-decoration: none;
+        cursor: default;
+      }
+    }
+  }
+}
