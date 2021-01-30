@@ -5,7 +5,6 @@ import { getAuthValue } from "../variables/authValues";
 const { REACT_APP_DEVELOPER_TOKEN } = process.env;
 
 export function containsPlaylistApple(playlistName) {
-
     let returnValue = false;
 
     return axios.get('https://api.music.apple.com/v1/me/library/playlists', {
@@ -15,10 +14,9 @@ export function containsPlaylistApple(playlistName) {
         }
     })
     .then((response) => {
-        console.log(response);
         response.data.data.forEach(playlist => {
             if(playlistName.toLowerCase() === playlist.attributes.name.toLowerCase()) {
-                returnValue = true; //success in finding the playlist;
+                returnValue = true;
                 return;
             }
         })
@@ -27,8 +25,25 @@ export function containsPlaylistApple(playlistName) {
 }
 
 export function createPlaylistApple(playlistName) {
-    console.log(playlistName);
-
-
-
+    return axios.post('https://api.music.apple.com/v1/me/library/playlists', 
+        {
+            "attributes": {
+                "name":playlistName,
+                "description":"Playlist created through Playlist Connect"
+            }
+        }, 
+        {
+            headers: {
+                'music-user-token': `${getAuthValue('apple')}`,
+                'Authorization': `Bearer ${REACT_APP_DEVELOPER_TOKEN}`
+            }
+        }
+    )
+    .then((response) => {
+        return true;
+    })
+    .catch((e) => {
+        console.error(e);
+        return false;
+    })
 }

@@ -19,13 +19,11 @@ export default function AuthorizerAppleMusic(props) {
     function handleAuthorize() {
         window.MusicKit.getInstance().authorize()
             .then(musicUserToken => {
-                console.log(`Authorized, music-user-token: ${musicUserToken}`);
                 setter(true);
                 let successSettingPayload = setAuthValue('apple', musicUserToken);
                 if(!successSettingPayload) console.error('Failed to set Auth Value');
                 window.localStorage.clear();
         });
-        document.getElementById('musicKit').remove();
         document.getElementById("apple-music-player").remove();
     }
 
