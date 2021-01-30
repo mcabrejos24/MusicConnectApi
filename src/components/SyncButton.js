@@ -1,5 +1,8 @@
-import { useEffect, useState } from 'react';
+import { doc } from 'prettier';
+import { useEffect } from 'react';
 import '../assets/styles/components/sync-button.scss';
+import { getAuthValue } from "../variables/authValues";
+
 
 export default function SyncButton(props) {
     const { spotifyConfirmed } = props;
@@ -30,10 +33,20 @@ export default function SyncButton(props) {
         }
     },[spotifyConfirmed, appleConfirmed]);
 
+    function syncPlaylists() {
+        const appleValue = document.querySelector('.input-bar[name=apple]')?.value;
+        const spotifyValue = document.querySelector('.input-bar[name=spotify]')?.value;
+        const hasValue = appleValue && spotifyValue;
+        if (!hasValue) return; //maybe do some error log
+        
+        //appleValue, spotifyValue, getAuthValue('apple'), getAuthValue('spotify')
+
+    }
+
     return (
             <div className="sync-wrapper">
                 <button className="sync" data-marquee="Sync Playlists" disabled>
-                    <div className="sync--text-wrapper">Sync Playlists</div>
+                    <div className="sync--text-wrapper" onClick = { syncPlaylists } >Sync Playlists</div>
                 </button>
             </div>
     )
