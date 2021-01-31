@@ -1,16 +1,14 @@
 import { useEffect } from 'react';
-import '../assets/styles/components/sync-button.scss';
+import '../assets/styles/components/sync-element.scss';
 import { getAuthValue } from "../variables/authValues";
 
-
-export default function SyncButton(props) {
+export default function SyncElement(props) {
     let { spotifyConfirmed } = props;
     let { appleConfirmed } = props;
 
     useEffect(() => {
-        let syncButton = document.querySelector('.sync');
-        let progressBar = document.querySelector('.progress-bar');
-        console.log();
+        let progressBar = document.querySelector('.sync-progress-bar');
+        let syncButton = document.querySelector('.sync-button');
 
         if(spotifyConfirmed && appleConfirmed) {
             if(!progressBar.children[1].classList.contains('active')) progressBar.children[1].classList.add('active');
@@ -39,12 +37,12 @@ export default function SyncButton(props) {
 
     return (
             <div className="sync-container">
-                <ul className="progress-bar">
+                <ul className="sync-progress-bar">
                     <li className="active">1st Playlist</li>
                     <li>2nd Playlist</li>
                     <li>Sync</li>
                 </ul>
-                <button className="sync" onClick={ syncPlaylists }>
+                <button className="sync-button" onClick={ syncPlaylists }>
                     Sync Playlists
                 </button>
             </div>
