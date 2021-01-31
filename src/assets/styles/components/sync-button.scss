@@ -2,22 +2,92 @@ $primary: #4da6ff;
 $secondary: #77ff33;
 $tertiary: #b25dc7;
 
-.sync-wrapper {
+.sync-container {
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 }
+
+.progress-bar {
+	width: 100%;
+	// z-index: 1;
+	counter-reset: step;
+	display: flex;
+	flex-direction: row;
+	// justify-content: center;
+	text-align: center;
+	position: relative;
+
+	li {
+		width: 40%;
+		position: relative;
+
+		&::before {
+			content: counter(step);
+			counter-increment: step;
+			width: 30px;
+			height: 30px;
+			border: 2px solid #bebebe;
+			display: block;
+			margin: 0 auto 10px auto;
+			border-radius: 50%;
+			line-height: 27px;
+			background: white;
+			color: #bebebe;
+		}
+
+		&.active::before{
+			animation: stepFill 0.5s linear 2s 1 normal both;
+		}
+
+		&.active:first-child::before{
+			border-color: $secondary;
+			color: $secondary;
+			animation: none
+		}
+	
+
+		&::after {
+			content: '';
+			position: absolute;
+			width:100%;
+			height: 3px;
+			background: #bebebe;
+			top: 15px;
+			left: -50%;
+			z-index: -1;
+		}
+
+		&.active::after {
+			background: repeating-linear-gradient(to right, #bebebe 0%, #bebebe 50%, $secondary 50%, $secondary 100%);
+			background-size: 200% auto;
+			background-position: 0 100%;
+			animation: gradient 2s linear forwards 1;
+		}
+		
+		&:first-child::after {
+			animation: none;
+			content: none;
+		}
+	}
+}
+
 
 .sync {
     border-radius: 20px;
 	box-shadow: 0 0 7px rgba($primary , 0.8);
-	color: $tertiary;
+	color: rgba($tertiary, 0.5);
 	text-transform: uppercase;
 	position: relative;
-	overflow: hidden;
+	// overflow: hidden;
 	font-family: system-ui, sans-serif;;
 	font-size: 23px;
 	margin-bottom: 100px;
+	background: white;
+	position: relative;
+	margin-top: 100px;
 
 	&:focus {
 		outline: 0;
@@ -27,71 +97,83 @@ $tertiary: #b25dc7;
         opacity: 0.5;
 		cursor: not-allowed;
 	}
+
+	&::before {
+		// z-index: -1;
+		// content: '';
+		// display: block;
+		// width: 100px;
+		// height: 100px;
+		// background-color: #4da6ff;
+		// position: absolute;
+		// left: -10px;
+	}
 	
-	&--marquee {
-		color: transparent;
-		&:before {
-			content: attr(data-marquee);
-			color: $tertiary;
-			position: absolute;
-			animation: scrolling 20s linear infinite;
-		}
+	// &--marquee {
+	// 	color: transparent;
+	// 	&:before {
+	// 		content: attr(data-marquee);
+	// 		color: $tertiary;
+	// 		position: absolute;
+	// 		animation: scrolling 20s linear infinite;
+	// 	}
 
-		&:hover {
-			box-shadow: 1px 1px 3px 3px $primary;
-		}
-	}
+	// 	&:hover {
+	// 		box-shadow: 1px 1px 3px 3px $primary;
+	// 	}
+	// }
 
-	&--slidemation {
-		&:after {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: -100%;
-			width: 100%;
-			height: 100%;
-			background: $secondary;
-			transition: all 450ms;
-		}
+	// &--slidemation {
+	// 	&:after {
+	// 		content: "";
+	// 		position: absolute;
+	// 		top: 0;
+	// 		left: -100%;
+	// 		width: 100%;
+	// 		height: 100%;
+	// 		background: $secondary;
+	// 		transition: all 450ms;
+	// 	}
 
-		&:hover:after, &:active:after {
-			content: "Sync";
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			color: $tertiary;
-			left: 0;
-		}
-	}
+	// 	&:hover:after, &:active:after {
+	// 		content: "Sync";
+	// 		display: flex;
+	// 		justify-content: center;
+	// 		align-items: center;
+	// 		color: $tertiary;
+	// 		left: 0;
+	// 	}
+	// }
 
 	&--text-wrapper {
 		display: flex;
 		flex-direction: row;
 		padding: 20px;
+
 	}
 
-	&--progress-50:before {
-		z-index: -1;
-		content: "";
-		position: absolute;
-		background: linear-gradient(90deg, $primary 50%, transparent 50%, transparent 100%); 
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		animation: progress-50 1s linear 1;
+	&--progress-50::before {
+		// z-index: -1;
+		// content: "";
+		// position: absolute;
+		// background: linear-gradient(90deg, $primary 50%, transparent 50%, transparent 100%) !important; 
+		// bottom: 0;
+		// left: 0;
+		// width: 100%;
+		// height: 10%;
+		// animation: progress-50 1s linear 1;
 	}
 
-	&--progress-100:before {
-		z-index: -1;
-		content: "";
-		position: absolute;
-		background: lighten($color: $primary, $amount: 15%);
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		animation: progress-100 1s linear 1;
+	&--progress-100::before {
+		// z-index: -1;
+		// content: "";
+		// position: absolute;
+		// background: lighten($color: $primary, $amount: 15%) !important;
+		// bottom: 0;
+		// left: 0;
+		// width: 100%;
+		// height: 10%;
+		// animation: progress-100 1s linear 1;
 	}
 
 }
@@ -120,5 +202,39 @@ $tertiary: #b25dc7;
 	}
 	to {
 		left: 0;
+	}
+}
+
+
+@keyframes trying {
+	from {
+		background: #bebebe;
+	}
+
+	to {
+		// background: rgba($tertiary, 0.5);
+		// background: $secondary;
+		background: linear-gradient(90deg, $secondary 100%, #bebebe 100%);
+
+	}
+}
+
+@keyframes stepFill {
+	from {
+		border-color: #bebebe;
+		color: #bebebe;
+	} to {
+		border-color: $secondary;
+		color: $secondary;
+	}
+	
+}
+
+@keyframes gradient { 
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: -100% 0;
 	}
 }
