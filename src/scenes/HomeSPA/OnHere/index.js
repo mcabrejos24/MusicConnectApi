@@ -2,7 +2,7 @@ import './styles.scss';
 import AuthorizerAppleMusic from '../../../components/AuthorizerAppleMusic';
 import AuthorizerSpotify from '../../../components/AuthorizerSpotify';
 import MusicCard from '../../../components/MusicCard';
-import SyncButton from '../../../components/SyncButton';
+import SyncElement from '../../../components/SyncElement';
 import { useState } from 'react';
 
 export default function OnHere() {
@@ -22,9 +22,7 @@ export default function OnHere() {
                     <AuthorizerSpotify></AuthorizerSpotify>
                 </MusicCard>
             </div>
-            <div className="sync-button-wrapper">
-                <SyncButton spotifyConfirmed={spotifyReady} appleConfirmed={appleReady}></SyncButton>
-            </div>
+            <SyncElement spotifyConfirmed={spotifyReady} appleConfirmed={appleReady}></SyncElement>
         </div>
     );
 }
