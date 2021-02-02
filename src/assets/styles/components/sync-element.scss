@@ -127,6 +127,10 @@ $empty: #bebebe;
 		&:hover {
 			box-shadow: 0 0 10px $primary;
 		}
+
+		&:active {
+			box-shadow: 0 0 10px $primary;
+		}
 	}
 }
 
