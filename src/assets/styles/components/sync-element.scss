@@ -12,7 +12,6 @@ $empty: #bebebe;
 
 	.sync-progress-bar {
 		width: 100%;
-		counter-reset: step;
 		display: flex;
 		flex-direction: row;
 		text-align: center;
@@ -32,10 +31,8 @@ $empty: #bebebe;
 			}
 
 			&::before {
-				content: counter(step);
-				counter-increment: step;
-				width: 30px;
-				height: 30px;
+				width: 40px;
+				height: 40px;
 				border: 2px solid $empty;
 				display: block;
 				margin: 0 auto 10px auto;
@@ -45,23 +42,40 @@ $empty: #bebebe;
 				color: $empty;
 			}
 
-			&.active::before {
-				animation: stepFill 0.5s linear 2s 1 normal both;
+			&:first-child::before {
+				content: url('../../img/svg/first_playlist.svg');
+			}
+
+			&:nth-child(2)::before {
+				content: url('../../img/svg/second_playlist.svg');
+			}
+
+			&:nth-child(3)::before {
+				content: url('../../img/svg/sync.svg');
 			}
 
 			&.active:first-child::before {
+				content: url('../../img/svg/first_playlist_active.svg'); // use a colorless svg here, and make sure to use the exact same svg but with the green color in the animation, 
 				border-color: $secondary;
 				color: $secondary;
 				animation: none;
+			}
+			
+			&.active:nth-child(2)::before {
+				animation: step2Fill 0.5s linear 2s 1 normal both;
+			}
+
+			&.active:nth-child(3)::before {
+				animation: step3Fill 0.5s linear 2s 1 normal both;
 			}
 
 			&::after {
 				content: "";
 				position: absolute;
 				width: 100%;
-				height: 3px;
+				height: 4px;
 				background: $empty;
-				top: 15px;
+				top: 18px;
 				left: -50%;
 				z-index: -1;
 			}
@@ -76,7 +90,7 @@ $empty: #bebebe;
 				);
 				background-size: 200% auto;
 				background-position: 0 100%;
-				animation: gradient 2s linear forwards 1;
+				animation: progressbar 2s linear forwards 1;
 			}
 
 			&:first-child::after {
@@ -125,18 +139,33 @@ $empty: #bebebe;
 	}
 }
 
-@keyframes stepFill {
+@keyframes step2Fill {
 	from {
+		content: url('../../img/svg/second_playlist.svg');
 		border-color: $empty;
 		color: $empty;
 	}
 	to {
+		content: url('../../img/svg/second_playlist_active.svg');
 		border-color: $secondary;
 		color: $secondary;
 	}
 }
 
-@keyframes gradient {
+@keyframes step3Fill {
+	from {
+		content: url('../../img/svg/sync.svg');
+		border-color: $empty;
+		color: $empty;
+	}
+	to {
+		content: url('../../img/svg/sync_active.svg');
+		border-color: $secondary;
+		color: $secondary;
+	}
+}
+
+@keyframes progressbar {
 	0% {
 		background-position: 0 0;
 	}
