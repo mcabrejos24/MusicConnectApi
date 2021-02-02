@@ -1,0 +1,179 @@
+$primary: #4da6ff;
+$secondary: #77ff33;
+$tertiary: #b25dc7;
+$empty: #bebebe;
+
+.sync-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	.sync-progress-bar {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		text-align: center;
+
+		li {
+			width: 40%;
+			position: relative;
+			color: $empty;
+
+			&.active {
+				animation: textFill 0.5s linear 2s 1 normal both;
+			}
+
+			&.active:first-child {
+				animation: none;
+				color: rgba($primary, 0.5);
+			}
+
+			&::before {
+				width: 40px;
+				height: 40px;
+				border: 2px solid $empty;
+				display: block;
+				margin: 0 auto 10px auto;
+				border-radius: 50%;
+				line-height: 27px;
+				background: white;
+				color: $empty;
+			}
+
+			&:first-child::before {
+				content: url('../../img/svg/first_playlist.svg');
+			}
+
+			&:nth-child(2)::before {
+				content: url('../../img/svg/second_playlist.svg');
+			}
+
+			&:nth-child(3)::before {
+				content: url('../../img/svg/sync.svg');
+			}
+
+			&.active:first-child::before {
+				content: url('../../img/svg/first_playlist_active.svg'); // use a colorless svg here, and make sure to use the exact same svg but with the green color in the animation, 
+				border-color: $secondary;
+				color: $secondary;
+				animation: none;
+			}
+			
+			&.active:nth-child(2)::before {
+				animation: step2Fill 0.5s linear 2s 1 normal both;
+			}
+
+			&.active:nth-child(3)::before {
+				animation: step3Fill 0.5s linear 2s 1 normal both;
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 4px;
+				background: $empty;
+				top: 18px;
+				left: -50%;
+				z-index: -1;
+			}
+
+			&.active::after {
+				background: repeating-linear-gradient(
+					to right,
+					$empty 0%,
+					$empty 50%,
+					$secondary 50%,
+					$secondary 100%
+				);
+				background-size: 200% auto;
+				background-position: 0 100%;
+				animation: progressbar 2s linear forwards 1;
+			}
+
+			&:first-child::after {
+				animation: none;
+				content: none;
+			}
+		}
+	}
+
+	.sync-button {
+		border-radius: 20px;
+		box-shadow: 0 0 7px rgba($primary, 0.8);
+		color: rgba($secondary, 0.5);
+		text-transform: uppercase;
+		position: relative;
+		font-family: system-ui, sans-serif;
+		font-size: 23px;
+		margin-bottom: 100px;
+		margin-top: 80px;
+		background: white;
+		position: relative;
+		padding: 20px;
+
+		&:focus {
+			outline: 0;
+		}
+
+		&[disabled] {
+			opacity: 0.5;
+			cursor: not-allowed;
+			color: rgba($tertiary, 0.5);
+		}
+
+		&:hover {
+			box-shadow: 0 0 10px $primary;
+		}
+
+		&:active {
+			box-shadow: 0 0 10px $primary;
+		}
+	}
+}
+
+@keyframes textFill {
+	from {
+		color: $empty;
+	}
+	to {
+		color: rgba($primary, 0.5);
+	}
+}
+
+@keyframes step2Fill {
+	from {
+		content: url('../../img/svg/second_playlist.svg');
+		border-color: $empty;
+		color: $empty;
+	}
+	to {
+		content: url('../../img/svg/second_playlist_active.svg');
+		border-color: $secondary;
+		color: $secondary;
+	}
+}
+
+@keyframes step3Fill {
+	from {
+		content: url('../../img/svg/sync.svg');
+		border-color: $empty;
+		color: $empty;
+	}
+	to {
+		content: url('../../img/svg/sync_active.svg');
+		border-color: $secondary;
+		color: $secondary;
+	}
+}
+
+@keyframes progressbar {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: -100% 0;
+	}
+}
