@@ -10,7 +10,7 @@ $applemusic-primary: #f94c57;
     padding: 10px 20px;
     border-radius: 20px;
 
-    &:hover {
+    &:hover, &:active {
         box-shadow: 0 0 15px rgba(77, 166, 255, 0.8);
 
         .music-header {
@@ -37,13 +37,13 @@ $applemusic-primary: #f94c57;
 
     a {
         &.header-title-apple {
-            &:hover {
+            &:hover, &:active {
                 color: $applemusic-primary;
             }
         }
 
         &.header-title-spotify {
-            &:hover {
+            &:hover, &:active {
                 color: $spotify-primary;
             }
         }
