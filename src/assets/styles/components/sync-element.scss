@@ -122,14 +122,14 @@ $empty: #bebebe;
 			opacity: 0.5;
 			cursor: not-allowed;
 			color: rgba($tertiary, 0.5);
+
+			&:hover, &:active {
+				box-shadow: 0 0 7px rgba($primary, 0.8);
+			}
 		}
 
-		&:hover {
-			box-shadow: 0 0 10px $primary;
-		}
-
-		&:active {
-			box-shadow: 0 0 10px $primary;
+		&:hover, &:active {
+			box-shadow: 0 0 15px $primary;
 		}
 	}
 }
