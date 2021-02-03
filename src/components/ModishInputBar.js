@@ -102,7 +102,10 @@ export default function ModishInputBar(props) {
                     />
                     <div className={`input-tab`}></div>
                 </div>
-                <button className="create-playlist hidden" name={ service } onClick={ createPlaylist }>Playlist not found: click here to create and sync one with this name (created as public)</button>
+                <button className="create-playlist hidden" name={ service } onClick={ createPlaylist }> 
+                Playlist not found: click here to create and sync one with this name 
+                {service == 'spotify' && ' (created as public)' }
+                </button>
             </div>
     );
 }
