@@ -7,8 +7,15 @@ $black: #000000;
 .authorizer {
     border-radius: 25px;
     box-shadow: 0 0 5px rgba(#dd99ff , 0.8);
-
     padding: 10px 20px;
+
+    &:hover, &:active {
+        box-shadow: 0 0 15px rgba(#dd99ff , 0.8);
+    }
+
+    &:focus {
+        outline: 0;
+    }
 
     &-spotify {
         background-color: $white;
