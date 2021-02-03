@@ -22,6 +22,8 @@ export default function MusicCard(props) {
         document.querySelector(`.playlist-checker-${service}`).classList.remove('hidden');
     }
 
+    let note = "Note: In order for us to successfuly link your playlist of choice, you must be the owner of this playlist.";
+
     return(
         <div className={`music-wrapper music-wrapper-${service}`}>
             <div className="music-header text-5xl">
@@ -32,7 +34,12 @@ export default function MusicCard(props) {
             </div>
             <div className={`playlist-checker playlist-checker-${service} hidden`}>
                 <p className="music-card-description">Enter the name of the playlist you want to link</p>
-                <p className="music-card-note">Note: In order for us to successfuly link your playlist of choice, you must be the owner of this playlist.</p>
+                <p className="music-card-note">
+                    {service == 'apple' ?
+                        'Note: In order for us to successfuly find your playlist, you must have at least one song already in it.' :
+                        'Note: In order for us to successfuly link your playlist of choice, you must be the owner of this playlist.'
+                    }
+                </p>
                 <ModishInputBar service={service} confirmPlaylist={confirmPlaylist}/>
             </div>
         </div>
