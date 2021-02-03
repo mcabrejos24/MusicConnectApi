@@ -47,7 +47,7 @@ export default function MusicCard(props) {
             ? "Note: In order for us to successfuly FIND your APPLE playlist of choice, you must have at least one song already in it."
             : "Note: In order for us to successfuly LINK your SPOTIFY playlist of choice, you must be the owner of this playlist."}
         </p>
-        <ModishInputBar service={service} confirmPlaylist={confirmPlaylist} />
+        <ModishInputBar service={service} confirmPlaylist={ confirmPlaylist } />
       </div>
     </div>
   );
