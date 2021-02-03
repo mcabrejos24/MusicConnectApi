@@ -36,8 +36,8 @@ export default function MusicCard(props) {
                 <p className="music-card-description">Enter the name of the playlist you want to link</p>
                 <p className="music-card-note">
                     {service == 'apple' ?
-                        'Note: In order for us to successfuly find your playlist, you must have at least one song already in it.' :
-                        'Note: In order for us to successfuly link your playlist of choice, you must be the owner of this playlist.'
+                        'Note: In order for us to successfuly FIND your APPLE playlist of choice, you must have at least one song already in it.' :
+                        'Note: In order for us to successfuly LINK your SPOTIFY playlist of choice, you must be the owner of this playlist.'
                     }
                 </p>
                 <ModishInputBar service={service} confirmPlaylist={confirmPlaylist}/>
