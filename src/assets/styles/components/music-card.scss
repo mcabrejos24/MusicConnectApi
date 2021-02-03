@@ -8,6 +8,14 @@ $color-white: #fff;
     padding: 10px 20px;
     border-radius: 20px;
 
+    &:hover {
+        box-shadow: 0 0 36px rgba(77, 166, 255, 0.8);
+
+        .music-header {
+            box-shadow: 0 0 36px rgba(77, 166, 255, 0.8);
+        }
+    }
+
     @media screen and (min-width: 768px) {
         width: 80%;
         padding: 10px 20px;
@@ -22,6 +30,8 @@ $color-white: #fff;
     top: -60px;
     background-color: $color-white;
     font-family: system-ui, sans-serif;
+
+
 }
 
 .authorizer-button-wrapper {
