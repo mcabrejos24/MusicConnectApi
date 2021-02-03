@@ -22,7 +22,7 @@ $empty: #bebebe;
 			color: $empty;
 
 			&.active {
-				animation: textFill 0.5s linear 2s 1 normal both;
+				animation: textFill 0s linear 2s 1 normal both;
 			}
 
 			&.active:first-child {
@@ -62,11 +62,11 @@ $empty: #bebebe;
 			}
 			
 			&.active:nth-child(2)::before {
-				animation: step2FillCircle 0s linear 2s 1 normal both, step2FillIcon 0s linear 2s 1 normal both;
+				animation: step2Fill 0s linear 2s 1 normal both;
 			}
 
 			&.active:nth-child(3)::before {
-				animation: step3FillCircle 0s linear 2s 1 normal both, step3FillIcon 0s linear 2s 1 normal both;
+				animation: step3Fill 0s linear 2s 1 normal both;
 			}
 
 			&::after {
@@ -143,43 +143,29 @@ $empty: #bebebe;
 	}
 }
 
-@keyframes step2FillCircle {
-	from {
-		border-color: $empty;
-		color: $empty;
-	}
-	to {
-		border-color: $secondary;
-		color: $secondary;
-	}
-}
-
-@keyframes step2FillIcon {
+@keyframes step2Fill {
 	from {
 		content: url('../../img/svg/second_playlist.svg');
+		border-color: $empty;
+		color: $empty;
 	}
 	to {
 		content: url('../../img/svg/second_playlist_active.svg');
-	}
-}
-
-@keyframes step3FillCircle {
-	from {
-		border-color: $empty;
-		color: $empty;
-	}
-	to {
 		border-color: $secondary;
 		color: $secondary;
 	}
 }
 
-@keyframes step3FillIcon {
+@keyframes step3Fill {
 	from {
 		content: url('../../img/svg/sync.svg');
+		border-color: $empty;
+		color: $empty;
 	}
 	to {
 		content: url('../../img/svg/sync_active.svg');
+		border-color: $secondary;
+		color: $secondary;
 	}
 }
 
