@@ -62,11 +62,11 @@ $empty: #bebebe;
 			}
 			
 			&.active:nth-child(2)::before {
-				animation: step2Fill 0.5s linear 2s 1 normal both;
+				animation: step2FillCircle 0.5s linear 2s 1 normal both, step2FillIcon 0s linear 2.5s 1 normal both;
 			}
 
 			&.active:nth-child(3)::before {
-				animation: step3Fill 0.5s linear 2s 1 normal both;
+				animation: step3FillCircle 0.5s linear 2s 1 normal both, step3FillIcon 0s linear 2.5s 1 normal both;
 			}
 
 			&::after {
@@ -143,29 +143,43 @@ $empty: #bebebe;
 	}
 }
 
-@keyframes step2Fill {
+@keyframes step2FillCircle {
 	from {
-		content: url('../../img/svg/second_playlist.svg');
 		border-color: $empty;
 		color: $empty;
 	}
 	to {
-		content: url('../../img/svg/second_playlist_active.svg');
 		border-color: $secondary;
 		color: $secondary;
 	}
 }
 
-@keyframes step3Fill {
+@keyframes step2FillIcon {
 	from {
-		content: url('../../img/svg/sync.svg');
+		content: url('../../img/svg/second_playlist.svg');
+	}
+	to {
+		content: url('../../img/svg/second_playlist_active.svg');
+	}
+}
+
+@keyframes step3FillCircle {
+	from {
 		border-color: $empty;
 		color: $empty;
 	}
 	to {
-		content: url('../../img/svg/sync_active.svg');
 		border-color: $secondary;
 		color: $secondary;
+	}
+}
+
+@keyframes step3FillIcon {
+	from {
+		content: url('../../img/svg/sync.svg');
+	}
+	to {
+		content: url('../../img/svg/sync_active.svg');
 	}
 }
 
