@@ -1,12 +1,22 @@
 $primary: #4da6ff;
 $text-color: #65676b;
 $color-white: #fff;
+$spotify-primary: #1DB954;
+$applemusic-primary: #f94c57;
 
 .music-wrapper {
     width: 90%;
     box-shadow: 0 0 7px rgba($primary , 0.8);
     padding: 10px 20px;
     border-radius: 20px;
+
+    &:hover, &:active {
+        box-shadow: 0 0 15px rgba(77, 166, 255, 0.8);
+
+        .music-header {
+            box-shadow: 0 0 15px rgba(77, 166, 255, 0.8);
+        }
+    }
 
     @media screen and (min-width: 768px) {
         width: 80%;
@@ -22,6 +32,22 @@ $color-white: #fff;
     top: -60px;
     background-color: $color-white;
     font-family: system-ui, sans-serif;
+    display: flex;
+    justify-content: center;
+
+    a {
+        &.header-title-apple {
+            &:hover, &:active {
+                color: $applemusic-primary;
+            }
+        }
+
+        &.header-title-spotify {
+            &:hover, &:active {
+                color: $spotify-primary;
+            }
+        }
+    }
 }
 
 .authorizer-button-wrapper {

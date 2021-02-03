@@ -22,7 +22,7 @@ $empty: #bebebe;
 			color: $empty;
 
 			&.active {
-				animation: textFill 0.5s linear 2s 1 normal both;
+				animation: textFill 0s linear 2s 1 normal both;
 			}
 
 			&.active:first-child {
@@ -62,11 +62,11 @@ $empty: #bebebe;
 			}
 			
 			&.active:nth-child(2)::before {
-				animation: step2Fill 0.5s linear 2s 1 normal both;
+				animation: step2Fill 0s linear 2s 1 normal both;
 			}
 
 			&.active:nth-child(3)::before {
-				animation: step3Fill 0.5s linear 2s 1 normal both;
+				animation: step3Fill 0s linear 2s 1 normal both;
 			}
 
 			&::after {
@@ -122,14 +122,14 @@ $empty: #bebebe;
 			opacity: 0.5;
 			cursor: not-allowed;
 			color: rgba($tertiary, 0.5);
+
+			&:hover, &:active {
+				box-shadow: 0 0 7px rgba($primary, 0.8);
+			}
 		}
 
-		&:hover {
-			box-shadow: 0 0 10px $primary;
-		}
-
-		&:active {
-			box-shadow: 0 0 10px $primary;
+		&:hover, &:active {
+			box-shadow: 0 0 15px $primary;
 		}
 	}
 }
