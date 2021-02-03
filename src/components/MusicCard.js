@@ -26,8 +26,8 @@ export default function MusicCard(props) {
 
     return(
         <div className={`music-wrapper music-wrapper-${service}`}>
-            <div className="music-header text-5xl">
-                <a href={ link }>{ linkName }</a>
+            <div className={`music-header text-5xl`}>
+                <a className={`header-title-${service}`} href={ link }>{ linkName }</a>
             </div>
             <div className={`authorizer-button-wrapper authorizer-button-wrapper-${service}`}>
                 {React.cloneElement(props.children, {setter: setShowInput})}
