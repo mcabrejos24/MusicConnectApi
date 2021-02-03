@@ -62,11 +62,11 @@ $empty: #bebebe;
 			}
 			
 			&.active:nth-child(2)::before {
-				animation: step2FillCircle 0.5s linear 2s 1 normal both, step2FillIcon 0s linear 2.5s 1 normal both;
+				animation: step2FillCircle 0s linear 2s 1 normal both, step2FillIcon 0s linear 2s 1 normal both;
 			}
 
 			&.active:nth-child(3)::before {
-				animation: step3FillCircle 0.5s linear 2s 1 normal both, step3FillIcon 0s linear 2.5s 1 normal both;
+				animation: step3FillCircle 0s linear 2s 1 normal both, step3FillIcon 0s linear 2s 1 normal both;
 			}
 
 			&::after {
