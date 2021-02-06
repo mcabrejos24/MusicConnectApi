@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
 import '../style.scss';
+import { NavLink } from 'react-router-dom';
 
 export default function ConnectOptions(props) {
     const { description } = props;
