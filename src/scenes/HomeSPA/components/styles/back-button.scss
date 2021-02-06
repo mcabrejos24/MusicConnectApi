@@ -6,7 +6,6 @@ $primary: #7f8ff4;
     margin: 20px 10px 2px 10px;
 
     .back-btn {
-        padding: 20px 40px;
         border-radius: 20px;
         letter-spacing: 1px;
         font-weight: 700;
@@ -15,9 +14,14 @@ $primary: #7f8ff4;
         color: darken($primary, 4);
         overflow: hidden;
         position: relative;
+        transition: all 0.2s;
+        padding: 15px 15px;
+        margin: 15px 0 0 20px;
 
-        margin: 15px 50px;
-        transition: all 0.3s;
+        @media screen and (min-width: 768px) {
+            margin: 15px 50px;
+            padding: 20px 40px;
+        }
 
         &:focus {
             outline: none;
@@ -28,7 +32,7 @@ $primary: #7f8ff4;
             position: absolute;
             letter-spacing: 1px;
             color: #fff;
-            transition: all 0.3s;
+            transition: all 0.2s;
             left: 100%;
             opacity: 0;
         }
