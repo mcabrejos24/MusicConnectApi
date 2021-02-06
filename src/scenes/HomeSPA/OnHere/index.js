@@ -1,9 +1,10 @@
-import './styles.scss';
+import './style.scss';
+import { useState } from 'react';
 import AuthorizerAppleMusic from '../../../components/AuthorizerAppleMusic';
 import AuthorizerSpotify from '../../../components/AuthorizerSpotify';
 import MusicCard from '../../../components/MusicCard';
 import SyncElement from '../../../components/SyncElement';
-import { useState } from 'react';
+import BackButton from '../../../components/BackButton';
 
 export default function OnHere() {
     const [appleReady, setAppleReady] = useState(false);
@@ -11,6 +12,7 @@ export default function OnHere() {
 
     return (
         <div className="content">
+            <BackButton></BackButton>
             <div className="authorization-wrapper">
                 {/* Apple Music */}
                 <MusicCard service={'apple'} link={'https://music.apple.com/us/browse'} linkName={'Apple'} confirmPlaylist={setAppleReady}>
