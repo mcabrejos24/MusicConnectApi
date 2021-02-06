@@ -1,0 +1,49 @@
+$primary: #7f8ff4;
+
+.back-btn-container {
+    position: relative;
+    width: 100%;
+    margin: 20px 10px 2px 10px;
+}
+
+.btn {
+    padding: 20px 40px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    box-shadow: 0 0 7px rgba($primary, 0.8);
+	color: darken($primary, 4);
+    overflow: hidden;
+    position: relative;
+
+    margin: 15px 50px;
+    transition: all 0.3s;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::before {
+        content: "BACK";
+        position: absolute;
+        letter-spacing: 1px;
+        color: #fff;
+        transition: all 0.3s;
+        left: 100%;
+	    opacity: 0;
+    }
+
+    &:active:before {
+        color: darken($primary, 10);
+    }
+
+    &:hover {
+        background: $primary;
+    }
+
+    &:hover:before {
+        left: 30%;
+        opacity: 1;
+    }
+}
