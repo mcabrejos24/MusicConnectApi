@@ -1,11 +1,11 @@
 import BackButton from '../components/BackButton';
 
-export default function Texting() {
+export default function TextEmail() {
 
     return (
         <div className="content">
             <BackButton></BackButton>
-            <p>Texting Page</p>
+            <p>Email Page</p>
         </div>
     );
 }
