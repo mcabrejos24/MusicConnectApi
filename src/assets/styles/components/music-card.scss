@@ -34,6 +34,7 @@ $applemusic-primary: #f94c57;
     font-family: system-ui, sans-serif;
     display: flex;
     justify-content: center;
+    text-transform: capitalize;
 
     a {
         &.header-title-apple {
