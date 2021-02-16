@@ -68,8 +68,25 @@ export default function AboutUs() {
                 </div>
 
             </div>
-            
-            {/* ask manuel if i'm being included lol */}
+
+            <div className="socialButtons">
+                <div className="manuelsButtons"> 
+                        <a className="linkden1" href="https://www.nike.com/"><button type="button" className="bg-red-500 border-2 border-black ">Linkden</button></a>
+                        
+                        <a className="gitHub1"href="https://www.amazon.com/?ref_=nav_signin"><button type="button" className="bg-red-500 border-2 border-black">Github</button></a>
+                </div>
+                <div className="vijaysButtons"> 
+                        <a className="linkden2" href="https://cynthiagale.com/"><button type="button" className="bg-red-500 border-2 border-black ">Linkden</button></a>
+                        
+                        <a className="gitHub2" href="https://www.danielwellington.com/us/"><button type="button" className="bg-red-500 border-2 border-black">Github</button></a>
+                </div>
+                <div className="gisellesButtons"> 
+                        <a className="linkden3" href="https://brandpierre.com/"><button type="button" className="bg-red-500 border-2 border-black ">Linkden</button></a>
+                        
+                        <a className="gitHub3" href="https://www.fender.com/"><button type="button" className="bg-red-500 border-2 border-black">Github</button></a>
+                </div>
+            </div>
+        
 
             <br></br>
             <br></br>
