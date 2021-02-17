@@ -14,7 +14,6 @@ $text-color: #65676b;
     align-items: center;
     margin-top: 30px;
 
-
     .contact-button-wrapper {
         position: relative;
         width: 50%;
@@ -35,12 +34,10 @@ $text-color: #65676b;
 
         *:active {
             color: darken($tertiary, 10);
-
         }
 
         .emailButton {
             width: 48px;
-         
         }
 
         .textButton {
@@ -57,19 +54,19 @@ $text-color: #65676b;
 
     .input-contains {
         * {
-          box-shadow: 0 0 5px $contains !important;
-          &:focus {
-            box-shadow: 0 0 15px 1px $contains !important;
-          }
+            box-shadow: 0 0 5px $contains !important;
+            &:focus {
+                box-shadow: 0 0 15px 1px $contains !important;
+            }
         }
     }
-    
+
     .input-does-not-contain {
         > * {
-          box-shadow: 0 0 5px $doesNotContain !important;
-          &:focus {
-            box-shadow: 0 0 15px 1px $doesNotContain !important;
-          }
+            box-shadow: 0 0 5px $doesNotContain !important;
+            &:focus {
+                box-shadow: 0 0 15px 1px $doesNotContain !important;
+            }
         }
     }
 
@@ -89,15 +86,5 @@ $text-color: #65676b;
                 box-shadow: 0 0 15px 1px $secondary;
             }
         }
-
-        .emailInput {
-
-        }
-
-        .textInput {
-
-        }
-
-        
     }
 }
