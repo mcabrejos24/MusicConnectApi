@@ -1,0 +1,85 @@
+$primary: #4da6ff;
+$secondary: #dd99ffcc;
+$tertiary: #7f8ff4;
+$color-black: #000;
+$color-white: #fff;
+$contains: #44ff82;
+$doesNotContain: #fd5b5b;
+$text-color: #65676b;
+
+.contact-input-bar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+
+
+    .contact-button-wrapper {
+        position: relative;
+        width: 50%;
+        left: 10px;
+        color: $tertiary;
+        outline: 0;
+
+        *:focus {
+            outline: 0;
+        }
+
+        *:hover {
+            background-color: $tertiary;
+            padding: 1px 4px;
+            border-radius: 5px;
+            color: $color-white;
+        }
+
+        *:active {
+            color: darken($tertiary, 10);
+
+        }
+
+        .emailButton {
+            width: 48px;
+         
+        }
+
+        .textButton {
+            width: 38px;
+        }
+
+        .activated {
+            background-color: $tertiary;
+            padding: 1px 4px;
+            border-radius: 5px;
+            color: $color-white;
+        }
+    }
+
+    .contact-input-wrapper {
+        margin-top: 10px;
+        margin-bottom: 30px;
+        width: 50%;
+
+        .contactInput {
+            width: 100%;
+            padding: 22px 18px;
+            border-radius: 20px;
+            box-shadow: 0 0 5px $secondary;
+            outline: none;
+
+            &:focus {
+                box-shadow: 0 0 20px 5px $secondary;
+            }
+        }
+
+        .emailInput {
+
+        }
+
+        .textInput {
+            
+        }
+
+        
+    }
+}
