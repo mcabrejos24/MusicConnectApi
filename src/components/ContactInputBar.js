@@ -6,22 +6,16 @@ export default function ContactInputBar(props) {
     const { service } = props;
     const [playlistValue, setPlaylistValue] = useState("");
 
-
-    const debouncedSave = useCallback(
-		debounce(nextTarget => {
-
-            // checkPlaylist(nextTarget); 
-            // pass in function here
-
-        }, 1000),
-		[], 
-    );
-
-    const handleChange = event => {
-        const {target: nextTarget} = event;
-     
-        debouncedSave(nextTarget);
-	};
+    let filter = [];
+    const keypadZero = 48;
+    for(let i=0; i<=9; i++) {
+        filter.push(i+keypadZero);
+    }
+    filter.push("Backspace");
+    filter.push("ArrowLeft");
+    filter.push("ArrowRight");
+    filter.push("Del");
+    filter.push("Meta");
 
     function changeToEmail() {
         document.querySelector(".emailButton").classList.add("activated");
@@ -29,7 +23,6 @@ export default function ContactInputBar(props) {
         const contactInput = document.querySelector(".contactInput");
         contactInput.setAttribute("type", "email")
         contactInput.setAttribute("placeholder", "Enter Email");
-        // contactInput.removeAttribute("pattern");
         contactInput.classList.remove("textInput");
         contactInput.classList.add("emailInput");
         contactInput.value = "";
@@ -41,27 +34,11 @@ export default function ContactInputBar(props) {
         document.querySelector(".emailButton").classList.remove("activated");
         const contactInput = document.querySelector(".contactInput");
         contactInput.setAttribute("type", "tel")
-        contactInput.setAttribute("placeholder", "Enter Phone Number");
-        // contactInput.setAttribute("pattern", "[0-9]{3}-[0-9]{3}-[0-9]{4}");
+        contactInput.setAttribute("placeholder", "Enter Phone Number (US support only)");
         contactInput.classList.remove("emailInput");
         contactInput.classList.add("textInput");
         contactInput.value = "";
     }
-
-    let filter = [];
-
-    const keypadZero = 48;
-    // const numpadZero = 96;
-    for(let i=0; i<=9; i++) {
-        filter.push(i+keypadZero);
-        // filter.push(i+numpadZero);
-    }
-
-    filter.push("Backspace");
-    filter.push("ArrowLeft");
-    filter.push("ArrowRight");
-    filter.push("Del");
-    filter.push("Meta");
 
     function checkInput(event) { // onKeyDown
         const target = event.target;
@@ -70,20 +47,20 @@ export default function ContactInputBar(props) {
         if (target.type === 'tel') {
             if(filter.indexOf(event.key.charCodeAt(0)) < 0 && filter.indexOf(event.key) < 0) {
                 event.preventDefault();
-                alert("Whoops that's not a digit! please enter a digit to continue.");
+                alert("Whoops that's not a digit! please enter a digit to continue."); // tell user to enter a number
             }
         }
     }
 
-    function formatAndValidate(event) {
+    function formatAndValidate(event) { // onKeyUp
         const target = event.target;
         if (!target || !target.type) { console.error('Error: could not find target or target value from contact bar.'); return; }
 
         if (target.type === 'tel') {
-            event.target.value = formatTel(target);
-            
+            target.value = formatTel(target);
+            validatePhone(target.value);
         } else if (target.type === 'email') {
-            // console.log(event.key); // just need to revert back
+            validateEmail(target.value);
         } else {
             console.error('Error: target type is not tel or email');
         }
@@ -92,7 +69,6 @@ export default function ContactInputBar(props) {
     function formatTel(target) {
         let value = target.value;
         if(value.length > 14) return value.slice(0, -1); // stops taking input at 14 characters
-
         value = value.replaceAll("-","");
         value = value.replaceAll("(","");
         value = value.replaceAll(")","");
@@ -104,12 +80,31 @@ export default function ContactInputBar(props) {
         else if(value.length > 6) {
             value = "(" + value.slice(0,3) + ") " + value.slice(3,6) + "-" + value.slice(6);
         }
-
         return value;
     }
 
-    return (
+    function validatePhone(num){
+        let inputElementWrapper = document.querySelector(`.contact-input-wrapper`);
+        if (!num) { // resets style
+            inputElementWrapper.classList.remove('input-contains');
+            inputElementWrapper.classList.remove('input-does-not-contain');
+            return;
+        }
+        const inputIsNum = /\(\d{3}\)[ ]?\d{3}[-]?\d{4}/.test(num); // check length and make sure it matches type
+        if(inputIsNum) {
+            inputElementWrapper.classList.add('input-contains');
+            if (inputElementWrapper.classList.contains('input-does-not-contain')) inputElementWrapper.classList.remove('input-does-not-contain');
+        } else {
+            inputElementWrapper.classList.add('input-does-not-contain');
+            if (inputElementWrapper.classList.contains('input-contains')) inputElementWrapper.classList.remove('input-contains');
+        }
+    }
 
+    function validateEmail(email) {
+        console.log(email);
+    }
+
+    return (
             <div className="contact-input-bar">
                 <div className="contact-button-wrapper">
                     <button className="emailButton activated" onClick={ changeToEmail }>Email</button> / <button className="textButton" onClick={ changeToText }>Text</button>
@@ -126,7 +121,5 @@ export default function ContactInputBar(props) {
                     />
                 </div>
             </div>
-
-
     );
 }

@@ -55,6 +55,24 @@ $text-color: #65676b;
         }
     }
 
+    .input-contains {
+        * {
+          box-shadow: 0 0 5px $contains !important;
+          &:focus {
+            box-shadow: 0 0 15px 1px $contains !important;
+          }
+        }
+    }
+    
+    .input-does-not-contain {
+        > * {
+          box-shadow: 0 0 5px $doesNotContain !important;
+          &:focus {
+            box-shadow: 0 0 15px 1px $doesNotContain !important;
+          }
+        }
+    }
+
     .contact-input-wrapper {
         margin-top: 10px;
         margin-bottom: 30px;
@@ -68,7 +86,7 @@ $text-color: #65676b;
             outline: none;
 
             &:focus {
-                box-shadow: 0 0 20px 5px $secondary;
+                box-shadow: 0 0 15px 1px $secondary;
             }
         }
 
@@ -77,7 +95,7 @@ $text-color: #65676b;
         }
 
         .textInput {
-            
+
         }
 
         
