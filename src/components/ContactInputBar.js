@@ -26,7 +26,9 @@ export default function ContactInputBar(props) {
         contactInput.classList.remove("textInput");
         contactInput.classList.add("emailInput");
         contactInput.value = "";
-
+        let inputElementWrapper = document.querySelector(`.contact-input-wrapper`);
+        inputElementWrapper.classList.remove('input-contains');
+        inputElementWrapper.classList.remove('input-does-not-contain');
     }
 
     function changeToText() {
@@ -38,6 +40,9 @@ export default function ContactInputBar(props) {
         contactInput.classList.remove("emailInput");
         contactInput.classList.add("textInput");
         contactInput.value = "";
+        let inputElementWrapper = document.querySelector(`.contact-input-wrapper`);
+        inputElementWrapper.classList.remove('input-contains');
+        inputElementWrapper.classList.remove('input-does-not-contain');
     }
 
     function checkInput(event) { // onKeyDown
@@ -101,7 +106,20 @@ export default function ContactInputBar(props) {
     }
 
     function validateEmail(email) {
-        console.log(email);
+        let inputElementWrapper = document.querySelector(`.contact-input-wrapper`);
+        if (!email) { // resets style
+            inputElementWrapper.classList.remove('input-contains');
+            inputElementWrapper.classList.remove('input-does-not-contain');
+            return;
+        }
+        const inputIsEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email.toLowerCase());
+        if(inputIsEmail) {
+            inputElementWrapper.classList.add('input-contains');
+            if (inputElementWrapper.classList.contains('input-does-not-contain')) inputElementWrapper.classList.remove('input-does-not-contain');
+        } else {
+            inputElementWrapper.classList.add('input-does-not-contain');
+            if (inputElementWrapper.classList.contains('input-contains')) inputElementWrapper.classList.remove('input-contains');
+        }
     }
 
     return (
