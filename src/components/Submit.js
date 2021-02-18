@@ -1,6 +1,5 @@
-import userEvent from '@testing-library/user-event';
 import '../assets/styles/components/submit.scss';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 
 export default function SyncElement(props) {

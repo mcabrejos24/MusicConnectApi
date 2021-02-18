@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import '../assets/styles/components/sync-element.scss';
-import { getAuthValue } from "../variables/authValues";
+// import { getAuthValue } from "../variables/authValues";
 
 export default function SyncElement(props) {
     let { spotifyConfirmed } = props;

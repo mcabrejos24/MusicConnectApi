@@ -4,7 +4,6 @@ import BackButton from '../components/BackButton';
 import MusicCard2 from '../../../components/MusicCard2';
 import AuthorizerAppleMusic from '../../../components/AuthorizerAppleMusic';
 import AuthorizerSpotify from '../../../components/AuthorizerSpotify';
-import SyncElement from '../../../components/SyncElement';
 import Submit from '../../../components/Submit';
 
 
