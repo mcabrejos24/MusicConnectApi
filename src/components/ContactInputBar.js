@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../assets/styles/components/contact-input-bar.scss";
 
 export default function ContactInputBar(props) {
@@ -7,6 +7,7 @@ export default function ContactInputBar(props) {
 
   const [provider, setProvider] = useState('select');
   const [phoneInput, setPhoneInput] = useState(false);
+  const [emailInput, setEmailInput] = useState(false);
 
   let filter = [];
   const keypadZero = 48;
@@ -18,6 +19,14 @@ export default function ContactInputBar(props) {
   filter.push("ArrowRight");
   filter.push("Del");
   filter.push("Meta");
+
+  useEffect(() => {
+    if((provider !== 'select' && phoneInput) || emailInput) {
+      setContactReady(true);
+    } else {
+      setContactReady(false);
+    }
+  }, [provider, phoneInput, emailInput]);
 
   function changeToEmail() {
     document.querySelector(".emailButton").classList.add("activated");
@@ -31,7 +40,8 @@ export default function ContactInputBar(props) {
     let inputElementWrapper = document.querySelector(`.contact-input-wrapper`);
     inputElementWrapper.classList.remove("input-contains");
     inputElementWrapper.classList.remove("input-does-not-contain");
-    setContactReady(false);
+    setEmailInput(false);
+    setProvider(false);
     setPhoneInput(false);
   }
 
@@ -50,7 +60,9 @@ export default function ContactInputBar(props) {
     let inputElementWrapper = document.querySelector(`.contact-input-wrapper`);
     inputElementWrapper.classList.remove("input-contains");
     inputElementWrapper.classList.remove("input-does-not-contain");
-    setContactReady(false);
+    setEmailInput(false);
+    setProvider(false);
+    setPhoneInput(false);
   }
 
   function checkInput(event) { // onKeyDown
@@ -123,15 +135,12 @@ export default function ContactInputBar(props) {
       return;
     }
     const inputIsNum = /\(\d{3}\)[ ]?\d{3}[-]?\d{4}/.test(num); // check length and make sure it matches type
+    setPhoneInput(inputIsNum);
     if (inputIsNum) {
-      setPhoneInput(true);
       inputElementWrapper.classList.add("input-contains");
       if (inputElementWrapper.classList.contains("input-does-not-contain"))
         inputElementWrapper.classList.remove("input-does-not-contain");
-      if(provider !== 'select') setContactReady(true);
     } else {
-      setContactReady(false);
-      setPhoneInput(false);
       inputElementWrapper.classList.add("input-does-not-contain");
       if (inputElementWrapper.classList.contains("input-contains"))
         inputElementWrapper.classList.remove("input-contains");
@@ -149,14 +158,12 @@ export default function ContactInputBar(props) {
     // Check to see if email is in the correct format ex: email@someEmail.com, school@live.unc.edu, etc.
     const emailFormat = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:)*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:|\\)+)\])/;
     const inputIsEmail = emailFormat.test(email.toLowerCase());
-
+    setEmailInput(inputIsEmail);
     if (inputIsEmail) {
-      setContactReady(true);
       inputElementWrapper.classList.add("input-contains");
       if (inputElementWrapper.classList.contains("input-does-not-contain"))
         inputElementWrapper.classList.remove("input-does-not-contain");
     } else {
-      setContactReady(false);
       inputElementWrapper.classList.add("input-does-not-contain");
       if (inputElementWrapper.classList.contains("input-contains"))
         inputElementWrapper.classList.remove("input-contains");
@@ -165,14 +172,6 @@ export default function ContactInputBar(props) {
 
   function onProviderChange({target}) {
     setProvider(target.value);
-
-    if(target.value !== 'select' && phoneInput) {
-      setContactReady(true);
-    } else {
-      setContactReady(false);
-      
-    }
-    
   }
 
   return (
