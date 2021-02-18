@@ -1,8 +1,12 @@
+import { useState } from "react";
 import "../assets/styles/components/contact-input-bar.scss";
 
 export default function ContactInputBar(props) {
   const { service } = props;
   const { setContactReady } = props;
+
+  const [provider, setProvider] = useState('select');
+  const [phoneInput, setPhoneInput] = useState(false);
 
   let filter = [];
   const keypadZero = 48;
@@ -28,6 +32,7 @@ export default function ContactInputBar(props) {
     inputElementWrapper.classList.remove("input-contains");
     inputElementWrapper.classList.remove("input-does-not-contain");
     setContactReady(false);
+    setPhoneInput(false);
   }
 
   function changeToText() {
@@ -119,12 +124,14 @@ export default function ContactInputBar(props) {
     }
     const inputIsNum = /\(\d{3}\)[ ]?\d{3}[-]?\d{4}/.test(num); // check length and make sure it matches type
     if (inputIsNum) {
-      setContactReady(true);
+      setPhoneInput(true);
       inputElementWrapper.classList.add("input-contains");
       if (inputElementWrapper.classList.contains("input-does-not-contain"))
         inputElementWrapper.classList.remove("input-does-not-contain");
+      if(provider !== 'select') setContactReady(true);
     } else {
       setContactReady(false);
+      setPhoneInput(false);
       inputElementWrapper.classList.add("input-does-not-contain");
       if (inputElementWrapper.classList.contains("input-contains"))
         inputElementWrapper.classList.remove("input-contains");
@@ -156,6 +163,18 @@ export default function ContactInputBar(props) {
     }
   }
 
+  function onProviderChange({target}) {
+    setProvider(target.value);
+
+    if(target.value !== 'select' && phoneInput) {
+      setContactReady(true);
+    } else {
+      setContactReady(false);
+      
+    }
+    
+  }
+
   return (
     <div className="contact-input-bar">
       <div className="contact-button-wrapper">
@@ -177,6 +196,33 @@ export default function ContactInputBar(props) {
           className="contactInput emailInput"
           placeholder="Enter Email"
         />
+      </div>
+      
+      <div className="phone-provider-wrapper">
+        <label for="providers">Choose your provider: </label>
+        <select name="providers" id="providers" value={provider} onChange={onProviderChange}>
+          <option value="select">Select an option</option>
+          <option value="att">AT&T</option>
+          <option value="boostmobile">Boost Mobile</option>
+          <option value="c-spire">C-Spire</option>
+          <option value="consumercellular">Consumer Cellular</option>
+          <option value="cricket">Cricket</option>
+          <option value="googlefi">Google Fi</option>
+          <option value="metropcs">Metro PCS</option>
+          <option value="mintmobile">Mint Mobile</option>
+          <option value="pageplus">Page Plus</option>
+          <option value="redpocket">Red Pocket</option>
+          <option value="republicwireless">Republic Wireless</option>
+          <option value="simplemobile">Simple Mobile</option>
+          <option value="sprint">Sprint</option>
+          <option value="tmobile">T-Mobile</option>
+          <option value="ting">Ting</option>
+          <option value="tracfone">Tracfone</option>
+          <option value="uscellular">U.S. Cellular</option>
+          <option value="verizon">Verizon</option>
+          <option value="virginmobile">Virgin Mobile</option>
+          <option value="xfinitymobile">Xfinity Mobile</option>
+        </select>
       </div>
     </div>
   );
