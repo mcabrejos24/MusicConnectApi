@@ -8,15 +8,14 @@ export default function SyncElement(props) {
     const { playlistReady } = props;
     const { contactReady } = props;
 
-
-    // let contactValue = document.querySelector('.modish-input-bar--wrapper');
-
-    // console.log(contactValue.classList);
-
-
     useEffect(() => {
-    
+        let submitButton = document.querySelector('.submit-button');
 
+        if(playlistReady && contactReady) {
+            submitButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
+        }
     }, [playlistReady, contactReady]);
 
 
@@ -26,7 +25,9 @@ export default function SyncElement(props) {
         const contactValue = document.querySelector('.contactInput')?.value;
         const hasValue = playlistValue && playlistType && contactValue;
         if (!hasValue) return; //maybe do some error log
-        // console.log('submit');
+        console.log('Playlist value is:' + playlistValue);
+        console.log('Playlist type is:' + playlistType);
+        console.log('Contact value is:' + contactValue);
     }
 
     return (
