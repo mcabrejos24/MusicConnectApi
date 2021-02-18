@@ -38,8 +38,10 @@ export default function ContactInputBar(props) {
     contactInput.classList.add("emailInput");
     contactInput.value = "";
     let inputElementWrapper = document.querySelector(`.contact-input-wrapper`);
+    let providerWrapper = document.querySelector('.phone-provider-wrapper');
     inputElementWrapper.classList.remove("input-contains");
     inputElementWrapper.classList.remove("input-does-not-contain");
+    providerWrapper.classList.add('hidden');
     setEmailInput(false);
     setProvider(false);
     setPhoneInput(false);
@@ -57,9 +59,11 @@ export default function ContactInputBar(props) {
     contactInput.classList.remove("emailInput");
     contactInput.classList.add("textInput");
     contactInput.value = "";
-    let inputElementWrapper = document.querySelector(`.contact-input-wrapper`);
+    let inputElementWrapper = document.querySelector('.contact-input-wrapper');
+    let providerWrapper = document.querySelector('.phone-provider-wrapper');
     inputElementWrapper.classList.remove("input-contains");
     inputElementWrapper.classList.remove("input-does-not-contain");
+    providerWrapper.classList.remove('hidden');
     setEmailInput(false);
     setProvider(false);
     setPhoneInput(false);
