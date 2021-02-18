@@ -32,7 +32,7 @@ export default function SyncElement(props) {
     return (
         <div className="submit-container">
             <button className="submit-button" onClick={ submitPlaylist }>
-                Sync Playlists
+                Submit
             </button>
         </div>
     )
