@@ -2,6 +2,7 @@ import "../assets/styles/components/contact-input-bar.scss";
 
 export default function ContactInputBar(props) {
   const { service } = props;
+  const { setContactReady } = props;
 
   let filter = [];
   const keypadZero = 48;
@@ -26,6 +27,7 @@ export default function ContactInputBar(props) {
     let inputElementWrapper = document.querySelector(`.contact-input-wrapper`);
     inputElementWrapper.classList.remove("input-contains");
     inputElementWrapper.classList.remove("input-does-not-contain");
+    setContactReady(false);
   }
 
   function changeToText() {
@@ -43,10 +45,10 @@ export default function ContactInputBar(props) {
     let inputElementWrapper = document.querySelector(`.contact-input-wrapper`);
     inputElementWrapper.classList.remove("input-contains");
     inputElementWrapper.classList.remove("input-does-not-contain");
+    setContactReady(false);
   }
 
-  function checkInput(event) {
-    // onKeyDown
+  function checkInput(event) { // onKeyDown
     const target = event.target;
     if (!target || !target.type) {
       console.error(
@@ -66,8 +68,7 @@ export default function ContactInputBar(props) {
     }
   }
 
-  function formatAndValidate(event) {
-    // onKeyUp
+  function formatAndValidate(event) { // onKeyUp
     const target = event.target;
     if (!target || !target.type) {
       console.error(
@@ -118,10 +119,12 @@ export default function ContactInputBar(props) {
     }
     const inputIsNum = /\(\d{3}\)[ ]?\d{3}[-]?\d{4}/.test(num); // check length and make sure it matches type
     if (inputIsNum) {
+      setContactReady(true);
       inputElementWrapper.classList.add("input-contains");
       if (inputElementWrapper.classList.contains("input-does-not-contain"))
         inputElementWrapper.classList.remove("input-does-not-contain");
     } else {
+      setContactReady(false);
       inputElementWrapper.classList.add("input-does-not-contain");
       if (inputElementWrapper.classList.contains("input-contains"))
         inputElementWrapper.classList.remove("input-contains");
@@ -141,10 +144,12 @@ export default function ContactInputBar(props) {
     const inputIsEmail = emailFormat.test(email.toLowerCase());
 
     if (inputIsEmail) {
+      setContactReady(true);
       inputElementWrapper.classList.add("input-contains");
       if (inputElementWrapper.classList.contains("input-does-not-contain"))
         inputElementWrapper.classList.remove("input-does-not-contain");
     } else {
+      setContactReady(false);
       inputElementWrapper.classList.add("input-does-not-contain");
       if (inputElementWrapper.classList.contains("input-contains"))
         inputElementWrapper.classList.remove("input-contains");

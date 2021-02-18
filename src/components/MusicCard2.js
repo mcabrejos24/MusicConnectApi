@@ -6,6 +6,7 @@ import ContactInputBar from "./ContactInputBar";
 
 export default function MusicCard2(props) {
     const { confirmPlaylist } = props;
+    const { setContactReady } = props;
 
     const [service, setService] = useState(false);
     const [linkName, setLinkName] = useState("");    
@@ -24,7 +25,7 @@ export default function MusicCard2(props) {
         }
     }, [service]);
 
-    if (!confirmPlaylist) {
+    if (!confirmPlaylist && !setContactReady) {
       console.error("No confirmPlaylist passed.");
       return;
     }
@@ -63,7 +64,7 @@ export default function MusicCard2(props) {
         <p className="music-card-note">
           Note: This information is used so your peer receives an invitation to sync their playlist. We do not save this information.
         </p>
-        <ContactInputBar service={service} />
+        <ContactInputBar service={service} setContactReady={setContactReady}/>
 
       </div>
     </div>
