@@ -132,6 +132,7 @@ export default function ContactInputBar(props) {
       // resets style
       inputElementWrapper.classList.remove("input-contains");
       inputElementWrapper.classList.remove("input-does-not-contain");
+      setPhoneInput(false);
       return;
     }
     const inputIsNum = /\(\d{3}\)[ ]?\d{3}[-]?\d{4}/.test(num); // check length and make sure it matches type
@@ -152,6 +153,7 @@ export default function ContactInputBar(props) {
     if (!email) { // resets style
       inputElementWrapper.classList.remove("input-contains");
       inputElementWrapper.classList.remove("input-does-not-contain");
+      setEmailInput(false);
       return;
     }
     
