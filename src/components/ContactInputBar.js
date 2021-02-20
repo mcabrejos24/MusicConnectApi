@@ -5,7 +5,7 @@ export default function ContactInputBar(props) {
   const { service } = props;
   const { setContactReady } = props;
 
-  const [provider, setProvider] = useState('select');
+  const [provider, setProvider] = useState("select");
   const [phoneInput, setPhoneInput] = useState(false);
   const [emailInput, setEmailInput] = useState(false);
 
@@ -21,7 +21,7 @@ export default function ContactInputBar(props) {
   filter.push("Meta");
 
   useEffect(() => {
-    if((provider !== 'select' && phoneInput) || emailInput) {
+    if ((provider !== "select" && phoneInput) || emailInput) {
       setContactReady(true);
     } else {
       setContactReady(false);
@@ -38,11 +38,11 @@ export default function ContactInputBar(props) {
     contactInput.classList.add("emailInput");
     contactInput.value = "";
     let inputElementWrapper = document.querySelector(`.contact-input-wrapper`);
-    let providerWrapper = document.querySelector('.phone-provider-wrapper');
+    let providerWrapper = document.querySelector(".phone-provider-wrapper");
     inputElementWrapper.classList.remove("input-contains");
     inputElementWrapper.classList.remove("input-does-not-contain");
-    providerWrapper.classList.add('hidden');
-    setProvider('select');
+    providerWrapper.classList.add("hidden");
+    setProvider("select");
     setEmailInput(false);
     setPhoneInput(false);
   }
@@ -59,17 +59,18 @@ export default function ContactInputBar(props) {
     contactInput.classList.remove("emailInput");
     contactInput.classList.add("textInput");
     contactInput.value = "";
-    let inputElementWrapper = document.querySelector('.contact-input-wrapper');
-    let providerWrapper = document.querySelector('.phone-provider-wrapper');
+    let inputElementWrapper = document.querySelector(".contact-input-wrapper");
+    let providerWrapper = document.querySelector(".phone-provider-wrapper");
     inputElementWrapper.classList.remove("input-contains");
     inputElementWrapper.classList.remove("input-does-not-contain");
-    providerWrapper.classList.remove('hidden');
-    setProvider('select');
+    providerWrapper.classList.remove("hidden");
+    setProvider("select");
     setEmailInput(false);
     setPhoneInput(false);
   }
 
-  function checkInput(event) { // onKeyDown
+  function checkInput(event) {
+    // onKeyDown
     const target = event.target;
     if (!target || !target.type) {
       console.error(
@@ -89,7 +90,8 @@ export default function ContactInputBar(props) {
     }
   }
 
-  function formatAndValidate(event) { // onKeyUp
+  function formatAndValidate(event) {
+    // onKeyUp
     const target = event.target;
     if (!target || !target.type) {
       console.error(
@@ -154,13 +156,14 @@ export default function ContactInputBar(props) {
 
   function validateEmail(email) {
     let inputElementWrapper = document.querySelector(`.contact-input-wrapper`);
-    if (!email) { // resets style
+    if (!email) {
+      // resets style
       inputElementWrapper.classList.remove("input-contains");
       inputElementWrapper.classList.remove("input-does-not-contain");
       setEmailInput(false);
       return;
     }
-    
+
     // Check to see if email is in the correct format ex: email@someEmail.com, school@live.unc.edu, etc.
     const emailFormat = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:)*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:|\\)+)\])/;
     const inputIsEmail = emailFormat.test(email.toLowerCase());
@@ -176,7 +179,7 @@ export default function ContactInputBar(props) {
     }
   }
 
-  function onProviderChange({target}) {
+  function onProviderChange({ target }) {
     setProvider(target.value);
   }
 
@@ -202,10 +205,18 @@ export default function ContactInputBar(props) {
           placeholder="Enter Email"
         />
       </div>
-      
+
       <div className="phone-provider-wrapper hidden">
-        <label className="provider-label" htmlFor="providers" >Choose your provider: </label>
-        <select className="provider-options" name="providers" id="providers" value={provider} onChange={onProviderChange}>
+        <label className="provider-label" htmlFor="providers">
+          Choose your provider:{" "}
+        </label>
+        <select
+          className="provider-options"
+          name="providers"
+          id="providers"
+          value={provider}
+          onChange={onProviderChange}
+        >
           <option value="select">Select an option</option>
           <option value="att">AT&T</option>
           <option value="boostmobile">Boost Mobile</option>
