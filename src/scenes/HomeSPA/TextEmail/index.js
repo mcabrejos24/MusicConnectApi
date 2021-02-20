@@ -11,7 +11,6 @@ export default function TextEmail() {
 
     const [playlistReady, setPlaylistReady] = useState(false);
     const [contactReady, setContactReady] = useState(false);
-    // console.log(playlistReady); pass this into submit button 
 
     return (
         <div className="content">
