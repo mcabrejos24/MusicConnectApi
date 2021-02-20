@@ -87,4 +87,28 @@ $text-color: #65676b;
             }
         }
     }
+
+    .phone-provider-wrapper {
+        margin-bottom: 35px;
+        color: $text-color;
+
+        .provider-label {
+            color: $tertiary;
+        }
+
+        .provider-options {
+            color: $primary;
+            padding: 5px;
+
+            &:hover {
+                padding: 5px;
+                box-shadow: 0 0 20px 5px $secondary;
+                border-radius: 5px;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
 }

@@ -203,9 +203,9 @@ export default function ContactInputBar(props) {
         />
       </div>
       
-      <div className="phone-provider-wrapper">
-        <label for="providers">Choose your provider: </label>
-        <select name="providers" id="providers" value={provider} onChange={onProviderChange}>
+      <div className="phone-provider-wrapper hidden">
+        <label class="provider-label" for="providers" >Choose your provider: </label>
+        <select class="provider-options" name="providers" id="providers" value={provider} onChange={onProviderChange}>
           <option value="select">Select an option</option>
           <option value="att">AT&T</option>
           <option value="boostmobile">Boost Mobile</option>
