@@ -9,6 +9,7 @@ $applemusic-primary: #f94c57;
     box-shadow: 0 0 7px rgba($primary , 0.8);
     padding: 10px 20px;
     border-radius: 20px;
+    max-width: 410px;
 
     &:hover, &:active {
         box-shadow: 0 0 15px rgba(77, 166, 255, 0.8);
@@ -19,8 +20,9 @@ $applemusic-primary: #f94c57;
     }
 
     @media screen and (min-width: 768px) {
-        width: 80%;
+        width: 60%;
         padding: 10px 20px;
+        max-width: 700px;
     }
 }
 
@@ -51,9 +53,10 @@ $applemusic-primary: #f94c57;
     }
 }
 
-.authorizer-button-wrapper {
+.authorizer-choose-auth {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding-bottom: 40px;
     font-family: system-ui, sans-serif;
     font-size: 25px;
@@ -61,7 +64,7 @@ $applemusic-primary: #f94c57;
 
 .playlist-checker {
     
-    p.music-card-description {
+    .music-card-description {
         font-size: 18px;
         color: $text-color;
         font-family: system-ui, sans-serif;

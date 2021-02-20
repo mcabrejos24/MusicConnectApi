@@ -1,11 +1,11 @@
 import BackButton from '../components/BackButton';
 
-export default function Email() {
+export default function SyncID() {
 
     return (
         <div className="content">
             <BackButton></BackButton>
-            <p>Email Page</p>
+            <p>Texting Page</p>
         </div>
     );
 }
