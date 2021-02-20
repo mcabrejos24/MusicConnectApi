@@ -101,6 +101,7 @@ $text-color: #65676b;
             padding: 5px;
 
             &:hover {
+                cursor: pointer;
                 padding: 5px;
                 box-shadow: 0 0 20px 5px $secondary;
                 border-radius: 5px;
