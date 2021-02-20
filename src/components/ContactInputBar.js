@@ -42,8 +42,8 @@ export default function ContactInputBar(props) {
     inputElementWrapper.classList.remove("input-contains");
     inputElementWrapper.classList.remove("input-does-not-contain");
     providerWrapper.classList.add('hidden');
+    setProvider('select');
     setEmailInput(false);
-    setProvider(false);
     setPhoneInput(false);
   }
 
@@ -64,8 +64,8 @@ export default function ContactInputBar(props) {
     inputElementWrapper.classList.remove("input-contains");
     inputElementWrapper.classList.remove("input-does-not-contain");
     providerWrapper.classList.remove('hidden');
+    setProvider('select');
     setEmailInput(false);
-    setProvider(false);
     setPhoneInput(false);
   }
 
@@ -204,8 +204,8 @@ export default function ContactInputBar(props) {
       </div>
       
       <div className="phone-provider-wrapper hidden">
-        <label class="provider-label" for="providers" >Choose your provider: </label>
-        <select class="provider-options" name="providers" id="providers" value={provider} onChange={onProviderChange}>
+        <label className="provider-label" htmlFor="providers" >Choose your provider: </label>
+        <select className="provider-options" name="providers" id="providers" value={provider} onChange={onProviderChange}>
           <option value="select">Select an option</option>
           <option value="att">AT&T</option>
           <option value="boostmobile">Boost Mobile</option>
