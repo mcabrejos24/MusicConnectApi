@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "../assets/styles/components/sync-id.scss";
 
-
 export default function MusicCard2(props) {
       
     const { syncReady } = props;
@@ -24,10 +23,8 @@ export default function MusicCard2(props) {
         let syncIDButton = document.querySelector(`.sync-id-submit-button`);
 
         if(syncID) {
-            syncReady(true);
             syncIDButton.disabled = false;
         } else {
-            syncReady(false);
             syncIDButton.disabled = true;
         }
 
@@ -79,18 +76,15 @@ export default function MusicCard2(props) {
 
     function validateSync(value) {
         let syncIdInput = document.querySelector(`.sync-id-input`);
-        let syncIDButton = document.querySelector(`.sync-id-submit-button`);
 
         if (!value) {
           // resets style
           syncIdInput.classList.remove("input-contains");
           syncIdInput.classList.remove("input-does-not-contain");
-            setSyncID(false);
-
+          setSyncID(false);
           return;
         }
         const inputIsNum = /\d{3}[-]?\d{3}/.test(value); // check length and make sure it matches type
-        console.log(inputIsNum);
         setSyncID(inputIsNum);
         if (inputIsNum) {
             syncIdInput.classList.add("input-contains");
@@ -100,27 +94,20 @@ export default function MusicCard2(props) {
             syncIdInput.classList.add("input-does-not-contain");
           if (syncIdInput.classList.contains("input-contains"))
           syncIdInput.classList.remove("input-contains");
-
         }
-
     }
 
     function submitSyncID() {
         const syncIdInput = document.querySelector(`.sync-id-input`)?.value;
-        if(!syncIdInput) { 
+        if(!syncIdInput) {
             console.error('Cannot find syncID value.'); 
+            syncReady(false);
             return; 
         }
         
-        // send syncID to back end and get back some value, if that value is true then continue
-        const syncValid = true;
-
-        if(syncValid) {
-            syncReady(true);
-        } else {
-            syncReady(false);
-            alert('Sync ID you provided does not exist. Please go back and use one of the other two options.');
-        }
+        const syncValid = true;         // send syncID to back end and get back some value, if that value is true then continue
+        if(!syncValid) alert('Sync ID you provided does not exist. Please go back and use one of the other two options.');
+        syncReady(syncValid);
     }
 
     return(
@@ -138,5 +125,4 @@ export default function MusicCard2(props) {
         <button className="sync-id-submit-button" onClick={ submitSyncID }>Submit</button>
     </div>
     );
-
 }
