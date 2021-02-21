@@ -71,6 +71,14 @@ $text-color: #65676b;
 				box-shadow: 0 0 7px rgba($primary, 0.8);
 			}
 		}
+
+        &:hover {
+			box-shadow: 0 0 15px $primary;
+		}
+
+        &:active {
+            color: darken($secondary, 10);
+        }
     }
 
 
