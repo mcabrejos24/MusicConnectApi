@@ -32,10 +32,8 @@ export default function AuthorizerSpotify(props) {
     }
     
     return (
-        <div className="text-xl">
-            <button variant="info" type="submit" onClick={login} className="authorizer authorizer-spotify">
-                Authorize with Spotify
-            </button>
-        </div>
+        <button variant="info" type="submit" onClick={login} className="authorizer authorizer-spotify text-xl">
+            Authorize with Spotify
+        </button>
     );
 }
