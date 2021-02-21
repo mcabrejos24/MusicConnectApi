@@ -6,6 +6,8 @@ export default function MusicCard2(props) {
       
     const { syncReady } = props;
 
+    const [syncID, setSyncID] = useState(false);
+
     let filter = [];
     const keypadZero = 48;
     for (let i = 0; i <= 9; i++) {
@@ -16,12 +18,21 @@ export default function MusicCard2(props) {
     filter.push("ArrowRight");
     filter.push("Del");
     filter.push("Meta");
+
     
     useEffect(() => {
+        let syncIDButton = document.querySelector(`.sync-id-submit-button`);
+
+        if(syncID) {
+            syncReady(true);
+            syncIDButton.disabled = false;
+        } else {
+            syncReady(false);
+            syncIDButton.disabled = true;
+        }
 
 
-
-    }, []);
+    }, [syncID]);
 
     function checkInput(event) {
         // onKeyDown
@@ -74,31 +85,34 @@ export default function MusicCard2(props) {
           // resets style
           syncIdInput.classList.remove("input-contains");
           syncIdInput.classList.remove("input-does-not-contain");
-          syncIDButton.disabled = true;
+            setSyncID(false);
+
           return;
         }
         const inputIsNum = /\d{3}[-]?\d{3}/.test(value); // check length and make sure it matches type
         console.log(inputIsNum);
+        setSyncID(inputIsNum);
         if (inputIsNum) {
             syncIdInput.classList.add("input-contains");
           if (syncIdInput.classList.contains("input-does-not-contain"))
-          syncIdInput.classList.remove("input-does-not-contain");
-          syncIDButton.disabled = false;
+            syncIdInput.classList.remove("input-does-not-contain");
         } else {
             syncIdInput.classList.add("input-does-not-contain");
           if (syncIdInput.classList.contains("input-contains"))
           syncIdInput.classList.remove("input-contains");
-          syncIDButton.disabled = true;
+
         }
 
     }
 
     function submitSyncID() {
         const syncIdInput = document.querySelector(`.sync-id-input`)?.value;
-        if(!syncIdInput) { console.error('Cannot find syncID value.'); return; }
+        if(!syncIdInput) { 
+            console.error('Cannot find syncID value.'); 
+            return; 
+        }
         
         // send syncID to back end and get back some value, if that value is true then continue
-
         const syncValid = true;
 
         if(syncValid) {
