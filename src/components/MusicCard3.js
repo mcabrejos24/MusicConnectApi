@@ -14,25 +14,30 @@ export default function MusicCard2(props) {
   const [linkName, setLinkName] = useState("");
   const [link, setLink] = useState("");
 
-
   useEffect(() => {
-      if(service) {
-        console.log('has sync ID: '+service);
-        document.querySelector('.sync-id-container').classList.add('hidden');
-        document.querySelector(`.authorizer-button-wrapper-${service}`).classList.remove("hidden");
-        setLinkName(service);
-        if(service === "spotify") {
-            setLink('https://www.spotify.com');
-          } else if (service === 'apple') {
-            setLink('https://music.apple.com/us/browse');
-        }
-
-        if(auth) {
-            document.querySelector(`.authorizer-button-wrapper-${service}`).classList.add("hidden");
-            document.querySelector(`.playlist-checker-${service}`).classList.remove("hidden");
-        }
+    if (service) {
+      console.log("has sync ID: " + service);
+      document.querySelector(".sync-id-container").classList.add("hidden");
+      document
+        .querySelector(`.authorizer-button-wrapper-${service}`)
+        .classList.remove("hidden");
+      setLinkName(service);
+      if (service === "spotify") {
+        setLink("https://www.spotify.com");
+      } else if (service === "apple") {
+        setLink("https://music.apple.com/us/browse");
       }
-}, [auth, service]);
+
+      if (auth) {
+        document
+          .querySelector(`.authorizer-button-wrapper-${service}`)
+          .classList.add("hidden");
+        document
+          .querySelector(`.playlist-checker-${service}`)
+          .classList.remove("hidden");
+      }
+    }
+  }, [auth, service]);
 
   return (
     <div className={`music-wrapper music-wrapper-${service ? service : ""}`}>
@@ -41,11 +46,10 @@ export default function MusicCard2(props) {
           {linkName}
         </a>
       </div>
-      
-      <div className="sync-id-container">
-        <SyncID syncReady={ setService }/>
-      </div>
 
+      <div className="sync-id-container">
+        <SyncID syncReady={setService} />
+      </div>
 
       <div
         className={`hidden authorizer-choose-auth authorizer-button-wrapper-apple`}
@@ -59,7 +63,6 @@ export default function MusicCard2(props) {
         {React.cloneElement(props.children[1], { setter: setAuth })}
       </div>
 
-      
       <div
         className={`playlist-checker playlist-checker-${
           service ? service : ""
