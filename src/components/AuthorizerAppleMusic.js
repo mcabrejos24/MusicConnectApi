@@ -28,10 +28,8 @@ export default function AuthorizerAppleMusic(props) {
     }
 
     return(
-        <div className="text-xl">
-            <button onClick={handleAuthorize} className="authorizer authorizer-applemusic">
-                Authorize with Apple Music
-            </button>
-        </div>
+        <button onClick={handleAuthorize} className="authorizer authorizer-applemusic text-xl">
+            Authorize with Apple Music
+        </button>
     );
 }
