@@ -105,7 +105,7 @@ export default function MusicCard2(props) {
             return; 
         }
         
-        const syncValid = true;         // send syncID to back end and get back some value, if that value is true then continue
+        const syncValid = 'spotify';         // send syncID to back end and get back some value, if that value is true then continue
         if(!syncValid) alert('Sync ID you provided does not exist. Please go back and use one of the other two options.');
         syncReady(syncValid);
     }
