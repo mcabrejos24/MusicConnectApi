@@ -17,7 +17,8 @@ $text-color: #65676b;
         margin-bottom: 20px;
     }
 
-    .music-card-desription {
+    &-description {
+        color: $text-color;
     }
 
     &-input {

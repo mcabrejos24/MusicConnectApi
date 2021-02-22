@@ -111,7 +111,7 @@ export default function MusicCard2(props) {
 
   return (
     <div className="sync-id">
-      <p className="music-card-description">Enter your Sync ID below</p>
+      <p className="sync-id-description">Enter your Sync ID below</p>
       <input
         onKeyDown={checkInput}
         onKeyUp={formatSyncID}
