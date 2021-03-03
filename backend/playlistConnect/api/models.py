@@ -19,6 +19,7 @@ class Pairing(models.Model):
         max_length=6, default=generate_unique_id, unique=True)
     apple_music_token = models.CharField(max_length=128)
     spotify_music_token = models.CharField(max_length=128)
-
+    apple_playlist_name = models.CharField(max_length=128)
+    spotify_playlist_name = models.CharField(max_length=128)
 
     
