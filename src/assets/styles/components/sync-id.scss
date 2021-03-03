@@ -1,0 +1,83 @@
+$primary: #4da6ff;
+$secondary: #dd99ffcc;
+$tertiary: #7f8ff4;
+$color-black: #000;
+$color-white: #fff;
+$contains: #44ff82;
+$doesNotContain: #fd5b5b;
+$text-color: #65676b;
+
+.sync-id {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    * {
+        margin-bottom: 20px;
+    }
+
+    &-description {
+        color: $text-color;
+    }
+
+    &-input {
+        padding: 22px 18px;
+        border-radius: 20px;
+        box-shadow: 0 0 5px $secondary;
+        outline: none;
+    }
+
+    .input-contains {
+        box-shadow: 0 0 5px $contains !important;
+        &:focus {
+            box-shadow: 0 0 15px 1px $contains !important;
+        }
+    }
+
+    .input-does-not-contain {
+        box-shadow: 0 0 5px $doesNotContain !important;
+        &:focus {
+            box-shadow: 0 0 15px 1px $doesNotContain !important;
+        }
+    }
+
+    &-submit-button {
+        border-radius: 20px;
+        box-shadow: 0 0 7px rgba($primary, 0.8);
+        color: rgba($secondary, 0.5);
+        text-transform: uppercase;
+        position: relative;
+        font-family: system-ui, sans-serif;
+        font-size: 18px;
+        margin-bottom: 100px;
+        background: white;
+        position: relative;
+        padding: 10px 25px;
+        letter-spacing: 1px;
+        margin-top: 20px;
+
+        &:focus {
+            outline: 0;
+        }
+
+        &[disabled] {
+            opacity: 0.5;
+            cursor: not-allowed;
+            color: rgba($tertiary, 0.5);
+
+            &:hover,
+            &:active {
+                box-shadow: 0 0 7px rgba($primary, 0.8);
+            }
+        }
+
+        &:hover {
+            box-shadow: 0 0 15px $primary;
+        }
+
+        &:active {
+            color: darken($secondary, 10);
+        }
+    }
+}

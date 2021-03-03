@@ -12,8 +12,8 @@ export default function Home() {
             </div>
             <div className="options-wrapper">
                 <ConnectOptions description="Pair both playlists here" image={cool_guitar} imageAlt="Cool Guitar" url="/on-here"/>
-                <ConnectOptions description="Pair via sending email to a friend" image={cool_piano} imageAlt="Cool Piano" url="email"/>
-                <ConnectOptions description="Pair via sending text to a friend" image={cool_drum} imageAlt="Cool Drum" url="texting"/>
+                <ConnectOptions description="Pair one here, other via text/email" image={cool_piano} imageAlt="Cool Piano" url="email"/>
+                <ConnectOptions description="Have a syncID already?" image={cool_drum} imageAlt="Cool Drum" url="texting"/>
             </div>
         </div>
     );

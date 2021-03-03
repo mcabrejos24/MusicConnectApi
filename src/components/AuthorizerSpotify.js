@@ -16,7 +16,7 @@ export default function AuthorizerSpotify(props) {
 
         window.spotifyCallback = (payload) => {
             window.$popup.close();
-            setter(true); // maybe instead of setter, it changing the styles right here, making it hidden or not
+            setter("spotify"); // maybe instead of setter, it changing the styles right here, making it hidden or not
             let successSettingPayload = setAuthValue('spotify', payload);
             if(!successSettingPayload) console.error('Failed to set Auth Value');
         }
@@ -32,10 +32,8 @@ export default function AuthorizerSpotify(props) {
     }
     
     return (
-        <div className="text-xl">
-            <button variant="info" type="submit" onClick={login} className="authorizer authorizer-spotify">
-                Authorize with Spotify
-            </button>
-        </div>
+        <button variant="info" type="submit" onClick={login} className="authorizer authorizer-spotify text-xl">
+            Authorize with Spotify
+        </button>
     );
 }
