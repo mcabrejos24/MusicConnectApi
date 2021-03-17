@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import '../assets/styles/components/sync-element.scss';
+import axios from "axios";
+
 // import { getAuthValue } from "../variables/authValues";
 
 export default function SyncElement(props) {
@@ -26,12 +28,13 @@ export default function SyncElement(props) {
         }
     },[spotifyConfirmed, appleConfirmed]);
 
-    function syncPlaylists() {
+    async function syncPlaylists() {
         const appleValue = document.querySelector('.input-bar[name=apple]')?.value;
         const spotifyValue = document.querySelector('.input-bar[name=spotify]')?.value;
         const hasValue = appleValue && spotifyValue;
         if (!hasValue) return; //maybe do some error log
         console.log('sync');
+        return axios.get("http://127.0.0.1:8000/api/health-check").then((response) => {console.log(response.data)});
         //appleValue, spotifyValue, getAuthValue('apple'), getAuthValue('spotify')
     }
 
