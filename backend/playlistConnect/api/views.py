@@ -11,6 +11,17 @@ from rest_framework.decorators import api_view
 def health_check(request): 
     return Response({"message": "Up and running!"}, status=status.HTTP_200_OK)
 
+
+class Pairing(APIView):
+
+    def post(self, request, format=None):
+        # get_songs()
+        return Response(request.data)
+
+    # def get_songs():
+
+
+
 # One greater function pairs that recieves all the parameters we need (2 objects: Spotify and Apple)
 
 # One function, get_songs, that get songs for either Spotify or Apple Playlists: Will call

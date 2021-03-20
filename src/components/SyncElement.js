@@ -53,7 +53,7 @@ export default function SyncElement(props) {
 
     // THIS function will be moved under the api folder but for now lets keep it here for ease of access
     function playlistPOST(spotifyObject, appleObejct)  { 
-        let path = '';
+        let path = 'pairing';
 
         return axios.post(`http://127.0.0.1:8000/api/${path}`,
             {
