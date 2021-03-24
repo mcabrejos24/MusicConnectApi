@@ -41,7 +41,7 @@ $text-color: #65676b;
       border-radius: 15px;
       padding: 10px 21px;
       margin-left: -11%;
-      content: url("../../img/svg/loading_still.svg");
+      content: url("../../../img/svg/loading_still.svg");
     }
   }
 
@@ -54,7 +54,7 @@ $text-color: #65676b;
     }
 
     > div {
-      content: url("../../img/svg/found.svg");
+      content: url("../../../img/svg/found.svg");
       padding: 10px 21px;
     }
   }
@@ -68,14 +68,14 @@ $text-color: #65676b;
     }
 
     > div {
-      content: url("../../img/svg/not_found.svg");
+      content: url("../../../img/svg/not_found.svg");
       padding: 10px 21px;
     }
   }
 
   .loading {
     > div {
-      content: url("../../img/svg/loading.svg");
+      content: url("../../../img/svg/loading.svg");
       padding: 10px 21px;
     }
   }
