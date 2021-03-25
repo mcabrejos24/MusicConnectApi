@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import "../assets/styles/components/music-card.scss";
 import ModishInputBar from "./ModishInputBar";
 
 export default function MusicCard(props) {
