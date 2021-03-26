@@ -1,4 +1,3 @@
-import "../assets/styles/components/submit.scss";
 import { useEffect } from "react";
 
 export default function SyncElement(props) {

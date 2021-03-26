@@ -1,4 +1,3 @@
-import "../assets/styles/components/music-card-3.scss";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import ModishInputBar from "./ModishInputBar";

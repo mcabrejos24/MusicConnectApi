@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import "../assets/styles/components/music-card-2.scss";
 import ModishInputBar from "./ModishInputBar";
 import ContactInputBar from "./ContactInputBar";
 

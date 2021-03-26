@@ -1,4 +1,3 @@
-import '../assets/styles/components/modish-input-bar.scss';
 import { containsPlaylistApple, createPlaylistApple }  from '../api/searchAppleAPI';
 import { containsPlaylistSpotify, createPlaylistSpotify } from '../api/searchSpotifyAPI';
 import debounce from 'lodash/debounce';
