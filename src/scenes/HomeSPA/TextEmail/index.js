@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BackButton from "../components/BackButton";
+import BackButton from "../../../components/BackButton";
 import MusicCard2 from "../../../components/MusicCard2";
 import AuthorizerAppleMusic from "../../../components/AuthorizerAppleMusic";
 import AuthorizerSpotify from "../../../components/AuthorizerSpotify";
