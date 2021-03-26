@@ -1,4 +1,3 @@
-import './styles/back-button.scss';
 import { NavLink } from 'react-router-dom';
 
 export default function BackButton() {

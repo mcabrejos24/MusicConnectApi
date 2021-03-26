@@ -3,7 +3,7 @@ import AuthorizerAppleMusic from '../../../components/AuthorizerAppleMusic';
 import AuthorizerSpotify from '../../../components/AuthorizerSpotify';
 import MusicCard from '../../../components/MusicCard';
 import SyncElement from '../../../components/SyncElement';
-import BackButton from '../components/BackButton';
+import BackButton from '../../../components/BackButton';
 
 export default function OnHere() {
     const [appleReady, setAppleReady] = useState(false);

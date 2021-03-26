@@ -1,4 +1,4 @@
-import ConnectOptions from './components/ConnectOptions';
+import ConnectOptions from '../../../components/ConnectOptions';
 import cool_guitar from './../../../assets/img/cool_guitar.jpg';
 import cool_piano from './../../../assets/img/cool_piano.jpg';
 import cool_drum from './../../../assets/img/cool_drum.jpg';
