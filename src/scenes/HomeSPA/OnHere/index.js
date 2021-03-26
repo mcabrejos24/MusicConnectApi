@@ -1,4 +1,3 @@
-import './style.scss';
 import { useState } from 'react';
 import AuthorizerAppleMusic from '../../../components/AuthorizerAppleMusic';
 import AuthorizerSpotify from '../../../components/AuthorizerSpotify';

@@ -1,4 +1,3 @@
-import "./style.scss";
 import { useState } from "react";
 import BackButton from "../components/BackButton";
 import MusicCard2 from "../../../components/MusicCard2";
