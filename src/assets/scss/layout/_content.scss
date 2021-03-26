@@ -23,3 +23,24 @@
         width: 1250px;
     }
 }
+
+.authorization-wrapper {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    padding: 86px 0 65px 0;
+    justify-items: center;
+    row-gap: 130px;
+
+    @media screen and (min-width: 768px) {
+        row-gap: unset;
+        grid-template-rows: unset;
+        grid-template-columns: 1fr 1fr;
+
+    }
+}
+
+.double-authorizer-wrapper {
+    display: flex;
+    padding: 86px 0 65px 0;
+    justify-content: center;
+}
