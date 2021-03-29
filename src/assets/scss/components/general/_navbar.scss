@@ -1,0 +1,62 @@
+.navbar {
+    background-color: #000;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+
+    &-wrapper {
+        color: #fff;
+        height: 70px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        @media (min-width: 768px) {
+            justify-content: space-between;
+            padding: 0 80px !important;
+        }
+
+        @media (min-width: 1024px) {
+            padding: 0 96px !important;
+        }
+
+        @media (min-width: 1280px) {
+            padding: 0 144px !important;
+        }
+
+        .site-name {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .site-options {
+            display: none;
+
+            @media (min-width: 768px) {
+                display: flex;
+                flex-direction: row;
+                font-weight: 300;
+            }
+
+            a {
+                font-size: 18px;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+
+                &:nth-child(1) {
+                    padding-right: 16px;
+                }
+                &:nth-child(2) {
+                    padding-right: 16px;
+                    padding-left: 16px;
+                }
+                &:nth-child(3) {
+                    padding-left: 16px;
+                }
+            }
+        }
+    }
+}
