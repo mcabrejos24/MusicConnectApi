@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './assets/scss/_main.scss';
 
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 import Home from './scenes/HomeSPA/Home';
 import OnHere from './scenes/HomeSPA/OnHere';
@@ -30,7 +31,9 @@ function App() {
           <Route path="/about-us" component={ AboutUs } />
           <Route path="/redirect" component={ Redirect } />
         </Switch>
+        <Footer />
       </div>
+
     </BrowserRouter>
   );
 }
