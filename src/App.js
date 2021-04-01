@@ -15,6 +15,10 @@ import ContactUs from './scenes/ContactUs';
 import AboutUs from'./scenes/AboutUs';
 import Redirect from'./scenes/Redirect';
 
+import PrivacyPolicy from './scenes/PrivacyPolicy';
+import TermsOfUse from './scenes/TermsOfUse';
+import SiteMap from './scenes/SiteMap';
+import FourOhFour from './scenes/404';
 
 function App() {
   return (
@@ -26,10 +30,17 @@ function App() {
           <Route path="/on-here" component={ OnHere } />
           <Route path="/email" component={ TextEmail } />
           <Route path="/texting" component={ SyncID } />
+
           <Route path="/donate" component={ Donate } />
           <Route path="/contact-us" component={ ContactUs } />
           <Route path="/about-us" component={ AboutUs } />
           <Route path="/redirect" component={ Redirect } />
+
+          <Route path="/privacy-policy" component={ PrivacyPolicy } />
+          <Route path="/terms-of-use" component={ TermsOfUse } />
+          <Route path="/site-map" component={ SiteMap } />
+          <Route path="/404" component={ FourOhFour } />
+
         </Switch>
         <Footer />
       </div>
