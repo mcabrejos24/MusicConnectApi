@@ -1,4 +1,3 @@
-import '../assets/styles/App.scss';
 import React, { useEffect } from 'react';
 import { setAuthValue } from '../variables/authValues';
 

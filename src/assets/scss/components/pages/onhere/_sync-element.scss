@@ -43,19 +43,19 @@ $empty: #bebebe;
 			}
 
 			&:first-child::before {
-				content: url('../../img/svg/first_playlist.svg');
+				content: url('../../../../img/svg/first_playlist.svg');
 			}
 
 			&:nth-child(2)::before {
-				content: url('../../img/svg/second_playlist.svg');
+				content: url('../../../../img/svg/second_playlist.svg');
 			}
 
 			&:nth-child(3)::before {
-				content: url('../../img/svg/sync.svg');
+				content: url('../../../../img/svg/sync.svg');
 			}
 
 			&.active:first-child::before {
-				content: url('../../img/svg/first_playlist_active.svg'); // use a colorless svg here, and make sure to use the exact same svg but with the green color in the animation, 
+				content: url('../../../../img/svg/first_playlist_active.svg'); // use a colorless svg here, and make sure to use the exact same svg but with the green color in the animation, 
 				border-color: $secondary;
 				color: $secondary;
 				animation: none;
@@ -108,8 +108,7 @@ $empty: #bebebe;
 		position: relative;
 		font-family: system-ui, sans-serif;
 		font-size: 23px;
-		margin-bottom: 100px;
-		margin-top: 80px;
+		margin-top: 70px;
 		background: white;
 		position: relative;
 		padding: 20px;
@@ -146,12 +145,12 @@ $empty: #bebebe;
 
 @keyframes step2Fill {
 	from {
-		content: url('../../img/svg/second_playlist.svg');
+		content: url('../../../../img/svg/second_playlist.svg');
 		border-color: $empty;
 		color: $empty;
 	}
 	to {
-		content: url('../../img/svg/second_playlist_active.svg');
+		content: url('../../../../img/svg/second_playlist_active.svg');
 		border-color: $secondary;
 		color: $secondary;
 	}
@@ -159,12 +158,12 @@ $empty: #bebebe;
 
 @keyframes step3Fill {
 	from {
-		content: url('../../img/svg/sync.svg');
+		content: url('../../../../img/svg/sync.svg');
 		border-color: $empty;
 		color: $empty;
 	}
 	to {
-		content: url('../../img/svg/sync_active.svg');
+		content: url('../../../../img/svg/sync_active.svg');
 		border-color: $secondary;
 		color: $secondary;
 	}

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "../assets/styles/components/sync-id.scss";
 
 export default function MusicCard2(props) {
   const { syncReady } = props;

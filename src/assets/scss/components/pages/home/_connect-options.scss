@@ -1,39 +1,5 @@
 $primary: #4da6ff;
 
-.container {
-    min-width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    font-family: sans-serif;
-}
-
-.content {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 80px;
-    padding: 0 10px;
-
-    @media screen and (min-width: 768px) {
-        width: 100%;
-    }
-
-    @media screen and (min-width: 1024px) {
-        width: 1000px;
-    }
-
-    @media screen and (min-width: 1280px) {
-        width: 1132px;
-    }
-
-    @media screen and (min-width: 1536px) {
-        width: 1250px;
-    }
-}
-
 .options-wrapper {
     display: flex;
     flex-direction: column;

@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect } from 'react';
-import '../assets/styles/components/sync-element.scss';
 import { getAuthValue } from "../variables/authValues";
 
 export default function SyncElement(props) {

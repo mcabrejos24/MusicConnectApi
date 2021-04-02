@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "../assets/styles/components/contact-input-bar.scss";
 
 export default function ContactInputBar(props) {
   const { service } = props;

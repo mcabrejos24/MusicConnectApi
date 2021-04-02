@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import '../assets/styles/components/authorizer.scss';
 import { setAuthValue } from '../variables/authValues';
 
 export default function AuthorizerSpotify(props) {

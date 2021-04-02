@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import "../assets/styles/components/submit-sync.scss";
 
 export default function SyncElement(props) {
   const { playlistReady } = props;
