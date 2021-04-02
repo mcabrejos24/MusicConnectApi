@@ -15,11 +15,14 @@ def health_check(request):
 class Pairing(APIView):
 
     def post(self, request, format=None):
-        # get_songs()
+        spotify_obj = request.data['attributes']['spotifyObject']
+        apple_obj = request.data['attributes']['appleObject']
+        self.get_songs(spotify_obj, apple_obj)
         return Response(request.data)
 
-    # def get_songs():
-
+    def get_songs(self, spotify_obj,apple_obj):
+        print(spotify_obj)
+        print(apple_obj)
 
 
 # One greater function pairs that recieves all the parameters we need (2 objects: Spotify and Apple)
