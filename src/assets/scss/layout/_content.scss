@@ -1,14 +1,31 @@
 .content {
     width: 100%;
-    min-height: 100%;
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 80px;
+    position: relative;
+    top: 54px;
     padding: 0 10px;
+    min-height: calc(100vh - 117px);
+
+    @media (min-width: 387px) {
+        min-height: calc(100vh - 99px);
+    }
+
+    @media (min-width: 466px) {
+        min-height: calc(100vh - 81px);
+    }
+
+
+    @media (min-width: 485px) {
+        min-height: calc(100vh - 75px);
+    }
 
     @media screen and (min-width: 768px) {
         width: 100%;
+    }
+
+    @media (min-width: 904px) {
+        min-height: calc(100vh - 54px);
     }
 
     @media screen and (min-width: 1024px) {
