@@ -2,9 +2,9 @@ export default function PrivacyPolicy() {
     
     return (
         <div className="content">
-            Privacy
+            <div className="privacy-policy-page">
+
+            </div>
         </div>
-
     );
-
 }
