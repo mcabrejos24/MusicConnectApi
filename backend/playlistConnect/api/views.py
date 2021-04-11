@@ -16,7 +16,7 @@ def health_check(request):
 
 
 class Pairing(APIView):
-    apple_url = "https://api.music.apple.com/v1/me/library/playlists"
+    apple_playlist_url = f'https://api.music.apple.com/v1/me/library/playlists'
     payload={}
 
     #the post endpoint 'api/pairing'
@@ -32,21 +32,28 @@ class Pairing(APIView):
             'music-user-token': apple_obj['auth'],
             'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjI4TURDWTcyVFAifQ.eyJpc3MiOiI0Q1JDNEdGUVpXIiwiZXhwIjoxNjIxMDg5NTM2LCJpYXQiOjE2MTYyNTExMzZ9.YuRqACMwkbHUdi1KPdFlzBFWP03DYj027Wvxwb9LvqwpRPVMLZIUEP-y7wenzpmW-vjwtucJgB9VNzk7l5kQDg'
         }
-        apple_response = requests.request("GET", self.apple_url, headers=headers, data=self.payload)
-        apple_response = apple_response.json()
+        apple_response = requests.request("GET", self.apple_playlist_url, headers=headers, data=self.payload).json()['data']
         apple_target_playlist = self.apple_search(apple_obj['playlist'], apple_response)
         # 
-        print(apple_target_playlist)
+        apple_songs_response = requests.request("GET", self.apple_playlist_url + f'/{apple_target_playlist}/tracks', headers=headers, data=self.payload).json()['data']
+        apple_songs = []
+        
+        for i in range(len(apple_songs_response)):
+            apple_songs.append({'name': apple_songs_response[i]['attributes']['name'], 
+            'artistName': apple_songs_response[i]['attributes']['artistName'], 'albumName': apple_songs_response[i]['attributes']['albumName']})
+        print(apple_songs)
 
     # Gets apple playlist from user's library
     def apple_search(self, playlist_name, apple_response):
-        for i in range(len(apple_response['data'])):
-            print((apple_response['data'][i]['attributes']['name']).lower())
-            if playlist_name == (apple_response['data'][i]['attributes']['name']).lower():
-                return apple_response['data'][i]['id']
+        for i in range(len(apple_response)):
+            print((apple_response[i]['attributes']['name']).lower())
+            if playlist_name == (apple_response[i]['attributes']['name']).lower():
+                return apple_response[i]['id']
         
-    
+    # Gets spotify playlist from user's library
+    def spotify_search(self, playlist_name, spotify_response):
 
+        pass
 
 # One greater function pairs that recieves all the parameters we need (2 objects: Spotify and Apple)
 
