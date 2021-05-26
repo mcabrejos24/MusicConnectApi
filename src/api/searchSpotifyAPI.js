@@ -4,6 +4,7 @@ import { getAuthValue } from "../variables/authValues";
 export function containsPlaylistSpotify(playlistName) {
     let returnValue = false;
 
+    console.log(getAuthValue('spotify'))
     return axios.get('https://api.spotify.com/v1/me/playlists', { // need to write functionality to search for more playlists if they have more than 50 playlists
         headers: {
             'Authorization': `Bearer ${getAuthValue('spotify')}`
