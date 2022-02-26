@@ -9,7 +9,7 @@ export default function AuthorizerAppleMusic(props) {
             window.MusicKit.configure({
                 developerToken: REACT_APP_DEVELOPER_TOKEN,
                 app: {
-                    name: 'Playlist Connect',
+                    name: 'PlaylistConnect',
                     build: '0.0.1',
                 }
             });
