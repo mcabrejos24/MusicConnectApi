@@ -15,6 +15,7 @@ export function containsPlaylistSpotify(playlistName) {
     .then((response) => {
         response.data.items.forEach(playlist => {
             if(playlistName.toLowerCase() === playlist.name.toLowerCase()) {
+                window.spotifyPlaylistID = playlist.id;
                 returnValue = true; //success in finding the playlist;
                 return;
             }

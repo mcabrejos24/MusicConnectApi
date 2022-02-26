@@ -16,6 +16,7 @@ export function containsPlaylistApple(playlistName) {
     .then((response) => {
         response.data.data.forEach(playlist => {
             if(playlistName.toLowerCase() === playlist.attributes.name.toLowerCase()) {
+                window.applePlaylistID = playlist.attributes.playParams.id;
                 returnValue = true;
                 return;
             }
