@@ -27,9 +27,7 @@ export default function SyncElement(props) {
     },[spotifyConfirmed, appleConfirmed]);
 
     async function syncPlaylists() {
-        const applePlaylistValue = document.querySelector('.input-bar[name=apple]')?.value;
-        const spotifyPlaylistValue = document.querySelector('.input-bar[name=spotify]')?.value;
-        const hasValue = applePlaylistValue && spotifyPlaylistValue;
+        const hasValue = window.applePlaylistID && window.spotifyPlaylistID;
         if (!hasValue) return; //maybe do some error log
         
         let appleHash = window.btoa(getAuthValue('apple'));         // length 328
@@ -40,7 +38,7 @@ export default function SyncElement(props) {
         let spotifyAuthValue = [spotifyHash.slice(0, 128), spotifyHash.slice(128, 256), spotifyHash.slice(256, spotifyHash.length)];
 
 
-        let syncStatus = await playlistPOST(appleAuthValue, spotifyAuthValue, applePlaylistValue, spotifyPlaylistValue);
+        let syncStatus = await playlistPOST(appleAuthValue, spotifyAuthValue, window.applePlaylistID, window.spotifyPlaylistID);
 
         if(syncStatus) {
             console.log('SUCCESS in posting to backend!');
@@ -50,7 +48,7 @@ export default function SyncElement(props) {
     }
 
     // THIS function will be moved under the api folder but for now lets keep it here for ease of access
-    function playlistPOST(appleAuthValue, spotifyAuthValue, applePlaylistName, spotifyPlaylistName)  { 
+    function playlistPOST(appleAuthValue, spotifyAuthValue, applePlaylistid, spotifyPlaylistid)  { 
         let path = 'playlist-pairs/';
 
         return axios.post(`http://127.0.0.1:8000/api/${path}`,
@@ -61,8 +59,8 @@ export default function SyncElement(props) {
                     "spotify_token_1": spotifyAuthValue[0],
                     "spotify_token_2": spotifyAuthValue[1],
                     "spotify_token_3": spotifyAuthValue[2],
-                    "apple_playlist_name": applePlaylistName,
-                    "spotify_playlist_name": spotifyPlaylistName
+                    "apple_playlist_id": applePlaylistid,
+                    "spotify_playlist_id": spotifyPlaylistid
             },
             {
                 headers: {
