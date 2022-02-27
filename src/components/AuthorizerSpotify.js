@@ -8,7 +8,8 @@ export default function AuthorizerSpotify(props) {
         REACT_APP_REDIRECT_URL
     } = process.env;
 
-    const url = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&response_type=token&redirect_uri=${REACT_APP_REDIRECT_URL}&show_dialog=true`;
+    const scopes = 'playlist-modify-private playlist-read-collaborative playlist-read-private playlist-modify-public'
+    const url = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&response_type=token&redirect_uri=${REACT_APP_REDIRECT_URL}&scope=${scopes}&show_dialog=true`;
 
     useEffect(() => {
         const { setter } = props;
