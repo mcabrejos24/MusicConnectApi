@@ -76,6 +76,7 @@ export default function SyncElement(props) {
             // }
         )
         .then(function (response) {
+            console.log(response);
             return true;
         })
         .catch(function (error) {
