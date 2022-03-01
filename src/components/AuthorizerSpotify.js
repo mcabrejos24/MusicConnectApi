@@ -24,6 +24,9 @@ export default function AuthorizerSpotify(props) {
             } else if (payload === 'failedState') {
                 console.error('Request and response url state params failed to match. UI shows no change.');
                 return;
+            } else if (payload === 'access_denied') {
+                console.error('User denied access');
+                return;
             }
             setter("spotify"); // maybe instead of setter that passes setShowInput to MusicCard, we can change the styles right here, making the input hidden or not
             let successSettingPayload = setAuthValue('spotify', payload);
