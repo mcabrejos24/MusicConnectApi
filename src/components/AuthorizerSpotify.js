@@ -1,29 +1,39 @@
 import { useEffect } from 'react';
-import { setAuthValue } from '../variables/authValues';
+import { setAuthValue, getAuthValue } from '../variables/authValues';
+import { generateCodeChallenge } from '../variables/codeChallenge';
 
 export default function AuthorizerSpotify(props) {
     const {
         REACT_APP_CLIENT_ID,
         REACT_APP_AUTHORIZE_URL,
-        REACT_APP_REDIRECT_URL
+        REACT_APP_REDIRECT_URL,
+        REACT_APP_URL_STATE
     } = process.env;
-
-    const scopes = 'playlist-modify-private playlist-read-collaborative playlist-read-private playlist-modify-public'
-    const url = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&response_type=token&redirect_uri=${REACT_APP_REDIRECT_URL}&scope=${scopes}&show_dialog=true`;
+    const codeChallange = generateCodeChallenge();
+    const scopes = 'playlist-modify-private%20playlist-read-collaborative%20playlist-read-private%20playlist-modify-public'
+    const url = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&response_type=code&redirect_uri=${REACT_APP_REDIRECT_URL}&state=${REACT_APP_URL_STATE}&scope=${scopes}&show_dialog=true&code_challenge_method=S256&code_challenge=${codeChallange}`;
 
     useEffect(() => {
         const { setter } = props;
 
-        window.spotifyCallback = (payload) => {
+        window.spotifyCallback = (payload) => { // called if spotify successfully redirects
             window.$popup.close();
-            setter("spotify"); // maybe instead of setter, it changing the styles right here, making it hidden or not
+            if (payload === 'failedParams') {
+                console.error('Failed to parse Spotify API response and get values');
+                return;
+            } else if (payload === 'failedState') {
+                console.error('Request and response url state params failed to match. UI shows no change.');
+                return;
+            }
+            setter("spotify"); // maybe instead of setter that passes setShowInput to MusicCard, we can change the styles right here, making the input hidden or not
             let successSettingPayload = setAuthValue('spotify', payload);
-            if(!successSettingPayload) console.error('Failed to set Auth Value');
+            if(!successSettingPayload) console.error('Failed to set Authenticated Code Value');
         }
 
-    },[props]);
+    },[]);
 
     function login() {
+        // opens window in a different window (diff tab if in full screen)
         window.$popup = window.open(
             url,
             'Login with Spotify',
