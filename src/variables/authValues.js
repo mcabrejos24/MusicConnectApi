@@ -1,4 +1,5 @@
 let authValue = {"apple": 0, "spotify": 0};
+let spotifyCodeVerifier = '';
 
 export function getAuthValue(service) {
     if (!service) { console.error('Error: no service specified!'); return; }
@@ -22,4 +23,12 @@ export function setAuthValue(service, value) {
     } else {
         console.error('Error: service does not exist!');
     }
+}
+
+export function getCodeVerifier() {
+    return spotifyCodeVerifier;
+}
+
+export function setCodeVerifier(value) {
+    spotifyCodeVerifier = value;
 }

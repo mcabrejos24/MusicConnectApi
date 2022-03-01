@@ -1,4 +1,5 @@
 import { sha256 } from './sha256';
+import { setCodeVerifier, getCodeVerifier } from './authValues';
 
 function generateNonce() {
     const chars = 'abcdefghijklmnopqrstuvwxyz123456789_.-~';
@@ -6,10 +7,10 @@ function generateNonce() {
     for (let i=0; i<100; i++) {
         nonce += chars.charAt(Math.random() * (chars.length));
     }
-    return nonce;
+    setCodeVerifier(nonce);
 }
 
 export function generateCodeChallenge() {
-    let nonce = generateNonce();
-    return sha256(nonce);
+    generateNonce();
+    return sha256(getCodeVerifier());
 }
