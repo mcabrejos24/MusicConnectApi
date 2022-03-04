@@ -8,14 +8,14 @@ export default function Redirect() {
         window.opener.spotifyCallback('failedParams'); //failed to get param values, send message to parent window
         return <div></div>
     }
-    if (params[1].split('=')[1] != REACT_APP_URL_STATE) {
+    if (params[1].split('=')[1] !== REACT_APP_URL_STATE) {
         window.opener.spotifyCallback('failedState'); //state failed to match, cancel authentication
         return <div></div>
     }
 
     const code = params[0].split('=')[1];
     window.opener.spotifyCallback(code); // send code to parent window function
-
+    
     return (
         <div className="content">
             <p>Redirect Page</p>
