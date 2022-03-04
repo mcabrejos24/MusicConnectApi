@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect } from 'react';
-import { getAuthValue } from "../variables/authValues";
+import { getAuthValue, getSpotifyRefreshToken } from "../variables/authValues";
 
 export default function SyncElement(props) {
     let { spotifyConfirmed } = props;
@@ -32,13 +32,14 @@ export default function SyncElement(props) {
         
         let appleHash = window.btoa(getAuthValue('apple'));         // length 328
         let spotifyHash = window.btoa(getAuthValue('spotify'));     // length 312
+        let spotifyRefreshHash = window.btoa(getSpotifyRefreshToken());
 
 
         let appleAuthValue = [appleHash.slice(0, 128), appleHash.slice(128, 256), appleHash.slice(256, appleHash.length)];
         let spotifyAuthValue = [spotifyHash.slice(0, 128), spotifyHash.slice(128, 256), spotifyHash.slice(256, spotifyHash.length)];
+        let spotifyRefreshValue = [spotifyRefreshHash.slice(0, 128), spotifyRefreshHash.slice(128, spotifyRefreshHash.length)];
 
-
-        let syncStatus = await playlistPOST(appleAuthValue, spotifyAuthValue, window.applePlaylistID, window.spotifyPlaylistID);
+        let syncStatus = await playlistPOST(appleAuthValue, spotifyAuthValue, spotifyRefreshValue, window.applePlaylistID, window.spotifyPlaylistID);
 
         if(syncStatus) {
             console.log('SUCCESS in posting to backend!');
@@ -48,7 +49,7 @@ export default function SyncElement(props) {
     }
 
     // THIS function will be moved under the api folder but for now lets keep it here for ease of access
-    function playlistPOST(appleAuthValue, spotifyAuthValue, applePlaylistid, spotifyPlaylistid)  { 
+    function playlistPOST(appleAuthValue, spotifyAuthValue, spotifyRefreshValue, applePlaylistid, spotifyPlaylistid)  { 
         let path = 'playlist-pairs/';
 
         return axios.post(`http://127.0.0.1:8000/api/${path}`,
@@ -59,6 +60,8 @@ export default function SyncElement(props) {
                     "spotify_token_1": spotifyAuthValue[0],
                     "spotify_token_2": spotifyAuthValue[1],
                     "spotify_token_3": spotifyAuthValue[2],
+                    "spotify_refresh_1": spotifyRefreshValue[0],
+                    "spotify_refresh_2": spotifyRefreshValue[1],
                     "apple_playlist_id": applePlaylistid,
                     "spotify_playlist_id": spotifyPlaylistid
             },
@@ -67,13 +70,6 @@ export default function SyncElement(props) {
                     'content-type': 'application/json'
                 }
             }
-            // SOMETHING LIKE THIS IS WHAT WE WILL USE TO AUTHORIZE AND KEEP THE BACKEND SECURE, WE CAN LOOK INTO THIS LATER, JUST KEEPING IT HERE SO WE CAN REFERENCE IT
-            // { 
-            //     headers: {
-            //         'music-user-token': `${getAuthValue('apple')}`,
-            //         'Authorization': `Bearer ${REACT_APP_DEVELOPER_TOKEN}`
-            //     }
-            // }
         )
         .then(function (response) {
             console.log(response);

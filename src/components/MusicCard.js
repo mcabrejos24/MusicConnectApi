@@ -35,6 +35,8 @@ export default function MusicCard(props) {
       <div
         className={`authorizer-button-wrapper authorizer-button-wrapper-${service}`}
       >
+        {/* Grabs the child component (spotify or apple authorizer) inside and passes setShowInput */}
+        {/* function to update if the MusicCard component should show the input for playlists */}
         {React.cloneElement(props.children, { setter: setShowInput })}
       </div>
       <div className={`playlist-checker playlist-checker-${service} hidden`}>

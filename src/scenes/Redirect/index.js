@@ -1,16 +1,21 @@
 import React from 'react';
 
 export default function Redirect() {
+    const { REACT_APP_URL_STATE } = process.env;
+    const params = window.location.href.slice(31,window.location.href.length).split('&'); // extracts code and state from query params in the redirect from the spotify api
 
-    const token = window.location.hash.substr(1).split('&')[0].split("=")[1];
-
-    if (token) {
-        window.opener.spotifyCallback(token);
-    } else {
-        console.log('User cancelled authorization');
-        window.opener.$popup.close();
+    if (!params || !params[0] || !params[1] || !params[0].split('=') || !params[1].split('=') || !params[0].split('=')[1] || !params[1].split('=')[1] ) {
+        window.opener.spotifyCallback('failedParams'); //failed to get param values, send message to parent window
+        return <div></div>
+    }
+    if (params[1].split('=')[1] !== REACT_APP_URL_STATE) {
+        window.opener.spotifyCallback('failedState'); //state failed to match, cancel authentication
+        return <div></div>
     }
 
+    const code = params[0].split('=')[1];
+    window.opener.spotifyCallback(code); // send code to parent window function
+    
     return (
         <div className="content">
             <p>Redirect Page</p>
