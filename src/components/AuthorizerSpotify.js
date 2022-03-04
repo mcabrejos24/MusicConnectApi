@@ -1,6 +1,4 @@
-// import axios from 'axios';
-import { useEffect } from 'react';
-import { setAuthValue, getSpotifyRefreshToken, setSpotifyRefreshToken } from '../variables/authValues';
+import { setAuthValue, setSpotifyRefreshToken } from '../variables/authValues';
 import { generateChallenge } from '../variables/codeChallenge';
 var axios = require('axios');
 var qs = require('qs');
