@@ -1,5 +1,5 @@
 let authValue = {"apple": 0, "spotify": 0};
-let spotifyCodeVerifier = '';
+let spotifyRefreshToken = '';
 
 export function getAuthValue(service) {
     if (!service) { console.error('Error: no service specified!'); return; }
@@ -25,10 +25,10 @@ export function setAuthValue(service, value) {
     }
 }
 
-export function getCodeVerifier() {
-    return spotifyCodeVerifier;
+export function getSpotifyRefreshToken() {
+    return spotifyRefreshToken;
 }
 
-export function setCodeVerifier(value) {
-    spotifyCodeVerifier = value;
+export function setSpotifyRefreshToken(value) {
+    spotifyRefreshToken = value;
 }
