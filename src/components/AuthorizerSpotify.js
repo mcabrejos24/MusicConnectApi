@@ -15,30 +15,7 @@ export default function AuthorizerSpotify(props) {
         REACT_APP_URL_STATE
     } = process.env;
     const scopes = 'playlist-modify-private%20playlist-read-collaborative%20playlist-read-private%20playlist-modify-public'
-
-    useEffect(() => {
-        const { setter } = props;
-        
-        window.spotifyCallback = async (payload) => { // called if spotify successfully redirects
-            window.$popup.close();
-            if (payload === 'failedParams') {
-                console.error('Failed to parse Spotify API response and get values');
-                return;
-            } else if (payload === 'failedState') {
-                console.error('Request and response url state params failed to match. UI shows no change.');
-                return;
-            } else if (payload === 'access_denied') {
-                console.error('User denied access');
-                return;
-            }
-            let auth_token = await requestAccesToken(payload);
-            if (auth_token && auth_token.access_token) {
-                setter("spotify"); // maybe instead of setter that passes setShowInput to MusicCard, we can change the styles right here, making the input hidden or not
-                let successSettingPayload = setAuthValue('spotify', auth_token.access_token);
-                if(!successSettingPayload) console.error('Failed to set Authenticated Code Value');
-            }
-        }
-    },[]);
+    const { setter } = props;
 
     async function login() {
         let codeChallenge = await generateChallenge();
@@ -51,6 +28,27 @@ export default function AuthorizerSpotify(props) {
             'Login with Spotify',
             'width=400,height=650,left=-250'
         )
+    }
+
+    window.spotifyCallback = async (payload) => { // called if spotify successfully redirects
+        window.$popup.close();
+        if (payload === 'failedParams') {
+            console.error('Failed to parse Spotify API response and get values');
+            return;
+        } else if (payload === 'failedState') {
+            console.error('Request and response url state params failed to match. UI shows no change.');
+            return;
+        } else if (payload === 'access_denied') {
+            console.error('User denied access');
+            return;
+        }
+        let auth_token = await requestAccesToken(payload);
+        if (auth_token && auth_token.access_token) {
+            setSpotifyRefreshToken(auth_token.refresh_token);
+            setter("spotify"); // maybe instead of setter that passes setShowInput to MusicCard, we can change the styles right here, making the input hidden or not
+            let successSettingPayload = setAuthValue('spotify', auth_token.access_token);
+            if(!successSettingPayload) console.error('Failed to set Authenticated Code Value');
+        }
     }
     
     function requestAccesToken(code) {
