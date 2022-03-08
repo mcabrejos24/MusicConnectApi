@@ -101,7 +101,7 @@ export default function AboutUs() {
 
             <br></br>
 
-            <center><p className="text-xl">And, if you would like to donate to our team, please check out our <a href="http://localhost:3000/donate"><u>donate</u></a> page</p></center>
+            <center><p className="text-xl">And, if you would like to donate to our team, please check out our <a href="/donate"><u>donate</u></a> page</p></center>
 
             <br></br>
             <br></br>
