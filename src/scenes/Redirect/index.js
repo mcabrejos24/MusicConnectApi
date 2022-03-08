@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function Redirect() {
     const { REACT_APP_URL_STATE } = process.env;
+    console.log('check log');
     if (window.location.href.indexOf('redirect') === -1) {
         window.opener.spotifyCallback('failedParams');
         return <div></div>
