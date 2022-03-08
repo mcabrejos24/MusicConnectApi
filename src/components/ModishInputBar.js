@@ -35,6 +35,7 @@ export default function ModishInputBar(props) {
         }
     }
 
+    // eslint-disable-next-line
     const debouncedSave = useCallback(
 		debounce(nextTarget => {
             checkPlaylist(nextTarget); 

@@ -25,6 +25,7 @@ export default function ContactInputBar(props) {
     } else {
       setContactReady(false);
     }
+  // eslint-disable-next-line
   }, [provider, phoneInput, emailInput]);
 
   function changeToEmail() {
