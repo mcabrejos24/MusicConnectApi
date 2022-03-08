@@ -4,3 +4,8 @@
 # set JEKYLL_ENV accordingly if Netlify environment is production
 [context.production.environment]
 	JEKYLL_ENV="production"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
