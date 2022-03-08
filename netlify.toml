@@ -1,0 +1,6 @@
+# set JEKYLL_ENV correctly for the development branches
+[build.environment]
+	JEKYLL_ENV="development"
+# set JEKYLL_ENV accordingly if Netlify environment is production
+[context.production.environment]
+	JEKYLL_ENV="production"
