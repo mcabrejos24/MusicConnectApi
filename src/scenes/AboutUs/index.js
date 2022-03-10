@@ -97,7 +97,7 @@ export default function AboutUs() {
             <br></br>
             <br></br>
 
-            <center><p className="text-xl">Thank you for learning more about our wonderful team, if you have any questions, comments, or concerns about the website please visit our <a href="http://localhost:3000/contact-us"><u>contact</u></a> page!</p></center>
+            <center><p className="text-xl">Thank you for learning more about our wonderful team, if you have any questions, comments, or concerns about the website please visit our <a href="/contact-us"><u>contact</u></a> page!</p></center>
 
             <br></br>
 
