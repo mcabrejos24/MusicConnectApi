@@ -5,6 +5,9 @@ import { getAuthValue, getSpotifyRefreshToken } from "../variables/authValues";
 export default function SyncElement(props) {
     let { spotifyConfirmed } = props;
     let { appleConfirmed } = props;
+    const {
+        REACT_APP_DATSBASE_URL,
+    } = process.env;
 
     useEffect(() => {
         let progressBar = document.querySelector('.sync-progress-bar');
@@ -52,7 +55,7 @@ export default function SyncElement(props) {
     function playlistPOST(appleAuthValue, spotifyAuthValue, spotifyRefreshValue, applePlaylistid, spotifyPlaylistid)  { 
         let path = 'playlist-pairs/';
 
-        return axios.post(`http://127.0.0.1:8000/api/${path}`,
+        return axios.post(`${REACT_APP_DATSBASE_URL}/api/${path}`,
             {
                     "apple_token_1": appleAuthValue[0],
                     "apple_token_2": appleAuthValue[1],
