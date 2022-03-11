@@ -8,7 +8,7 @@ export default function Home() {
         <div className="content">
             <div className="text-center">
                 <div className="mt-24 text-6xl font-semibold">Playlist Pair</div>
-                <div className="mt-10 mb-14 text-2xl font-light">Collaborate instantly with peers on Apple Music and Spotify</div>
+                <div className="mt-10 mb-14 text-2xl font-light">Sync up your Apple Music and Spotify playlists</div>
             </div>
 
             <div className="options-wrapper">
