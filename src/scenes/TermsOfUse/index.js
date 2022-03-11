@@ -223,7 +223,8 @@ export default function TermsOfUse() {
 
             <p>In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us by using the contact us link <a href="/contact-us">here</a></p>
 
-            
+            <>Or at playlistpair@gmail.com</>
+
         </div>
 
     );
