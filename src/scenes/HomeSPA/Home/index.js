@@ -7,7 +7,7 @@ export default function Home() {
     return (
         <div className="content">
             <div className="text-center">
-                <div className="mt-24 text-6xl font-semibold">Playlist Connect</div>
+                <div className="mt-24 text-6xl font-semibold">Playlist Pair</div>
                 <div className="mt-10 mb-14 text-2xl font-light">Collaborate instantly with peers on Apple Music and Spotify</div>
             </div>
 
@@ -21,7 +21,7 @@ export default function Home() {
                 <h1 className="how-it-works-title">How it works</h1>
 
                 <div className="point problem">
-                    <h2 className="point-title">What is Playlist Connect?</h2>
+                    <h2 className="point-title">What is Playlist Pair?</h2>
                     <div className="point-description">
                         <p>We noticed a problem. A dire one indeed. Not everyone has the same music service! So what does that mean?
                             <br/><br/>
@@ -31,7 +31,7 @@ export default function Home() {
                             <br/><br/>
                             That's where we come in! How we solve this problem is that we create a service that allows you to sync your playlists cross platform.
                             <br/><br/> 
-                            Welcome <u>Playlist Connect</u>.
+                            Welcome <u>Playlist Pair</u>.
                             <br/><br/>
                         </p>
                     </div>

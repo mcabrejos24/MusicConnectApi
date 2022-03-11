@@ -4,7 +4,7 @@ export default function Navbar() {
         <header className="navbar">
             <div className="navbar-wrapper">
                 <a href="/" className="site-name">
-                    Playlist Connect
+                    Playlist Pair
                 </a>
                 <div className="site-options">
                     <a href="/about-us">About Us</a>

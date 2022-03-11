@@ -33,7 +33,7 @@ export async function createPlaylistSpotify(playlistName) {
     return axios.post(`https://api.spotify.com/v1/users/${userID}/playlists`, 
         {
             'name': playlistName,
-            'description': 'Playlist created through Playlist Connect',
+            'description': 'Playlist created through Playlist Pair',
             'public':true,
         },
         {

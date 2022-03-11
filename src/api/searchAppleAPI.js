@@ -30,7 +30,7 @@ export function createPlaylistApple(playlistName) {
         {
             "attributes": {
                 "name":playlistName,
-                "description":"Playlist created through Playlist Connect"
+                "description":"Playlist created through Playlist Pair"
             }
         }, 
         {
