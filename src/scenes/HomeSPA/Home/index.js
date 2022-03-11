@@ -53,7 +53,7 @@ export default function Home() {
                             <br /><br />
                             Yup! That's all you need to do! You and your peer's playlists will now be syncing at all times.
                             <br /><br />
-                            Above there three different ways of syncing. Click each one to figure out the differences!
+                            Above you can click on "Pair both playlists here" to go ahead and sync.
                         </p>
                     </div>
                 </div>
