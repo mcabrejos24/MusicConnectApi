@@ -10,7 +10,7 @@ export default function TextEmail() {
   const [contactReady, setContactReady] = useState(false);
 
 
-  function openPopUp(pop) {
+  function openPopUp() {
     const popup = document.getElementById("popup");
     popup.style.visibility = "visible";
     popup.style.opacity = "1";
@@ -31,7 +31,7 @@ export default function TextEmail() {
         <div id="popup" className="popup">
           <div className="popup-card">
             <h2>Coming Soon!</h2>
-            <button id="close" class="close" onClick={closePopUp}>&times;</button>
+            <button id="close" className="close" onClick={closePopUp}>&times;</button>
             <p className="popup-card--content">This page is still in development so submitting won't actually do anything. But feel free to mess around!</p>
           </div>
         </div>

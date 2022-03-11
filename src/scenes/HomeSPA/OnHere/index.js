@@ -31,13 +31,17 @@ export default function OnHere() {
                 <div className="point need">
                     <h2 className="point-title">Cards</h2>
                     <div className="point-description">
-                        <p>This one is made for when both you and your peer are together in the same room.
+                        <p>This syncing method is for when both you and your peer are together in the same room.
                             <br /><br />
-                            Simply, one of you logs into your Apple Music and the other into your Spotify.
+                            Or if you have access to both services yourself.
+                            <br /><br />
+                            Simply, one of you logs into your Apple Music account and the other into your Spotify.
                             <br /><br />
                             You both then choose the playlist you would like to sync.
                             <br /><br />
                             If you want to make a new playlist, then enter the name of the new playlist and press the button below it to create it.
+                            <br /><br />
+                            Note that for Apple Music, you will need to add a song after creating a new playlist on here, or on the service.
                             <br /><br />
                             Then just press the Sync button and your playlists will be synced!
                             <br /><br />
@@ -46,9 +50,6 @@ export default function OnHere() {
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     );
 }

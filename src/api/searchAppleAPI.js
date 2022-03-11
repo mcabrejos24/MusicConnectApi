@@ -18,11 +18,14 @@ export function containsPlaylistApple(playlistName) {
             if(playlistName.toLowerCase() === playlist.attributes.name.toLowerCase()) {
                 window.applePlaylistID = playlist.attributes.playParams.id;
                 returnValue = true;
-                return;
             }
         })
         return returnValue;
-    });
+    })
+    .catch((e) => {
+        console.error(e);
+        return false;
+    })
 }
 
 export function createPlaylistApple(playlistName) {
@@ -41,7 +44,11 @@ export function createPlaylistApple(playlistName) {
         }
     )
     .then((response) => {
-        return true;
+        if (response && response.data && response.data.data && response.data.data[0] && response.data.data[0].id) {
+            window.applePlaylistID = response.data.data[0].id;
+            return true;
+        }
+        return false;
     })
     .catch((e) => {
         console.error(e);

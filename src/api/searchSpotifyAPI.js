@@ -17,13 +17,13 @@ export function containsPlaylistSpotify(playlistName) {
             if(playlistName.toLowerCase() === playlist.name.toLowerCase()) {
                 window.spotifyPlaylistID = playlist.id;
                 returnValue = true; //success in finding the playlist;
-                return;
             }
         })
         return returnValue;
     })
     .catch((e) => {
         console.error(e);
+        return false;
     })
 }
 
@@ -43,8 +43,11 @@ export async function createPlaylistSpotify(playlistName) {
         }
     )
     .then((response) => {
-        console.log(response);
-        return true;
+        if (response && response.data && response.data.id) {
+            window.spotifyPlaylistID = response.data.id;
+            return true;
+        }
+        return false;
     })
     .catch((e) => {
         console.error(e);
@@ -59,7 +62,6 @@ export function getUserId() {
         }
     })
     .then((response) => {
-        console.log(response.data.id);
         return response.data.id;
     })
     .catch((e) => {

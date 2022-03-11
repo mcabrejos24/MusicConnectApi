@@ -43,6 +43,7 @@ export default function ModishInputBar(props) {
 		[], 
     );
 
+    // changes the message showed to the user on the status of finding/creating their playlists
     const handleChange = event => {
         const {target: nextTarget} = event;
         let inputElementWrapper = document.querySelector(`.modish-input-bar--wrapper-${ nextTarget.name }`);
