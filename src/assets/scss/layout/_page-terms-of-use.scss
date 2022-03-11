@@ -1,0 +1,52 @@
+.terms-of-use-page {
+    margin-top: 50px;
+    margin-bottom: 100px;
+
+    h1 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 18px;
+    }
+
+    h2 {
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 18px;
+    }
+
+    h3 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 18px;
+    }
+
+    p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    ol {
+        padding-left: 40px;
+        margin-bottom: 20px;
+
+        li {
+            display: list-item;
+            list-style-type: decimal;
+        }
+    }
+
+    ul {
+        padding-left: 40px;
+        margin-bottom: 20px;
+
+        li {
+            display: list-item;
+            list-style-type: disc;
+        }
+    }
+
+    a {
+        text-decoration: underline;
+        color: blue;
+    }
+}
