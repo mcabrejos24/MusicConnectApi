@@ -226,7 +226,5 @@ export default function TermsOfUse() {
             <>Or at playlistpair@gmail.com</>
 
         </div>
-
     );
-
 }
