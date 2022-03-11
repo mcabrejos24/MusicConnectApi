@@ -1,6 +1,7 @@
 .how-it-works {
-    margin-top: 50px;
-    padding-bottom: 80px;
+    margin-top: 80px;
+    padding-top: 50px;
+    padding-bottom: 120px;
     position: relative;
     left: 50%;
     margin-left: -50vw;
@@ -11,19 +12,42 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #ffffff;
+
+    @media (min-width: 768px) {
+        margin-top: 110px;
+    }
 
     &-title {
         margin-top: 20px;
         font-family: sans-serif;
         font-size: 40px;
         font-weight: 500;
+        padding-left: 30px;
+        padding-right: 30px;
+        text-align: center;
+    }
+
+    &.home {
+        background: linear-gradient(#428fdb, #6d7bd2, #be83db);
+    }
+
+    &.on-here {
+        background-color: #428fdb;
+    }
+
+    &.sync-id {
+        background-color: #6d7bd2;
+    }
+
+    &.text-email {
+        background-color: #be83db;
     }
 
     .point {
         margin-top: 40px;
         width: 80%;
         background-size: cover;
-
 
         &-title {
             font-family: sans-serif;
@@ -33,14 +57,6 @@
 
         &-description {
             margin-top: 20px;
-
-        
-
         }
-
-
-
-
-
     }
 }

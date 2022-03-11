@@ -25,7 +25,7 @@ export default function OnHere() {
             </div>
             <SyncElement spotifyConfirmed={spotifyReady} appleConfirmed={appleReady}></SyncElement>
 
-            <div className="how-it-works">
+            <div className="how-it-works on-here">
                 <h1 className="how-it-works-title">How to use this sync option</h1>
 
                 <div className="point need">
@@ -46,6 +46,7 @@ export default function OnHere() {
                             Then just press the Sync button and your playlists will be synced!
                             <br /><br />
                             The progress bar helps tell you what step you are on.
+                            <br/><br/>
                         </p>
                     </div>
                 </div>

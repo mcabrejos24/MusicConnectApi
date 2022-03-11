@@ -49,7 +49,7 @@ export default function TextEmail() {
       </div>
       <Submit playlistReady={playlistReady} contactReady={contactReady} />
 
-      <div className="how-it-works">
+      <div className="how-it-works text-email">
           <h1 className="how-it-works-title">How to use this sync card</h1>
           <div className="point need">
               <h2 className="point-title">Choose</h2>
@@ -65,6 +65,7 @@ export default function TextEmail() {
                       Then just press the Submit button and we'll send a link to your peer, so that they can submit their information.
                       <br /><br />
                       Once your peer submits their information to sync, then your playlist will sync ahead and be good to go!.
+                      <br/><br/>
                   </p>
               </div>
           </div>

@@ -17,7 +17,7 @@ export default function Home() {
                 <ConnectOptions description="Have a syncID already?" image={pair_with_id} imageAlt="Cool Drum" url="texting"/>
             </div>
 
-            <div className="how-it-works">
+            <div className="how-it-works home">
                 <h1 className="how-it-works-title">How it works</h1>
 
                 <div className="point problem">
@@ -31,7 +31,7 @@ export default function Home() {
                             <br/><br/>
                             That's where we come in! How we solve this problem is that we create a service that allows you to sync your playlists cross platform.
                             <br/><br/> 
-                            Welcome <u>Playlist Pair</u>.
+                            Welcome to <u>Playlist Pair</u>.
                             <br/><br/>
                         </p>
                     </div>
@@ -54,6 +54,7 @@ export default function Home() {
                             Yup! That's all you need to do! You and your peer's playlists will now be syncing at all times.
                             <br /><br />
                             Above you can click on "Pair both playlists here" to go ahead and sync.
+                            <br/><br/>
                         </p>
                     </div>
                 </div>
@@ -70,6 +71,7 @@ export default function Home() {
                             And then just keep on entering all your playlists until you're done.
                             <br /><br />
                             Happy syncing!
+                            <br/><br/>
                         </p>
                     </div>
                 </div>

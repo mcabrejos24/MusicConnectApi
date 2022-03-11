@@ -44,7 +44,7 @@ export default function SyncID() {
       </div>
       <SubmitSync playlistReady={playlistReady} />
 
-            <div className="how-it-works">
+            <div className="how-it-works sync-id">
                 <h1 className="how-it-works-title">How to use this sync ID option</h1>
                 <div className="point need">
                     <h2 className="point-title">Submit Sync ID</h2>
@@ -60,6 +60,7 @@ export default function SyncID() {
                             Then, since you peer has already provided their information, you just need to press the Sync button and your playlists will be synced!
                             <br /><br />
                             Enjoy sharing your playlist!
+                            <br/><br/>
                         </p>
                     </div>
                 </div>
