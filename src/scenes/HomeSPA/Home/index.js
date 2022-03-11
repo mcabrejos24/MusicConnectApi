@@ -13,7 +13,7 @@ export default function Home() {
 
             <div className="options-wrapper">
                 <ConnectOptions description="Pair both playlists here" image={pair_on_laptop} imageAlt="Cool Guitar" url="/on-here"/>
-                <ConnectOptions description="Pair one here, other via text/email" image={pair_via_phone} imageAlt="Cool Piano" url="email"/>
+                <ConnectOptions description="Pair playlists on your phone" image={pair_via_phone} imageAlt="Cool Piano" url="email"/>
                 <ConnectOptions description="Have a syncID already?" image={pair_with_id} imageAlt="Cool Drum" url="texting"/>
             </div>
 
