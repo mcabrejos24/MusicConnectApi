@@ -57,6 +57,22 @@ export default function Home() {
                         </p>
                     </div>
                 </div>
+
+                <div className="point anotheruse">
+                    <h2 className="point-title">Another use.</h2>
+                    <div className="point-description">
+                        <p>Another optional use for this site is to simply port over your Spotify playlists to Apple.
+                            <br /><br />
+                            Or vice versa.
+                            <br /><br />
+                            You can individually enter each playlist name and press the sync button.
+                            <br /><br />
+                            And then just keep on entering all your playlists until you're done.
+                            <br /><br />
+                            Happy syncing!
+                        </p>
+                    </div>
+                </div>
                 
             </div>
         </div>
