@@ -1,27 +1,27 @@
 import ConnectOptions from '../../../components/ConnectOptions';
-import cool_guitar from './../../../assets/img/cool_guitar.jpg';
-import cool_piano from './../../../assets/img/cool_piano.jpg';
-import cool_drum from './../../../assets/img/cool_drum.jpg';
+import pair_on_laptop from './../../../assets/img/pair_on_laptop.png';
+import pair_via_phone from './../../../assets/img/pair_via_phone.png';
+import pair_with_id from './../../../assets/img/pair_with_id.png';
 
 export default function Home() {
     return (
         <div className="content">
             <div className="text-center">
-                <div className="mt-24 text-6xl font-semibold">Playlist Connect</div>
+                <div className="mt-24 text-6xl font-semibold">Playlist Pair</div>
                 <div className="mt-10 mb-14 text-2xl font-light">Collaborate instantly with peers on Apple Music and Spotify</div>
             </div>
 
             <div className="options-wrapper">
-                <ConnectOptions description="Pair both playlists here" image={cool_guitar} imageAlt="Cool Guitar" url="/on-here"/>
-                <ConnectOptions description="Pair one here, other via text/email" image={cool_piano} imageAlt="Cool Piano" url="email"/>
-                <ConnectOptions description="Have a syncID already?" image={cool_drum} imageAlt="Cool Drum" url="texting"/>
+                <ConnectOptions description="Pair both playlists here" image={pair_on_laptop} imageAlt="Cool Guitar" url="/on-here"/>
+                <ConnectOptions description="Pair playlists on your phone" image={pair_via_phone} imageAlt="Cool Piano" url="email"/>
+                <ConnectOptions description="Have a syncID already?" image={pair_with_id} imageAlt="Cool Drum" url="texting"/>
             </div>
 
             <div className="how-it-works">
                 <h1 className="how-it-works-title">How it works</h1>
 
                 <div className="point problem">
-                    <h2 className="point-title">What is Playlist Connect?</h2>
+                    <h2 className="point-title">What is Playlist Pair?</h2>
                     <div className="point-description">
                         <p>We noticed a problem. A dire one indeed. Not everyone has the same music service! So what does that mean?
                             <br/><br/>
@@ -31,7 +31,7 @@ export default function Home() {
                             <br/><br/>
                             That's where we come in! How we solve this problem is that we create a service that allows you to sync your playlists cross platform.
                             <br/><br/> 
-                            Welcome <u>Playlist Connect</u>.
+                            Welcome <u>Playlist Pair</u>.
                             <br/><br/>
                         </p>
                     </div>
