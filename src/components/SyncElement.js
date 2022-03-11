@@ -98,7 +98,7 @@ export default function SyncElement(props) {
             loadingSvg.style.display = "none";
             title.innerText = "Success!"
             title.style.color = "#44ff82"
-            content.innerText = "Sweet! We have successfully synced your playlists. Feel free to close this message and sync another playlist!";
+            content.innerText = "Sweet! We have successfully synced your playlists. Feel free to close this message and sync another playlist or reload the page if you would like to use another account!";
         }
     }
 
