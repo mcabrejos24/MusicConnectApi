@@ -1,7 +1,7 @@
 import ConnectOptions from '../../../components/ConnectOptions';
-import cool_guitar from './../../../assets/img/cool_guitar.jpg';
-import cool_piano from './../../../assets/img/cool_piano.jpg';
-import cool_drum from './../../../assets/img/cool_drum.jpg';
+import pair_on_laptop from './../../../assets/img/pair_on_laptop.png';
+import pair_via_phone from './../../../assets/img/pair_via_phone.png';
+import pair_with_id from './../../../assets/img/pair_with_id.png';
 
 export default function Home() {
     return (
@@ -12,9 +12,9 @@ export default function Home() {
             </div>
 
             <div className="options-wrapper">
-                <ConnectOptions description="Pair both playlists here" image={cool_guitar} imageAlt="Cool Guitar" url="/on-here"/>
-                <ConnectOptions description="Pair one here, other via text/email" image={cool_piano} imageAlt="Cool Piano" url="email"/>
-                <ConnectOptions description="Have a syncID already?" image={cool_drum} imageAlt="Cool Drum" url="texting"/>
+                <ConnectOptions description="Pair both playlists here" image={pair_on_laptop} imageAlt="Cool Guitar" url="/on-here"/>
+                <ConnectOptions description="Pair one here, other via text/email" image={pair_via_phone} imageAlt="Cool Piano" url="email"/>
+                <ConnectOptions description="Have a syncID already?" image={pair_with_id} imageAlt="Cool Drum" url="texting"/>
             </div>
 
             <div className="how-it-works">
