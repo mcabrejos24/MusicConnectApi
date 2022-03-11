@@ -45,8 +45,8 @@ export default function MusicCard(props) {
         </p>
         <p className="music-card-note">
           {service === "apple"
-            ? "Note: In order for us to successfuly FIND your APPLE playlist of choice, you must have at least one song already in it."
-            : "Note: In order for us to successfuly LINK your SPOTIFY playlist of choice, you must be the owner of this playlist."}
+            ? "Note: In order for us to successfuly FIND your APPLE playlist of choice, you must have AT LEAST one song already in it. Even if you created it on here. Also note, if created here you might want to wait 5 or so minutes."
+            : "Note: In order for us to successfuly LINK your SPOTIFY playlist of choice, you must be the owner of this playlist. Also note you must reload this page and authorize again if idle longer than an hour."}
         </p>
         <ModishInputBar service={service} confirmPlaylist={ confirmPlaylist } />
       </div>
