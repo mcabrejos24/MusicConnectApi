@@ -7,7 +7,7 @@ export default function Navbar() {
         const mobileNavbar = document.querySelector('.site-options');
         const mobileNavMenu = document.querySelector('.mobile-nav-icon.menu');
         const mobileNavCancel = document.querySelector('.mobile-nav-icon.cancel');
-        
+
         if (mobileNavbar.style.display === "flex") {
             mobileNavbar.style.display = "none";
             mobileNavMenu.style.display = "block";
@@ -22,9 +22,9 @@ export default function Navbar() {
     return(
         <header className="navbar">
             <div className="navbar-wrapper">
-                <button class="mobile-nav" onClick={openNavMobile}>
-                    <img class="mobile-nav-icon menu" src={ menu } alt="menu icon" />
-                    <img class="mobile-nav-icon cancel" src={ cancel } alt="cancel icon" />
+                <button className="mobile-nav" onClick={openNavMobile}>
+                    <img className="mobile-nav-icon menu" src={ menu } alt="menu icon" />
+                    <img className="mobile-nav-icon cancel" src={ cancel } alt="cancel icon" />
                 </button>
                 <a href="/" className="site-name">
                     Playlist Pair
