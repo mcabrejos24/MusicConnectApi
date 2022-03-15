@@ -36,12 +36,12 @@ describe("tests ConnectOptions component with mount", () => {
     expect(wrapper.props().url).toEqual("path");
   });
   it("has correct path", () => {
-    const href = wrapper.find("a").at(0).props().href;
+    const href = wrapper.find("a").prop("href");
     expect(href).toEqual("path");
   });
   it("has correct img and img alt", () => {
-    const imgSrc = wrapper.find("img").at(0).props().src;
-    const imgAlt = wrapper.find("img").at(0).props().alt;
+    const imgSrc = wrapper.find("img").prop("src");
+    const imgAlt = wrapper.find("img").prop("alt");
     expect(imgSrc).toEqual("fakeimage.com");
     expect(imgAlt).toEqual("my image alt");
   });
