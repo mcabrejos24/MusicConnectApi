@@ -1,8 +1,16 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import React from "react";
+import { shallow, mount } from "enzyme";
+import ConnectOptions from './components/ConnectOptions';
+import toJson from "enzyme-to-json";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+describe("tests App.js", () => {
+  it("renders App without crashing", () => {
+    shallow(<App />);
+  });
+  it("compares App snapshot to check if it renders correctly", () => {
+    const tree = shallow(<App />);
+    expect(toJson(tree)).toMatchSnapshot();
+  });
+})
