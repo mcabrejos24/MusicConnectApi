@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 import TermsOfUse from '../../scenes/TermsOfUse';
 import toJson from "enzyme-to-json";
 
-describe("renders TermsOfUse without crashing", () => {
+describe("renders TermsOfUse", () => {
     let page;
     beforeEach(() => {
         page = shallow(<TermsOfUse />);
@@ -11,7 +11,10 @@ describe("renders TermsOfUse without crashing", () => {
     it("TermsOfUse loads", () => {
         page;
     });
-    it("TermsOfUse matches snapshot", () => {
+    it("props class name matches", () => {
+        expect(page.props().className).toEqual("content terms-of-use-page");
+    });
+    it("matches snapshot", () => {
         expect(toJson(page)).toMatchSnapshot();
     });
 });
