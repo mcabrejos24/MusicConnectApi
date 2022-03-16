@@ -17,24 +17,35 @@ function createTestProps (props) {
 }
 
 describe("renders ConnectOptions without crashing", () => {
-  it("should not crash", () => {
-    shallow(<ConnectOptions />);
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<ConnectOptions />);
+  })
+  it("tests ConnectOptions itself", () => {
+    wrapper;
+  });
+  it("test ConnectOptions snapshot no props", () => {
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 });
 
-describe("tests ConnectOptions component with mount", () => {
+describe("tests component rendering through props", () => {
+  it('with component', () => {  
+    const props = {
+      component: () => {}
+    };
+    let wrapper = shallow(<ConnectOptions {...props} />);
+    expect(wrapper).toMatchSnapshot();
+ });
+});
+
+describe("tests ConnectOptions component with shalloww", () => {
   let props;
   let wrapper;
   beforeEach(() => {
     props = createTestProps();
-    wrapper = mount(<ConnectOptions {...props}/>);
+    wrapper = shallow(<ConnectOptions {...props}/>);
   })
-  it("accepts component props", () => {
-    expect(wrapper.props().description).toEqual("Pair both playlists here");
-    expect(wrapper.props().image).toEqual("fakeimage.com");
-    expect(wrapper.props().imageAlt).toEqual("my image alt");
-    expect(wrapper.props().url).toEqual("path");
-  });
   it("has correct path", () => {
     const href = wrapper.find("a").prop("href");
     expect(href).toEqual("path");
@@ -49,11 +60,7 @@ describe("tests ConnectOptions component with mount", () => {
     const pValue = wrapper.find("p").text();
     expect(pValue).toEqual("Pair both playlists here");
   });
-});
-
-describe("tests ConnectOptions component with shallow", () => {
-  it("compares ConnectOptions snapshot to check if it renders correctly", () => {
-    const tree = shallow(<ConnectOptions />);
-    expect(toJson(tree)).toMatchSnapshot();
+  it('matches snapshot with props passed', () => {  
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 });
