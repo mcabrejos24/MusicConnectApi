@@ -35,5 +35,3 @@ exports[`tests ConnectOptions component with shalloww matches snapshot with prop
   </a>
 </div>
 `;
-
-exports[`tests component rendering through props with component 1`] = `ShallowWrapper {}`;

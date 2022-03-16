@@ -28,16 +28,6 @@ describe("renders ConnectOptions without crashing", () => {
   });
 });
 
-describe("tests component rendering through props", () => {
-  it('with component', () => {  
-    const props = {
-      component: () => {}
-    };
-    let wrapper = shallow(<ConnectOptions {...props} />);
-    expect(wrapper).toMatchSnapshot();
- });
-});
-
 describe("tests ConnectOptions component with shalloww", () => {
   let props;
   let wrapper;
