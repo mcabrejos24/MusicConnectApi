@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import ConnectOptions from '../components/ConnectOptions';
+import ConnectOptions from '../../components/ConnectOptions';
 import toJson from "enzyme-to-json";
 
 function createTestProps (props) {
