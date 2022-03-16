@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tests ConnectOptions component with shallow compares ConnectOptions snapshot to check if it renders correctly 1`] = `
+exports[`renders ConnectOptions without crashing test ConnectOptions snapshot no props 1`] = `
 <div
   className="Connect-Options rounded-lg h-60 md:h-48 lg:h-64 xl:h-80"
 >
@@ -14,3 +14,26 @@ exports[`tests ConnectOptions component with shallow compares ConnectOptions sna
   </a>
 </div>
 `;
+
+exports[`tests ConnectOptions component with shalloww matches snapshot with props passed 1`] = `
+<div
+  className="Connect-Options rounded-lg h-60 md:h-48 lg:h-64 xl:h-80"
+>
+  <a
+    href="path"
+  >
+    <img
+      alt="my image alt"
+      className="connect-options-img rounded-lg w-full h-full"
+      src="fakeimage.com"
+    />
+    <p
+      className="options-description text-gray-100 text-xl sm:text-2xl md:text-base lg:text-2xl xl:text-3xl"
+    >
+      Pair both playlists here
+    </p>
+  </a>
+</div>
+`;
+
+exports[`tests component rendering through props with component 1`] = `ShallowWrapper {}`;
