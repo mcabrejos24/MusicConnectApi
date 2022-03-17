@@ -10,7 +10,7 @@ export default function OnHere() {
     const [spotifyReady, setSpotifyReady] = useState(false);
 
     return (
-        <div className="content">
+        <div className="content on-here-page">
             <BackButton></BackButton>
             <div className="authorization-wrapper">
                 {/* Apple Music */}
