@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BackButton from "../../../components/BackButton";
 import MusicCard3 from "../../../components/MusicCard3";
 import AuthorizerAppleMusic from "../../../components/AuthorizerAppleMusic";
@@ -10,20 +10,27 @@ export default function SyncID() {
 
   function openPopUp() {
     const popup = document.getElementById("popup");
-    popup.style.visibility = "visible";
-    popup.style.opacity = "1";
+    if (popup.classList.contains("popup-hide")) {
+      popup.classList.remove("popup-hide");
+    }
+    popup.classList.add("popup-show");
   }
 
   function closePopUp() {
     const popup = document.getElementById("popup");
-    popup.style.visibility = "hidden";
-    popup.style.opacity = "0";
+    if (popup.classList.contains("popup-show")) {
+      popup.classList.remove("popup-show");
+    }
+    popup.classList.add("popup-hide");
   }
 
-  setTimeout(openPopUp,500);
+  useEffect(() => {
+    // setTimeout(openPopUp,500);
+    openPopUp();
+  });
 
   return (
-    <div className="content">
+    <div className="content sync-id-page">
 
       <div className="coming-soon">
         <div id="popup" className="popup">
