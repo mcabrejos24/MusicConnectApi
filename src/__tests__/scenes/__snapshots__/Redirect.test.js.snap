@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Redirect page matches snapshot 1`] = `
+<div
+  testData="no-href-or-callback"
+/>
+`;
+
+exports[`tests for correct render of Redirect page matches snapshot 1`] = `
+<div
+  className="content redirect-page"
+  testData="render-successful"
+>
+  <p>
+    Redirect Page
+  </p>
+</div>
+`;
+
+exports[`tests for failed condition of no redirect matches snapshot 1`] = `
+<div
+  testData="no-redirect-in-url"
+/>
+`;
+
+exports[`tests for failed condition of no state and code params matches snapshot 1`] = `
+<div
+  testData="no-code-and-or-state-in-url"
+/>
+`;
+
+exports[`tests for failed condition of state not matching matches snapshot 1`] = `
+<div
+  testData="state-failed-to-match"
+/>
+`;
