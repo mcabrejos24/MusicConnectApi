@@ -6,7 +6,19 @@ exports[`renders Redirect page matches snapshot 1`] = `
 />
 `;
 
-exports[`tests for correct render of Redirect page matches snapshot 1`] = `
+exports[`tests with href, spotifiyCallback and page params tests for failed condition of no redirect matches snapshot 1`] = `
+<div
+  testData="no-redirect-in-url"
+/>
+`;
+
+exports[`tests with href, spotifiyCallback and page params tests for failed condition of no state and code params matches snapshot 1`] = `
+<div
+  testData="no-code-and-or-state-in-url"
+/>
+`;
+
+exports[`tests with testState param added tests for correct render of Redirect page matches snapshot 1`] = `
 <div
   className="content redirect-page"
   testData="render-successful"
@@ -17,19 +29,7 @@ exports[`tests for correct render of Redirect page matches snapshot 1`] = `
 </div>
 `;
 
-exports[`tests for failed condition of no redirect matches snapshot 1`] = `
-<div
-  testData="no-redirect-in-url"
-/>
-`;
-
-exports[`tests for failed condition of no state and code params matches snapshot 1`] = `
-<div
-  testData="no-code-and-or-state-in-url"
-/>
-`;
-
-exports[`tests for failed condition of state not matching matches snapshot 1`] = `
+exports[`tests with testState param added tests for failed condition of state not matching matches snapshot 1`] = `
 <div
   testData="state-failed-to-match"
 />
