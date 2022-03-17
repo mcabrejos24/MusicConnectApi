@@ -7,7 +7,7 @@ export default function Redirect(props) {
     const spotifyCallback = testSpotifyCallback || ((window && window.opener && window.opener.spotifyCallback) ? window.opener.spotifyCallback : () => {return 'Failed to get spotify callback';});     
     const url = testHref || ((window && window.location && window.location.href) ? window.location.href : 'Failed to get href');      
 
-    if (spotifyCallback() == 'Failed to get spotify callback' || url == 'Failed to get href') {
+    if (spotifyCallback() === 'Failed to get spotify callback' || url === 'Failed to get href') {
         return <div testData="no-href-or-callback"></div>
     }
 
