@@ -1,8 +1,6 @@
-import { render, screen } from '@testing-library/react';
 import App from './App';
 import React from "react";
-import { shallow, mount } from "enzyme";
-import ConnectOptions from './components/ConnectOptions';
+import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
 
 describe("tests App.js", () => {
