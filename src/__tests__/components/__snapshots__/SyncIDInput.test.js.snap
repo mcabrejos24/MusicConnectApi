@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders SyncIDInput check input functionality with four key strokes - matches snapshot 1`] = `
+<div
+  className="sync-id"
+>
+  <p
+    className="sync-id-description"
+  >
+    Enter your Sync ID below
+  </p>
+  <input
+    className="sync-id-input input-does-not-contain"
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    placeholder="ex: 123-456"
+    type="tel"
+  />
+  <button
+    className="sync-id-submit-button"
+    disabled={true}
+    onClick={[Function]}
+  >
+    Submit
+  </button>
+</div>
+`;
+
+exports[`renders SyncIDInput check input functionality with full inputs - six key strokes 1`] = `
+<div
+  className="sync-id"
+>
+  <p
+    className="sync-id-description"
+  >
+    Enter your Sync ID below
+  </p>
+  <input
+    className="sync-id-input input-contains"
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    placeholder="ex: 123-456"
+    type="tel"
+  />
+  <button
+    className="sync-id-submit-button"
+    disabled={false}
+    onClick={[Function]}
+  >
+    Submit
+  </button>
+</div>
+`;
+
+exports[`renders SyncIDInput check input functionality with one key stroke 1`] = `
+<div
+  className="sync-id"
+>
+  <p
+    className="sync-id-description"
+  >
+    Enter your Sync ID below
+  </p>
+  <input
+    className="sync-id-input input-contains"
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    placeholder="ex: 123-456"
+    type="tel"
+  />
+  <button
+    className="sync-id-submit-button"
+    disabled={false}
+    onClick={[Function]}
+  >
+    Submit
+  </button>
+</div>
+`;
+
+exports[`renders SyncIDInput matches snapshot 1`] = `
+<div
+  className="sync-id"
+>
+  <p
+    className="sync-id-description"
+  >
+    Enter your Sync ID below
+  </p>
+  <input
+    className="sync-id-input "
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    placeholder="ex: 123-456"
+    type="tel"
+  />
+  <button
+    className="sync-id-submit-button"
+    disabled={true}
+    onClick={[Function]}
+  >
+    Submit
+  </button>
+</div>
+`;
