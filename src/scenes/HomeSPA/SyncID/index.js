@@ -5,35 +5,37 @@ import AuthorizerAppleMusic from "../../../components/AuthorizerAppleMusic";
 import AuthorizerSpotify from "../../../components/AuthorizerSpotify";
 import SubmitSync from "../../../components/SubmitSync";
 
-export default function SyncID() {
+export default function SyncID(props) {
   const [playlistReady, setPlaylistReady] = useState(false);
+  const [popUpStatus, setPopUpStatus] = useState('popup-hide');
+  // const { isTest } = props;
 
   function openPopUp() {
-    const popup = document.getElementById("popup");
-    if (popup.classList.contains("popup-hide")) {
-      popup.classList.remove("popup-hide");
-    }
-    popup.classList.add("popup-show");
+    setPopUpStatus("popup-show");
   }
 
   function closePopUp() {
-    const popup = document.getElementById("popup");
-    if (popup.classList.contains("popup-show")) {
-      popup.classList.remove("popup-show");
-    }
-    popup.classList.add("popup-hide");
+    setPopUpStatus("popup-hide");
   }
-
-  useEffect(() => {
-    // setTimeout(openPopUp,500);
-    openPopUp();
-  });
+  // console.log('first');
+  // if (!isTest) {
+    useEffect(() => {
+      // console.log('fourth');
+      openPopUp();
+    }, []);
+  // }
+  // console.log('second');
 
   return (
     <div className="content sync-id-page">
-
+      {
+      // console.log('third')
+      }
+      {/* <div className="test-mode hidden">
+        <button id="testOpenPopUp" onClick={openPopUp}></button>  
+      </div> */}
       <div className="coming-soon">
-        <div id="popup" className="popup">
+        <div id="popup" className={`popup ${popUpStatus}`}>
           <div className="popup-card">
             <h2>Coming Soon!</h2>
             <button id="close" className="close" onClick={closePopUp}>&times;</button>
@@ -42,14 +44,14 @@ export default function SyncID() {
         </div>
       </div>
 
-      <BackButton></BackButton>
+      {/* <BackButton></BackButton> */}
       <div className="double-authorizer-wrapper">
-        <MusicCard3 confirmPlaylist={setPlaylistReady}>
+        {/* <MusicCard3 confirmPlaylist={setPlaylistReady}>
           <AuthorizerAppleMusic />
           <AuthorizerSpotify />
-        </MusicCard3>
+        </MusicCard3> */}
       </div>
-      <SubmitSync playlistReady={playlistReady} />
+      {/* <SubmitSync playlistReady={playlistReady} /> */}
 
             <div className="how-it-works sync-id">
                 <h1 className="how-it-works-title">How to use this sync ID option</h1>
