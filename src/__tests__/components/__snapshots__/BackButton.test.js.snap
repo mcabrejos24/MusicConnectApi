@@ -4,14 +4,14 @@ exports[`renders BackButton matches snapshot 1`] = `
 <div
   className="btn-container"
 >
-  <a
-    href="/"
+  <NavLink
+    to="/"
   >
     <span
       className="back-btn"
     >
       BACK
     </span>
-  </a>
+  </NavLink>
 </div>
 `;

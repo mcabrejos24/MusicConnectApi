@@ -16,11 +16,13 @@ function createTestProps (props) {
 }
 
 describe("renders ConnectOptions without crashing", () => {
+  let props;
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<ConnectOptions />);
+    props = createTestProps();
+    wrapper = shallow(<ConnectOptions {...props}/>);
   })
-  it("tests ConnectOptions itself", () => {
+  it("tests ConnectOptions render", () => {
     wrapper;
   });
   it("test ConnectOptions snapshot no props", () => {
@@ -36,7 +38,7 @@ describe("tests ConnectOptions component with shalloww", () => {
     wrapper = shallow(<ConnectOptions {...props}/>);
   })
   it("has correct path", () => {
-    const href = wrapper.find("a").prop("href");
+    const href = wrapper.find("NavLink").prop("to");
     expect(href).toEqual("path");
   });
   it("has correct img and img alt", () => {
