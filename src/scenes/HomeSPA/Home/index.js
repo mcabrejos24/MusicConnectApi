@@ -5,16 +5,16 @@ import pair_with_id from './../../../assets/img/pair_with_id.png';
 
 export default function Home() {
     return (
-        <div className="content">
+        <div className="content home-page">
             <div className="text-center">
                 <div className="mt-24 text-6xl font-semibold">Playlist Pair</div>
                 <div className="mt-10 mb-14 text-2xl font-light">Sync up your Apple Music and Spotify playlists</div>
             </div>
 
             <div className="options-wrapper">
-                <ConnectOptions description="Pair both playlists here" image={pair_on_laptop} imageAlt="Cool Guitar" url="/on-here"/>
-                <ConnectOptions description="Pair playlists on your phone" image={pair_via_phone} imageAlt="Cool Piano" url="email"/>
-                <ConnectOptions description="Have a syncID already?" image={pair_with_id} imageAlt="Cool Drum" url="texting"/>
+                <ConnectOptions description="Pair both playlists here" image={pair_on_laptop} imageAlt="laptop" url="/on-here"/>
+                <ConnectOptions description="Pair playlists on your phone" image={pair_via_phone} imageAlt="two phones syncing" url="email"/>
+                <ConnectOptions description="Have a syncID already?" image={pair_with_id} imageAlt="one phone entering sync ID" url="texting"/>
             </div>
 
             <div className="how-it-works home">

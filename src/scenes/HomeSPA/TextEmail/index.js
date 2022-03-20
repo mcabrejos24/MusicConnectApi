@@ -1,34 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BackButton from "../../../components/BackButton";
 import MusicCard2 from "../../../components/MusicCard2";
 import AuthorizerAppleMusic from "../../../components/AuthorizerAppleMusic";
 import AuthorizerSpotify from "../../../components/AuthorizerSpotify";
 import Submit from "../../../components/Submit";
 
-export default function TextEmail() {
+export default function TextEmail(props) {
   const [playlistReady, setPlaylistReady] = useState(false);
   const [contactReady, setContactReady] = useState(false);
-
+  const [popUpStatus, setPopUpStatus] = useState('popup-hide');
+  const { isTest } = props;
 
   function openPopUp() {
-    const popup = document.getElementById("popup");
-    popup.style.visibility = "visible";
-    popup.style.opacity = "1";
+    setPopUpStatus("popup-show");
   }
 
   function closePopUp() {
-    const popup = document.getElementById("popup");
-    popup.style.visibility = "hidden";
-    popup.style.opacity = "0";
+    setPopUpStatus("popup-hide");
   }
 
-  setTimeout(openPopUp,500);
+  useEffect(() => {
+    setTimeout(openPopUp,500);
+  }, []);
 
   return (
     <div className="content page-text-email">
-
+      {isTest &&
+        <div className="test-element hidden">
+          <button id="testOpenPopUp" onClick={openPopUp}></button>  
+        </div>
+      }
       <div className="coming-soon">
-        <div id="popup" className="popup">
+        <div id="popup" className={`popup ${popUpStatus}`}>
           <div className="popup-card">
             <h2>Coming Soon!</h2>
             <button id="close" className="close" onClick={closePopUp}>&times;</button>

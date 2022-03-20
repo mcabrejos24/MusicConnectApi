@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests App.js compares App snapshot to check if it renders correctly 1`] = `
+<BrowserRouter>
+  <div
+    className="container"
+  >
+    <Navbar />
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
+        component={[Function]}
+        path="/on-here"
+      />
+      <Route
+        component={[Function]}
+        path="/email"
+      />
+      <Route
+        component={[Function]}
+        path="/texting"
+      />
+      <Route
+        component={[Function]}
+        path="/donate"
+      />
+      <Route
+        component={[Function]}
+        path="/contact-us"
+      />
+      <Route
+        component={[Function]}
+        path="/about-us"
+      />
+      <Route
+        component={[Function]}
+        path="/redirect"
+      />
+      <Route
+        component={[Function]}
+        path="/privacy-policy"
+      />
+      <Route
+        component={[Function]}
+        path="/terms-of-use"
+      />
+      <Route
+        component={[Function]}
+        path="/site-map"
+      />
+      <Route
+        component={[Function]}
+        path="/404"
+      />
+    </Switch>
+    <Footer />
+  </div>
+</BrowserRouter>
+`;
