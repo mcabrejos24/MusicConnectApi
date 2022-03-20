@@ -13,6 +13,8 @@ describe("renders SyncID page", () => {
     let page;
     beforeEach(() => {
         page = shallow(<SyncID isTest={true}/>);
+        // this below is meant to simulate the useEffect 
+        // since shallow() doesn't call it in tests
         setTimeout(
             page.find(".test-element.hidden").find("#testOpenPopUp").simulate("click"),
             500
@@ -39,5 +41,6 @@ describe("renders SyncID page", () => {
         page.find(".popup").find(".popup-card").find("#close").simulate("click");
         expect(page.find(".popup").hasClass("popup-show")).toEqual(false);
         expect(page.find(".popup").hasClass("popup-hide")).toEqual(true);
+        expect(toJson(page)).toMatchSnapshot();
     });
 });

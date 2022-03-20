@@ -1,5 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders TextEmail page can dismiss popup 1`] = `
+<div
+  className="content page-text-email"
+>
+  <div
+    className="test-element hidden"
+  >
+    <button
+      id="testOpenPopUp"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="coming-soon"
+  >
+    <div
+      className="popup popup-hide"
+      id="popup"
+    >
+      <div
+        className="popup-card"
+      >
+        <h2>
+          Coming Soon!
+        </h2>
+        <button
+          className="close"
+          id="close"
+          onClick={[Function]}
+        >
+          ×
+        </button>
+        <p
+          className="popup-card--content"
+        >
+          This page is still in development so submitting won't actually do anything. But feel free to mess around!
+        </p>
+      </div>
+    </div>
+  </div>
+  <BackButton />
+  <div
+    className="double-authorizer-wrapper"
+  >
+    <MusicCard2
+      confirmPlaylist={[Function]}
+      setContactReady={[Function]}
+    >
+      <AuthorizerAppleMusic />
+      <AuthorizerSpotify />
+    </MusicCard2>
+  </div>
+  <SyncElement
+    contactReady={false}
+    playlistReady={false}
+  />
+  <div
+    className="how-it-works text-email"
+  >
+    <h1
+      className="how-it-works-title"
+    >
+      How to use this sync card
+    </h1>
+    <div
+      className="point need"
+    >
+      <h2
+        className="point-title"
+      >
+        Choose
+      </h2>
+      <div
+        className="point-description"
+      >
+        <p>
+          This one is for when you peer is not with you.
+          <br />
+          <br />
+          Simply, you log in with youe Apple Music or Spotify account, whichever you use and want to sync.
+          <br />
+          <br />
+          You then choose the playlist you would like to sync and provide your peers email or phone number, whichever method they prefer to receive a link to pair with you.
+          <br />
+          <br />
+          If you want to make a new playlist, then enter the name of the new playlist and press the button below it to create it.
+          <br />
+          <br />
+          Then just press the Submit button and we'll send a link to your peer, so that they can submit their information.
+          <br />
+          <br />
+          Once your peer submits their information to sync, then your playlist will sync ahead and be good to go!.
+          <br />
+          <br />
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders TextEmail page matches snapshot 1`] = `
 <div
   className="content page-text-email"
