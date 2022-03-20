@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Navbar can close mobile navigation bar 1`] = `
+<header
+  className="navbar"
+>
+  <div
+    className="navbar-wrapper"
+  >
+    <button
+      className="mobile-nav"
+      onClick={[Function]}
+    >
+      <img
+        alt="menu icon"
+        className="mobile-nav-icon menu "
+        src="menu.svg"
+      />
+      <img
+        alt="cancel icon"
+        className="mobile-nav-icon cancel "
+        src="cancel.svg"
+      />
+    </button>
+    <a
+      className="site-name"
+      href="/"
+    >
+      Playlist Pair
+    </a>
+    <div
+      className="site-options "
+    >
+      <a
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        href="/about-us"
+      >
+        About Us
+      </a>
+      <a
+        href="/donate"
+      >
+        Donate
+      </a>
+      <a
+        href="/contact-us"
+      >
+        Contact Us
+      </a>
+    </div>
+  </div>
+</header>
+`;
+
+exports[`renders Navbar can open mobile navigation bar 1`] = `
+<header
+  className="navbar"
+>
+  <div
+    className="navbar-wrapper"
+  >
+    <button
+      className="mobile-nav"
+      onClick={[Function]}
+    >
+      <img
+        alt="menu icon"
+        className="mobile-nav-icon menu hide-menu-icon"
+        src="menu.svg"
+      />
+      <img
+        alt="cancel icon"
+        className="mobile-nav-icon cancel show-cancel-icon"
+        src="cancel.svg"
+      />
+    </button>
+    <a
+      className="site-name"
+      href="/"
+    >
+      Playlist Pair
+    </a>
+    <div
+      className="site-options show-site-options"
+    >
+      <a
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        href="/about-us"
+      >
+        About Us
+      </a>
+      <a
+        href="/donate"
+      >
+        Donate
+      </a>
+      <a
+        href="/contact-us"
+      >
+        Contact Us
+      </a>
+    </div>
+  </div>
+</header>
+`;
+
+exports[`renders Navbar matches snapshot 1`] = `
+<header
+  className="navbar"
+>
+  <div
+    className="navbar-wrapper"
+  >
+    <button
+      className="mobile-nav"
+      onClick={[Function]}
+    >
+      <img
+        alt="menu icon"
+        className="mobile-nav-icon menu "
+        src="menu.svg"
+      />
+      <img
+        alt="cancel icon"
+        className="mobile-nav-icon cancel "
+        src="cancel.svg"
+      />
+    </button>
+    <a
+      className="site-name"
+      href="/"
+    >
+      Playlist Pair
+    </a>
+    <div
+      className="site-options "
+    >
+      <a
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        href="/about-us"
+      >
+        About Us
+      </a>
+      <a
+        href="/donate"
+      >
+        Donate
+      </a>
+      <a
+        href="/contact-us"
+      >
+        Contact Us
+      </a>
+    </div>
+  </div>
+</header>
+`;

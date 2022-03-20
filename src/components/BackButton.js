@@ -1,9 +1,11 @@
+import { NavLink } from "react-router-dom";
+
 export default function BackButton() {
     return (
         <div className="btn-container">
-            <a href={ "/" }>
-                <button className="back-btn">BACK</button>
-            </a>
+            <NavLink to={ "/" }>
+                <span className="back-btn">BACK</span>
+            </NavLink>
         </div>
     )
 }

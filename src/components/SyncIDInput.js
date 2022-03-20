@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export default function MusicCard2(props) {
+export default function SyncIDInput(props) {
   const { syncReady } = props;
 
   const [syncID, setSyncID] = useState(false);
+  const [inputState, setInputState] = useState("");
 
   let filter = [];
   const keypadZero = 48;
@@ -15,16 +16,6 @@ export default function MusicCard2(props) {
   filter.push("ArrowRight");
   filter.push("Del");
   filter.push("Meta");
-
-  useEffect(() => {
-    let syncIDButton = document.querySelector(`.sync-id-submit-button`);
-
-    if (syncID) {
-      syncIDButton.disabled = false;
-    } else {
-      syncIDButton.disabled = true;
-    }
-  }, [syncID]);
 
   function checkInput(event) {
     // onKeyDown
@@ -47,8 +38,10 @@ export default function MusicCard2(props) {
     }
   }
 
-  function formatSyncID({ target }) {
-    if (!target) {
+  function formatSyncID(event) {
+    const target = event.target;
+    setSyncID(false);
+    if (!target || (!target.value && event.key !== "Backspace" && event.key !== "Del")) {
       console.error(
         "Error: could not find target or target value from syncID input."
       );
@@ -60,8 +53,8 @@ export default function MusicCard2(props) {
       target.value = target.value.slice(0, -1);
       return;
     }
-    target.value = target.value.replaceAll("-", "");
-
+    target.value = target.value.replace("-", "");
+    // format numbers from style to style: 000000 => 000-000
     if (target.value.length > 3) {
       target.value = target.value.slice(0, 3) + "-" + target.value.slice(3);
     }
@@ -70,37 +63,39 @@ export default function MusicCard2(props) {
   }
 
   function validateSync(value) {
-    let syncIdInput = document.querySelector(`.sync-id-input`);
-
     if (!value) {
-      // resets style
-      syncIdInput.classList.remove("input-contains");
-      syncIdInput.classList.remove("input-does-not-contain");
-      setSyncID(false);
+      // resets border style
+      setInputState("");
       return;
     }
-    const inputIsNum = /\d{3}[-]?\d{3}/.test(value); // check length and make sure it matches type
-    setSyncID(inputIsNum);
+    // check length and make sure it matches digit format
+    const inputIsNum = /\d{3}[-]?\d{3}/.test(value);
+
+    // check to see if complete: 000 vs 000-000
+    // update input border styles accordingly
+    // set values if check passes
+    // setSyncID(inputIsNum);
     if (inputIsNum) {
-      syncIdInput.classList.add("input-contains");
-      if (syncIdInput.classList.contains("input-does-not-contain"))
-        syncIdInput.classList.remove("input-does-not-contain");
+      setInputState("input-contains");
+      setSyncID(value);
     } else {
-      syncIdInput.classList.add("input-does-not-contain");
-      if (syncIdInput.classList.contains("input-contains"))
-        syncIdInput.classList.remove("input-contains");
+      setInputState("input-does-not-contain");
     }
   }
 
   function submitSyncID() {
-    const syncIdInput = document.querySelector(`.sync-id-input`)?.value;
-    if (!syncIdInput) {
+    if (!syncID) {
       console.error("Cannot find syncID value.");
       syncReady(false);
       return;
     }
-
-    const syncValid = "spotify"; // send syncID to back end and get back some value, if that value is true then continue
+    // send syncID to back end and check if it exists, for now log it
+    // if it does then check what the service was for the other user
+    // return back the service that should be used for this user
+    // pass it in to syncValid
+    // we are simulating a spotify return value below | alternative: "apple"
+    // console.log(syncID);
+    const syncValid = "spotify"; 
     if (!syncValid)
       alert(
         "Sync ID you provided does not exist. Please go back and use one of the other two options."
@@ -115,10 +110,10 @@ export default function MusicCard2(props) {
         onKeyDown={checkInput}
         onKeyUp={formatSyncID}
         type="tel"
-        className="sync-id-input"
+        className={`sync-id-input ${inputState}`}
         placeholder="ex: 123-456"
       />
-      <button className="sync-id-submit-button" onClick={submitSyncID}>
+      <button className="sync-id-submit-button" onClick={submitSyncID} disabled={syncID ? false : true}>
         Submit
       </button>
     </div>
