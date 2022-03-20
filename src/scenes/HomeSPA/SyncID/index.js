@@ -8,7 +8,7 @@ import SubmitSync from "../../../components/SubmitSync";
 export default function SyncID(props) {
   const [playlistReady, setPlaylistReady] = useState(false);
   const [popUpStatus, setPopUpStatus] = useState('popup-hide');
-  // const { isTest } = props;
+  const { isTest } = props;
 
   function openPopUp() {
     setPopUpStatus("popup-show");
@@ -17,23 +17,18 @@ export default function SyncID(props) {
   function closePopUp() {
     setPopUpStatus("popup-hide");
   }
-  // console.log('first');
-  // if (!isTest) {
-    useEffect(() => {
-      // console.log('fourth');
-      openPopUp();
-    }, []);
-  // }
-  // console.log('second');
+  useEffect(() => {
+    openPopUp();
+  }, []);
 
   return (
     <div className="content sync-id-page">
-      {
-      // console.log('third')
+      {isTest &&
+        <div className="test-element hidden">
+          <button id="testOpenPopUp" onClick={openPopUp}></button>  
+        </div>
       }
-      {/* <div className="test-mode hidden">
-        <button id="testOpenPopUp" onClick={openPopUp}></button>  
-      </div> */}
+      
       <div className="coming-soon">
         <div id="popup" className={`popup ${popUpStatus}`}>
           <div className="popup-card">
@@ -44,37 +39,36 @@ export default function SyncID(props) {
         </div>
       </div>
 
-      {/* <BackButton></BackButton> */}
+      <BackButton></BackButton>
       <div className="double-authorizer-wrapper">
-        {/* <MusicCard3 confirmPlaylist={setPlaylistReady}>
+        <MusicCard3 confirmPlaylist={setPlaylistReady}>
           <AuthorizerAppleMusic />
           <AuthorizerSpotify />
-        </MusicCard3> */}
+        </MusicCard3>
       </div>
-      {/* <SubmitSync playlistReady={playlistReady} /> */}
+      <SubmitSync playlistReady={playlistReady} />
 
-            <div className="how-it-works sync-id">
-                <h1 className="how-it-works-title">How to use this sync ID option</h1>
-                <div className="point need">
-                    <h2 className="point-title">Submit Sync ID</h2>
-                    <div className="point-description">
-                        <p>This one is made for when both your peer has already done the second option.
-                            <br /><br />
-                            Simply, enter the Sync ID that was emailed or texted to you.
-                            <br /><br />
-                            You then choose the playlist you would like to sync.
-                            <br /><br />
-                            If you want to make a new playlist, then enter the name of the new playlist and press the button below it to create it.
-                            <br /><br />
-                            Then, since you peer has already provided their information, you just need to press the Sync button and your playlists will be synced!
-                            <br /><br />
-                            Enjoy sharing your playlist!
-                            <br/><br/>
-                        </p>
-                    </div>
-                </div>
-            </div>
-      
+      <div className="how-it-works sync-id">
+          <h1 className="how-it-works-title">How to use this sync ID option</h1>
+          <div className="point need">
+              <h2 className="point-title">Submit Sync ID</h2>
+              <div className="point-description">
+                  <p>This one is made for when both your peer has already done the second option.
+                      <br /><br />
+                      Simply, enter the Sync ID that was emailed or texted to you.
+                      <br /><br />
+                      You then choose the playlist you would like to sync.
+                      <br /><br />
+                      If you want to make a new playlist, then enter the name of the new playlist and press the button below it to create it.
+                      <br /><br />
+                      Then, since you peer has already provided their information, you just need to press the Sync button and your playlists will be synced!
+                      <br /><br />
+                      Enjoy sharing your playlist!
+                      <br/><br/>
+                  </p>
+              </div>
+          </div>
+      </div>
     </div>
   );
 }

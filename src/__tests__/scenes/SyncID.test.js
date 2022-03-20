@@ -1,8 +1,7 @@
 import React from "react";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import SyncID from '../../scenes/HomeSPA/SyncID';
 import toJson from "enzyme-to-json";
-// import { withHooks } from 'jest-react-hooks-shallow';
 
 describe("renders SyncID page without useEffect hooke", () => {
     it("SyncID renders", () => {
@@ -13,18 +12,15 @@ describe("renders SyncID page without useEffect hooke", () => {
 describe("renders SyncID page", () => {
     let page;
     beforeEach(() => {
-        // look up what clearAllMocks is and you're just going to have to work around the it failing on first call when in test mode.
-        // withHooks(() => {
-            // page = shallow(<SyncID isTest={true}/>);
-            page = mount(<SyncID />);
-        // });
+        page = shallow(<SyncID isTest={true}/>);
+        page.find(".test-element.hidden").find("#testOpenPopUp").simulate("click");
     });
 
     it("SyncID loads", () => {
         page;
     });
     it("props class name matches", () => {
-        // expect(page.props().className).toEqual("content sync-id-page");
+        expect(page.props().className).toEqual("content sync-id-page");
     });
     it("matches snapshot", () => {
         expect(toJson(page)).toMatchSnapshot();
