@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import ModishInputBar from "./ModishInputBar";
-import SyncID from "./SyncID";
+import SyncIDInput from "./SyncIDInput";
 
 export default function MusicCard2(props) {
   const { confirmPlaylist } = props;
@@ -47,7 +47,7 @@ export default function MusicCard2(props) {
       </div>
 
       <div className="sync-id-container">
-        <SyncID syncReady={setService} />
+        <SyncIDInput syncReady={setService} />
       </div>
 
       <div

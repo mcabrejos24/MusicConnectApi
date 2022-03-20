@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function MusicCard2(props) {
+export default function SyncIDInput(props) {
   const { syncReady } = props;
 
   const [syncID, setSyncID] = useState(false);
