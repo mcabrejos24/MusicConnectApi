@@ -1,18 +1,18 @@
 import React from "react";
 import { shallow } from "enzyme";
-import TermsOfUse from '../../scenes/TermsOfUse';
+import OnHere from '../../scenes/HomeSPA/OnHere';
 import toJson from "enzyme-to-json";
 
-describe("renders TermsOfUse", () => {
+describe("renders OnHere page", () => {
     let page;
     beforeEach(() => {
-        page = shallow(<TermsOfUse />);
+        page = shallow(<OnHere />);
     });
-    it("TermsOfUse loads", () => {
+    it("OnHere loads", () => {
         page;
     });
     it("props class name matches", () => {
-        expect(page.props().className).toEqual("content terms-of-use-page");
+        expect(page.props().className).toEqual("content on-here-page");
     });
     it("matches snapshot", () => {
         expect(toJson(page)).toMatchSnapshot();

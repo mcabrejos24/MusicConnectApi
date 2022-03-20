@@ -40,7 +40,7 @@ export default function AuthorizerSpotify(props) {
             console.error('User denied access');
             return;
         }
-        let auth_token = await requestAccesToken(payload);
+        let auth_token = await requestAccesCode(payload);
         if (auth_token && auth_token.access_token) {
             setSpotifyRefreshToken(auth_token.refresh_token);
             setter("spotify"); // maybe instead of setter that passes setShowInput to MusicCard, we can change the styles right here, making the input hidden or not
@@ -49,7 +49,7 @@ export default function AuthorizerSpotify(props) {
         }
     }
     
-    function requestAccesToken(code) {
+    function requestAccesCode(code) {
         let authorization = window.btoa(`${REACT_APP_CLIENT_ID}:${REACT_APP_CLIENT_SECRET}`);
         let data = qs.stringify({
             'code': code,

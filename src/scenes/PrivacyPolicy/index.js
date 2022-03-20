@@ -4,7 +4,7 @@ export default function PrivacyPolicy() {
         <div className="content privacy-policy-page">
                 <h1>Privacy Policy for Playlist Pair</h1>
 
-                <p>At Playlist Pair, accessible from https://playlistpair.netlify.app/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Playlist Pair and how we use it.</p>
+                <p>At Playlist Pair, accessible from https://playlistpair.com/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Playlist Pair and how we use it.</p>
 
                 <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</p>
 

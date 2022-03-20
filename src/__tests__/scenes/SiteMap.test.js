@@ -1,18 +1,18 @@
 import React from "react";
 import { shallow } from "enzyme";
-import TermsOfUse from '../../scenes/TermsOfUse';
+import SiteMap from '../../scenes/SiteMap';
 import toJson from "enzyme-to-json";
 
-describe("renders TermsOfUse", () => {
+describe("renders SiteMap", () => {
     let page;
     beforeEach(() => {
-        page = shallow(<TermsOfUse />);
+        page = shallow(<SiteMap />);
     });
-    it("TermsOfUse loads", () => {
+    it("SiteMap loads", () => {
         page;
     });
     it("props class name matches", () => {
-        expect(page.props().className).toEqual("content terms-of-use-page");
+        expect(page.props().className).toEqual("content site-map-page");
     });
     it("matches snapshot", () => {
         expect(toJson(page)).toMatchSnapshot();

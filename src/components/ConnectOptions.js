@@ -1,5 +1,3 @@
-import { NavLink } from 'react-router-dom';
-
 export default function ConnectOptions(props) {
     const { description } = props;
     const { image } = props;

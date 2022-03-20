@@ -5,7 +5,7 @@ import pair_with_id from './../../../assets/img/pair_with_id.png';
 
 export default function Home() {
     return (
-        <div className="content">
+        <div className="content home-page">
             <div className="text-center">
                 <div className="mt-24 text-6xl font-semibold">Playlist Pair</div>
                 <div className="mt-10 mb-14 text-2xl font-light">Sync up your Apple Music and Spotify playlists</div>
