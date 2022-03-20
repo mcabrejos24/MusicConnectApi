@@ -2,7 +2,7 @@ export default function BackButton() {
     return (
         <div className="btn-container">
             <a href={ "/" }>
-                <button className="back-btn">BACK</button>
+                <span className="back-btn">BACK</span>
             </a>
         </div>
     )
