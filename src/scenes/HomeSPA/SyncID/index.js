@@ -17,8 +17,9 @@ export default function SyncID(props) {
   function closePopUp() {
     setPopUpStatus("popup-hide");
   }
+
   useEffect(() => {
-    openPopUp();
+    setTimeout(openPopUp,500);
   }, []);
 
   return (

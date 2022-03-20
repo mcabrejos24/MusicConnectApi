@@ -13,7 +13,10 @@ describe("renders SyncID page", () => {
     let page;
     beforeEach(() => {
         page = shallow(<SyncID isTest={true}/>);
-        page.find(".test-element.hidden").find("#testOpenPopUp").simulate("click");
+        setTimeout(
+            page.find(".test-element.hidden").find("#testOpenPopUp").simulate("click"),
+            500
+        );
     });
 
     it("SyncID loads", () => {
